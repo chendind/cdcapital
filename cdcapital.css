@@ -1,0 +1,771 @@
+body {
+  font-family: "Microsoft YaHei";
+  font-size: 0;
+  margin: 0;
+  min-width: 1140px;
+}
+.img_center {
+  position: relative;
+}
+.img_center > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.ib_vmid {
+  display: inline-block;
+  vertical-align: middle;
+}
+.title {
+  font-size: 14px;
+  font-weight: bold;
+}
+.content1 {
+  font-size: 10px;
+  line-height: 16px;
+}
+.content2 {
+  font-size: 10px;
+  line-height: 13px;
+  width: 118px;
+}
+.more {
+  font-size: 0px;
+  display: inline-block;
+  position: absolute;
+}
+.more span {
+  font-size: 14px;
+  margin-right: 7px;
+}
+div.one {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+div.touchslider {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+}
+div.touchslider div.touchslider-viewport {
+  height: 100vh;
+  overflow: hidden;
+  height: 100% !important;
+}
+div.touchslider div.touchslider-viewport > div {
+  width: 100% !important;
+  height: 100% !important;
+}
+div.touchslider .bg {
+  width: 100% !important;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+div.touchslider .bg1 {
+  background-image: url("images/图层 1.png");
+}
+div.touchslider .bg2 {
+  background-image: url("images/轮播图1.jpg");
+}
+div.touchslider .bg3 {
+  background-image: url("images/轮播图2.jpg");
+}
+div.touchslider .bg4 {
+  background-image: url("images/轮播图3.jpg");
+}
+div.touchslider p {
+  color: white;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  margin: 0;
+}
+div.touchslider p.text1 {
+  font-size: 38px;
+  top: 40.8%;
+}
+div.touchslider p.text2 {
+  font-size: 32px;
+  top: 50%;
+}
+div.touchslider-nav {
+  position: absolute;
+  top: 44.5%;
+}
+div.touchslider-nav div.circle {
+  width: 2px;
+  height: 2px;
+  border-radius: 3px;
+  background-color: transparent;
+  border-width: 1px;
+  border-style: solid;
+  border-color: white;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 8px 17px 8px 37px;
+}
+div.touchslider-nav div.focusgroup {
+  display: none;
+  text-align: center;
+  color: #6c6c6c;
+  width: 80px;
+  height: 16px;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 8px;
+  line-height: 16px;
+  vertical-align: middle;
+  margin: 7px 0;
+}
+div.touchslider-nav-item-current div.circle {
+  width: 6px;
+  height: 6px;
+  border-width: 0;
+  border-radius: 3px;
+  background-color: white;
+  margin: 0;
+  margin-left: 36px;
+  margin-right: 16px;
+}
+div.touchslider-nav-item-current div.focusgroup {
+  display: inline-block;
+}
+div.banner {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 67px;
+  font-size: 0px;
+}
+div.logo {
+  width: 166px;
+  height: 100%;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #1e2e5f;
+}
+div.logo > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+ul.top {
+  width: 100%;
+  height: 67px;
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  list-style-type: none;
+  border-style: solid;
+  border-width: 0 0 2px 0;
+  border-color: rgba(255, 255, 255, 0.1);
+  margin: 0;
+  padding: 0 90px 0 166px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #efefef;
+  text-align: center;
+}
+ul.top li {
+  display: inline-block;
+  width: 85px;
+  height: 67px;
+  line-height: 67px;
+  font-size: 11px;
+  text-align: center;
+  border-width: 0 2px 0 0;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+  vertical-align: top;
+  overflow: hidden;
+  cursor: pointer;
+}
+ul.top .noborder {
+  border-right-width: 0;
+}
+ul.top .EN_CN {
+  width: auto;
+  padding-left: 3%;
+  float: left;
+  text-align: left;
+}
+ul.top .register {
+  width: auto;
+  float: right;
+  line-height: inherit;
+  text-align: right;
+  padding-right: 2.7%;
+}
+ul.top .register div {
+  height: 16px;
+  padding-top: 14px;
+  padding-bottom: 9px;
+}
+ul.top .register img {
+  vertical-align: middle;
+}
+ul.top .register span.reg {
+  height: 11px;
+  vertical-align: middle;
+  white-space: pre;
+}
+ul.top .register span.tel {
+  font-weight: bold;
+  font-size: 17px;
+  height: 17px;
+}
+div.manu {
+  width: 90px;
+  height: 100%;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  float: right;
+  background-color: #1e2e5f;
+}
+div.manu > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+div.manu .manu_hidden {
+  transform: translate(-50%, 22px);
+}
+div.manu > img {
+  cursor: pointer;
+}
+div.manu_details {
+  position: absolute;
+  top: 67px;
+  right: 0px;
+  width: 221px;
+  height: 245px;
+}
+div.hidden {
+  display: none;
+}
+div.manu_items {
+  float: right;
+  width: 90px;
+  height: 245px;
+  box-sizing: border-box;
+  padding: 0 25px;
+  background-color: rgba(30, 46, 95, 0.502);
+}
+div.manu_items .hidden {
+  display: none;
+}
+div.manu_items > div {
+  margin: 0 auto;
+  width: 100%;
+  height: 50px;
+  border-width: 1px 0px;
+  border-style: solid;
+  border-color: rgba(30, 46, 95, 0.4);
+  position: relative;
+}
+div.manu_items > div > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+div.manu_items > div:hover .hidden {
+  display: block;
+}
+div.manu_items div.sina {
+  margin-top: 14px;
+  border-top: none;
+}
+div.manu_items div.manager {
+  border-bottom: none;
+}
+div.manu_items div.down {
+  height: 24px;
+  border: none;
+  margin-bottom: 6px;
+}
+div.manu_items .triangle {
+  width: 0px;
+  height: 0px;
+  border-width: 15px 0px 15px 13px;
+  border-style: solid;
+  border-color: transparent white;
+  position: absolute;
+  top: 50%;
+  transform: translate(-25px, -50%);
+}
+div.manu_items div.detail {
+  transform: translate(-25px, -33px);
+  position: absolute;
+  right: 100%;
+  width: 131px;
+  height: 151px;
+  background-color: white;
+}
+div.manu_items div.detail p {
+  font-size: 11px;
+  margin: 0;
+  text-align: center;
+  width: 131px;
+}
+div.share {
+  font-size: 8px;
+  position: absolute;
+  bottom: 60px;
+  left: 32px;
+  color: #cccfe2;
+}
+div.share p {
+  margin: 0;
+  height: 18px;
+  position: relative;
+}
+div.share span {
+  position: absolute;
+  bottom: 0;
+  white-space: pre;
+}
+div.two {
+  width: 100%;
+  margin-top: -60px;
+}
+div.two > div {
+  display: inline-block;
+  vertical-align: bottom;
+}
+div.img1 {
+  width: 50%;
+  height: 238px;
+  background-image: url('images/bitmap.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+div.text1 {
+  width: 25%;
+  height: 298px;
+  background-color: #1e2e5f;
+  color: white;
+  position: relative;
+}
+div.text1 p.capital {
+  font-size: 20px;
+  margin: 39px 0 0 10%;
+}
+div.text1 p.capital_ch {
+  font-size: 14px;
+  margin: 11px 0px 32px 10%;
+}
+div.text1 p.content1 {
+  margin: 0px 10.3%;
+}
+div.text1 div.more {
+  bottom: 36px;
+  right: 12%;
+}
+div.text1 .point1 {
+  background-color: white;
+}
+div.text1 .point2 {
+  background-color: #a5acbe;
+}
+div.text1 .point3 {
+  background-color: #4e5e80;
+}
+div.points {
+  position: absolute;
+  bottom: 36px;
+  left: 10%;
+  text-align: right;
+}
+div.points div {
+  width: 4px;
+  height: 4px;
+  display: inline-block;
+  margin-right: 11px;
+}
+div.img2 {
+  width: 25%;
+  height: 298px;
+  position: relative;
+  background-image: url('images/图层 5.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+div.text2 {
+  width: 50%;
+  height: 239px;
+  position: relative;
+}
+div.text2 p.title {
+  margin: 29px 5.1%;
+}
+div.text2 p.content1 {
+  margin: 0 5.4%;
+}
+div.text2 p.date {
+  font-size: 7px;
+  display: inline-block;
+  position: absolute;
+  bottom: 36px;
+  left: 5%;
+  margin: 0;
+}
+div.text2 div.more {
+  bottom: 36px;
+  right: 5.1%;
+}
+div.text2 div.points {
+  top: 36px;
+  bottom: auto;
+  left: auto;
+  right: 5.1%;
+}
+div.text2 div.points div {
+  margin-right: 0px;
+  margin-left: 11px;
+}
+div.text2 .point1 {
+  background-color: #cdcdcd;
+}
+div.text2 .point2 {
+  background-color: #747071;
+}
+div.text2 .point3 {
+  background-color: #010101;
+}
+div.img3 {
+  width: 25%;
+  height: 239px;
+  background-image: url('images/图层 6.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+div.text3 {
+  width: 25%;
+  height: 239px;
+  position: relative;
+}
+div.text3 p.title {
+  line-height: 18px;
+  margin: 30px 10.3% 28px ;
+}
+div.text3 p.content1 {
+  margin: 0 10.3%;
+}
+div.text3 p.date {
+  font-size: 7px;
+  display: inline-block;
+  position: absolute;
+  bottom: 36px;
+  left: 10.3%;
+  margin: 0;
+}
+div.text3 .triangle1 {
+  width: 0;
+  height: 0;
+  border-width: 4px 5px 4px 0px;
+  border-color: transparent #a8a8a8 transparent;
+  border-style: solid;
+  position: absolute;
+  right: 14.2%;
+  bottom: 36px;
+}
+div.text3 .triangle2 {
+  width: 0;
+  height: 0;
+  border-width: 4px 0px 4px 5px;
+  border-color: transparent #182c61 transparent;
+  border-style: solid;
+  position: absolute;
+  right: 10%;
+  bottom: 36px;
+}
+div.three {
+  width: 100%;
+  height: 586px;
+  background-image: url('images/图层 4.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+div.four {
+  width: 100%;
+}
+div.four > div {
+  display: inline-block;
+  vertical-align: top;
+}
+div.one_one {
+  width: 25%;
+  height: 240px;
+  background-image: url('images/矢量智能对象3.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+div.one_two {
+  width: 25%;
+  height: 240px;
+  position: relative;
+}
+div.one_two p.title {
+  margin: 42px 0 31px 10%;
+}
+div.one_two p.content2 {
+  margin-left: 10%;
+}
+div.one_two div.more {
+  bottom: 40px;
+  right: 8.9%;
+}
+div.one_three {
+  width: 50%;
+  height: 240px;
+  background-image: url('images/矢量智能对象.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+div.two_one {
+  width: 25%;
+  height: 237px;
+  position: relative;
+}
+div.two_one p.title {
+  margin: 42px 0 31px 10%;
+}
+div.two_one p.content2 {
+  margin-left: 10%;
+}
+div.two_one div.more {
+  bottom: 38px;
+  right: 8.9%;
+}
+div.two_two {
+  width: 25%;
+  height: 237px;
+  background-image: url('images/矢量智能对象2.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+div.two_three {
+  width: 50%;
+  height: 237px;
+  background-color: #1e2e5f;
+  color: white;
+  position: relative;
+}
+div.two_three p.title {
+  margin: 42px 0 31px 5%;
+}
+div.two_three p.content1 {
+  margin: 0px 5.1%;
+  width: 44.4%;
+}
+div.two_three div.more {
+  bottom: 38px;
+  right: 5.1%;
+}
+div.three_one {
+  width: 50%;
+  height: 238px;
+  background-image: url('images/图层 3.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  color: white;
+}
+div.three_one p.title {
+  margin: 46px 0 31px 4.7%;
+}
+div.three_one p.content2 {
+  margin-left: 5%;
+  width: 44.4%;
+}
+div.three_one div.more {
+  bottom: 35px;
+  right: 4.7%;
+}
+div.three_two {
+  width: 50%;
+  height: 238px;
+  background-image: url('images/矢量智能对象1.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+div.four_one {
+  width: 50%;
+  height: 238px;
+  background-image: url('images/矢量智能对象4.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+div.four_two {
+  width: 50%;
+  height: 238px;
+  position: relative;
+}
+div.four_two p.title {
+  margin: 44px 0 31px 4.7%;
+}
+div.four_two p.content2 {
+  margin-left: 5%;
+  width: 44.4%;
+}
+div.four_two div.more {
+  bottom: 37px;
+  right: 4.7%;
+}
+div.five {
+  width: 100%;
+  background-color: #1e2e5f;
+  padding-left: 3.75%;
+  padding-right: 2.57%;
+  box-sizing: border-box;
+}
+div.five_one {
+  width: 100%;
+  height: 118px;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: #656d91;
+  position: relative;
+}
+ul.about {
+  width: 100%;
+  height: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+ul.about li {
+  display: inline-block;
+  width: 8.45%;
+  text-align: left;
+  transform: translateY(72px);
+}
+ul.about a {
+  font-size: 10px;
+  text-decoration: none;
+  color: #aaaab6;
+}
+ul.about a:hover {
+  color: white;
+}
+div.others {
+  float: right;
+  font-size: 10px;
+  color: #e1e2e5;
+  transform: translateY(70px);
+}
+div.others div {
+  display: inline-block;
+  padding-left: 35px;
+}
+div.others span {
+  padding-left: 8px;
+  float: right;
+}
+div.five_two {
+  width: 100%;
+  height: 180px;
+  position: relative;
+}
+div.five_two > div {
+  height: 75px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+div.links {
+  width: 270px;
+  height: 36px;
+  background-color: #283f85;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+div.links span {
+  font-size: 10px;
+  position: absolute;
+  line-height: 36px;
+  color: #d8e0e2;
+  left: 15px;
+}
+div.links div {
+  width: 38px;
+  height: 100%;
+  float: right;
+  background-color: #1b1b1b;
+  position: relative;
+}
+div.links div img {
+  width: 6px;
+  height: 3px;
+}
+div.links div > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+div.links ul {
+  width: 232px;
+  height: 100%;
+  padding: 0;
+  list-style-type: none;
+  display: inline-block;
+}
+div.TDcode {
+  height: 75px;
+  float: right;
+}
+div.TDcode div {
+  text-align: right;
+  display: inline-block;
+  padding-right: 23px;
+}
+div.TDcode p {
+  font-size: 13px;
+  color: #f0f1f4;
+  margin: 0;
+}
+div.TDcode p.mid {
+  font-size: 22px;
+  margin: 13px 0;
+  color: white;
+}
+div.TDcode img {
+  float: right;
+}
+div.six {
+  background-color: #1b1b1b;
+  position: relative;
+  width: 100%;
+  height: 50px;
+}
+div.six div {
+  height: 38px;
+  line-height: 20px;
+  font-size: 8px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+div.six p {
+  margin: 0;
+}

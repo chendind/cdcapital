@@ -94,7 +94,6 @@ ul.top li {
   box-sizing: border-box;
   vertical-align: top;
   overflow: hidden;
-  cursor: pointer;
 }
 ul.top a {
   color: #efefef;
@@ -142,6 +141,7 @@ div.manu {
   vertical-align: middle;
   float: right;
   background-color: #1e2e5f;
+  cursor: pointer;
 }
 div.manu > img {
   position: absolute;
@@ -151,9 +151,6 @@ div.manu > img {
 }
 div.manu .manu_hidden {
   transform: translate(-50%, 22px);
-}
-div.manu > img {
-  cursor: pointer;
 }
 div.manu_details {
   position: absolute;
@@ -281,6 +278,7 @@ ul.two {
   margin: 0;
   padding: 60px 0 0;
   font-size: 16px;
+  cursor: pointer;
 }
 ul.two li {
   width: 100%;

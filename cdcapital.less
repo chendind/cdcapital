@@ -40,6 +40,7 @@ body{
 	font-size: 0px;
 	display: inline-block;
 	position: absolute;
+	cursor: pointer;
 	span{
 		font-size: 14px;
 		margin-right: 7px;
@@ -100,6 +101,7 @@ div.touchslider{
 div.touchslider-nav{
 	position: absolute;
 	top: 44.5%;
+	cursor: pointer;
 	div.circle{
 		.wh(2px, 2px);
 		border-radius: 3px;
@@ -177,7 +179,6 @@ ul.top{
 		box-sizing: border-box;
 		vertical-align: top;
 		overflow: hidden;
-		cursor: pointer;
 	}
 	a{
 		color: #efefef;
@@ -228,9 +229,7 @@ div.manu{
 	.manu_hidden{
 		transform: translate(-50%,22px);
 	}
-	&>img{
-		cursor: pointer;
-	}
+	cursor: pointer;
 }
 div.manu_details{
 	position: absolute;
@@ -630,11 +629,13 @@ div.others{
 	transform: translateY(70px);
 	div{
 		display: inline-block;
-		padding-left: 35px;
+		margin-left: 35px;
+		cursor: pointer;
 	}
 	span{
 		padding-left: 8px;
 		float: right;
+		line-height: 13px;
 	}
 }
 div.five_two{
@@ -665,6 +666,7 @@ div.links{
 		.wh(38px, 100%);
 		float: right;
 		background-color: #1b1b1b;
+		cursor: pointer;
 		img{
 			.wh(6px, 3px);
 		}

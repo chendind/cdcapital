@@ -36,6 +36,7 @@ body {
   font-size: 0px;
   display: inline-block;
   position: absolute;
+  cursor: pointer;
 }
 .more span {
   font-size: 14px;
@@ -98,6 +99,7 @@ div.touchslider p.text2 {
 div.touchslider-nav {
   position: absolute;
   top: 44.5%;
+  cursor: pointer;
 }
 div.touchslider-nav div.circle {
   width: 2px;
@@ -189,7 +191,6 @@ ul.top li {
   box-sizing: border-box;
   vertical-align: top;
   overflow: hidden;
-  cursor: pointer;
 }
 ul.top a {
   color: #efefef;
@@ -237,6 +238,7 @@ div.manu {
   vertical-align: middle;
   float: right;
   background-color: #1e2e5f;
+  cursor: pointer;
 }
 div.manu > img {
   position: absolute;
@@ -246,9 +248,6 @@ div.manu > img {
 }
 div.manu .manu_hidden {
   transform: translate(-50%, 22px);
-}
-div.manu > img {
-  cursor: pointer;
 }
 div.manu_details {
   position: absolute;
@@ -676,11 +675,13 @@ div.others {
 }
 div.others div {
   display: inline-block;
-  padding-left: 35px;
+  margin-left: 35px;
+  cursor: pointer;
 }
 div.others span {
   padding-left: 8px;
   float: right;
+  line-height: 13px;
 }
 div.five_two {
   width: 100%;
@@ -714,6 +715,7 @@ div.links div {
   height: 100%;
   float: right;
   background-color: #1b1b1b;
+  cursor: pointer;
   position: relative;
 }
 div.links div img {

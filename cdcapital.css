@@ -28,7 +28,7 @@ body {
 }
 .content2 {
   font-size: 12px;
-  line-height: 13px;
+  line-height: 16px;
   width: 118px;
   letter-spacing: 2px;
 }
@@ -181,7 +181,7 @@ ul.top li {
   width: 85px;
   height: 67px;
   line-height: 67px;
-  font-size: 11px;
+  font-size: 12px;
   text-align: center;
   border-width: 0 2px 0 0;
   border-style: solid;
@@ -316,7 +316,7 @@ div.manu_items div.detail {
   background-color: white;
 }
 div.manu_items div.detail p {
-  font-size: 11px;
+  font-size: 12px;
   margin: 0;
   text-align: center;
   width: 131px;
@@ -416,7 +416,7 @@ div.text2 p.content1 {
   margin: 0 5.4%;
 }
 div.text2 p.date {
-  font-size: 7px;
+  font-size: 12px;
   display: inline-block;
   position: absolute;
   bottom: 36px;
@@ -466,7 +466,7 @@ div.text3 p.content1 {
   margin: 0 10.3%;
 }
 div.text3 p.date {
-  font-size: 7px;
+  font-size: 12px;
   display: inline-block;
   position: absolute;
   bottom: 36px;

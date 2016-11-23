@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>cdcapital_2</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="about_cdcapital.css">
+</head>
+<body>
+	<div class="one">
+		<p class="text1">LOOK FAR AHEAD FROM A HIGH PLANE</p>
+		<p class="text2">高瞻远瞩 勇攀高峰</p>
+		<div class="banner">
+			<div class="logo">
+				<img src="images/logo.png">
+			</div>
+			<ul class="top">
+				<li class="EN_CN noborder">EN/CN</li>
+				<li><a href="cdcapital.html">首页</a></li>
+				<li><a href="about_cdcapital.html">关于创道</a></li>
+				<li>产品与服务</li>
+				<li>创道研究</li>
+				<li>新闻中心</li>
+				<li>招聘中心</li>
+				<li>VIP俱乐部</li>
+				<li class="noborder">联系我们</li>
+				<li class="register noborder">
+					<div>
+						<img src="images/小人.png">
+						<span class="reg">  注册-登录</span>
+					</div>
+					<span class="tel">400-0670-877</span>
+				</li>
+			</ul>
+			<div class="manu">
+				<img class="manu_show" src="images/caidan.png">
+				<img class="manu_hidden" src="images/上收箭头.png">
+			</div>
+		</div>
+		<div class="manu_details hidden">
+			<div class="manu_items">
+				<div class="sina">
+					<img src="images/新浪图标.png">
+					<img class="hidden" src="images/新浪图标2.png">
+					<div class="triangle hidden"></div>
+					<div class="detail hidden">
+						<img src="images/创道微信公众号.png">
+						<p>扫描二维码 关注创道</p>
+					</div>
+				</div>
+				<div class="wechat">
+					<img src="images/微信图标2.png">
+					<img class="hidden" src="images/微信图标.png">
+					<div class="triangle hidden"></div>
+					<div class="detail hidden">
+						<img src="images/创道微信公众号.png">
+						<p>扫描二维码 关注创道</p>
+					</div>
+				</div>
+				<div class="service">
+					<img src="images/在线客服.png">
+					<img class="hidden" src="images/在线客服2.png">
+					<div class="triangle hidden"></div>
+					<div class="detail hidden">
+						<img src="images/创道微信公众号.png">
+						<p>扫描二维码 关注创道</p>
+					</div>
+				</div>
+				<div class="manager">
+					<img src="images/预约理财经理.png">
+					<img class="hidden" src="images/预约理财经理2.png">
+					<div class="triangle hidden"></div>
+					<div class="detail hidden">
+						<img src="images/创道微信公众号.png">
+						<p>扫描二维码 关注创道</p>
+					</div>
+				</div>
+				<div class="down">
+					<img src="images/下箭头.png">
+					<img class="hidden" src="images/箭头.png">
+				</div>
+			</div>
+		</div>
+		<div class="share">
+			<p><span>Share</span></p>
+			<p><span>Tel:028-849646</span></p>
+		</div>
+	</div>
+	<div class="two">
+		<div class="left">
+			<ul class="two">
+				<li class="show">公司简介</li>
+				<li>企业文化</li>
+				<li>创始团队</li>
+			</ul>
+		</div>
+		<div class="right">
+			<div class="show">创道资本创始于2009年，实缴注册资本一亿元人民币。2014年经中国证券监督管理委员会、中国证券投资基金业协会严格审核，成为首批获得私募投资基金金融牌照的基金管理人，2015年成为中国证券投资基金业协会会员。自公司成立以来，严格按照私募基金的相关规定运作，并不断完善金融运作体系、健全风险管控机制，逐步形成了股权投资、创业投资、证券投资、并购重组、财富管理等业务板块。 与此同时，公司积极响应国家政策号召，与政府及各产业领军企业战略合作，重点投向产业投资基金和证券投资基金。 在产业投资基金板块，公司结合“互联网+”概念深耕“医疗健康、文化影视、产业地产”等前沿产业投资。</div>
+			<div>打造中国最专业的综合金融服务平台，服务实体经济，支持中小微企业发展，勤勉尽责 专业胜任 务实创新 稳健进取...</div>
+			<div>创道资本的团队拥有成功的创业经历、丰富的运营经验以及深厚的技术背景，同时具有丰富的投资经验和优秀的投资业绩...</div>
+		</div>
+	</div>
+	<div class="three">
+		<div>
+			<p>2014-2015 山东创道股权投资基金管理有限公司 All rights reserved.</p>
+			<p>济南市市中区经四路9号万达广场写字楼A座11F 鲁1CP备14020449号-1 鲁公网安备 37010302000377号</p>
+		</div>
+	</div>
+	<script src="./js/jquery-1.7.1.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(".manu").click(function() {
+			$(".manu_details").toggleClass('hidden');
+		});
+		$("ul.two li").click(function(event){
+			$(this).addClass('show');
+			$(this).siblings('*').removeClass('show');
+			$(".right").children().eq($(this).index()).addClass('show');
+			$(".right").children().eq($(this).index()).siblings('*').removeClass('show');
+		});
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

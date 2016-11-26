@@ -42,6 +42,9 @@ body {
   font-size: 14px;
   margin-right: 7px;
 }
+div.above {
+  display: none;
+}
 div.one {
   width: 100%;
   height: 100vh;
@@ -69,16 +72,16 @@ div.touchslider .bg {
   background-repeat: no-repeat;
 }
 div.touchslider .bg1 {
-  background-image: url("images/图层 1.png");
+  background-image: url("../images/图层 1.png");
 }
 div.touchslider .bg2 {
-  background-image: url("images/轮播图1.jpg");
+  background-image: url("../images/轮播图1.jpg");
 }
 div.touchslider .bg3 {
-  background-image: url("images/轮播图2.jpg");
+  background-image: url("../images/轮播图2.jpg");
 }
 div.touchslider .bg4 {
-  background-image: url("images/轮播图3.jpg");
+  background-image: url("../images/轮播图3.jpg");
 }
 div.touchslider p {
   color: white;
@@ -141,6 +144,7 @@ div.touchslider-nav-item-current div.focusgroup {
 }
 div.banner {
   position: absolute;
+  z-index: 1;
   top: 0;
   width: 100%;
   height: 67px;
@@ -160,9 +164,15 @@ div.logo > img {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+div.ul_manu {
+  display: none;
+}
+div.log_reg {
+  display: none;
+}
 ul.top {
   width: 100%;
-  height: 67px;
+  height: 100%;
   display: inline-block;
   vertical-align: middle;
   box-sizing: border-box;
@@ -181,7 +191,7 @@ ul.top {
 ul.top li {
   display: inline-block;
   width: 85px;
-  height: 67px;
+  height: 100%;
   line-height: 67px;
   font-size: 12px;
   text-align: center;
@@ -249,8 +259,12 @@ div.manu > img {
 div.manu .manu_hidden {
   transform: translate(-50%, 22px);
 }
+div.manu div.diamonds {
+  display: none;
+}
 div.manu_details {
   position: absolute;
+  z-index: 3;
   top: 67px;
   right: 0px;
   width: 221px;
@@ -322,7 +336,9 @@ div.manu_items div.detail p {
   font-size: 12px;
   margin: 0;
   text-align: center;
-  width: 131px;
+}
+div.manu_items div.detail img {
+  width: 100%;
 }
 div.share {
   font-size: 8px;
@@ -352,8 +368,9 @@ div.two > div {
 div.img1 {
   width: 50%;
   height: 238px;
-  background-image: url('images/bitmap.png');
+  background-image: url('../images/bitmap.png');
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
 }
 div.text1 {
@@ -403,8 +420,9 @@ div.img2 {
   width: 25%;
   height: 298px;
   position: relative;
-  background-image: url('images/图层 5.png');
+  background-image: url('../images/图层 5.png');
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
 }
 div.text2 {
@@ -452,8 +470,9 @@ div.text2 .point3 {
 div.img3 {
   width: 25%;
   height: 239px;
-  background-image: url('images/图层 6.png');
+  background-image: url('../images/图层 6.png');
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
 }
 div.text3 {
@@ -467,6 +486,9 @@ div.text3 p.title {
 }
 div.text3 p.content1 {
   margin: 0 10.3%;
+}
+div.text3 div.more {
+  display: none;
 }
 div.text3 p.date {
   font-size: 12px;
@@ -499,7 +521,7 @@ div.text3 .triangle2 {
 div.three {
   width: 100%;
   height: 586px;
-  background-image: url('images/图层 4.png');
+  background-image: url('../images/图层 4.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -514,8 +536,9 @@ div.four > div {
 div.one_one {
   width: 25%;
   height: 240px;
-  background-image: url('images/矢量智能对象3.png');
+  background-image: url('../images/矢量智能对象3.png');
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
 }
 div.one_two {
@@ -536,8 +559,9 @@ div.one_two div.more {
 div.one_three {
   width: 50%;
   height: 240px;
-  background-image: url('images/矢量智能对象.png');
+  background-image: url('../images/矢量智能对象.png');
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
 }
 div.two_one {
@@ -558,8 +582,9 @@ div.two_one div.more {
 div.two_two {
   width: 25%;
   height: 237px;
-  background-image: url('images/矢量智能对象2.png');
+  background-image: url('../images/矢量智能对象2.png');
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
 }
 div.two_three {
@@ -583,8 +608,9 @@ div.two_three div.more {
 div.three_one {
   width: 50%;
   height: 238px;
-  background-image: url('images/图层 3.png');
+  background-image: url('../images/图层 3.png');
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   position: relative;
   color: white;
@@ -603,15 +629,17 @@ div.three_one div.more {
 div.three_two {
   width: 50%;
   height: 238px;
-  background-image: url('images/矢量智能对象1.png');
+  background-image: url('../images/矢量智能对象1.png');
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
 }
 div.four_one {
   width: 50%;
   height: 238px;
-  background-image: url('images/矢量智能对象4.png');
+  background-image: url('../images/矢量智能对象4.png');
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
 }
 div.four_two {

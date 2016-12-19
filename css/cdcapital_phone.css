@@ -225,6 +225,7 @@
   div.touchslider {
     height: auto;
     position: relative;
+    min-height: 0px;
   }
   div.touchslider .bg {
     height: 0;

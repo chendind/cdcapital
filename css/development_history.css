@@ -45,6 +45,8 @@ div.three li span.time {
 }
 div.three li span {
   color: #666666;
+  display: inline-block;
+  vertical-align: top;
 }
 div.three li span.blue {
   color: #5c95cd;
@@ -72,4 +74,25 @@ div.three div.ruler div.l {
 }
 div.three div.ruler div.m {
   width: 8px;
+}
+@media only screen and (max-width: 768px) {
+  div.three {
+    margin: 65px 5% 78px;
+  }
+  div.three ul {
+    padding-left: 40px;
+  }
+  div.three li {
+    font-size: 12px;
+  }
+  div.three li span.time {
+    width: 70px;
+  }
+  div.three li span {
+    width: 220px;
+  }
+  div.three div.ruler {
+    left: -40px;
+    top: -28px;
+  }
 }

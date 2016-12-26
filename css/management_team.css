@@ -75,3 +75,41 @@ div.three div.description {
   bottom: 0;
   overflow: hidden;
 }
+@media only screen and (max-width: 768px) {
+  div.three ul {
+    padding: 60px 5% 60px 5%;
+  }
+  div.three div.img {
+    width: 88px;
+    height: 120px;
+  }
+  div.three div.middle {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 120px;
+    transform: translateY(-100%);
+    box-sizing: border-box;
+    padding-left: 88px;
+  }
+  div.three div.name {
+    font-size: 14px;
+    margin: 0 0 4px;
+  }
+  div.three div.spell {
+    font-size: 12px;
+  }
+  div.three div.main_title {
+    font-size: 13px;
+    margin: 15px 0 0;
+  }
+  div.three div.sub_title {
+    font-size: 12px;
+    margin: 6px 0 0;
+  }
+  div.three div.description {
+    display: block;
+    position: static;
+    padding: 20px 0 0;
+  }
+}

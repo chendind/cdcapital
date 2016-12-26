@@ -22,7 +22,7 @@ div.two{
 
 div.three{
 	background-color: #fafafa;
-	padding: 30px 40px;
+	padding: 30px 40px 0;
 	div.img{
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -74,10 +74,30 @@ div.three{
 }
 
 .M-box {
-	margin: 0 auto;
+	background-color: #fafafa;
+	margin: 0;
+	padding:  0 0 30px;
 }
 
-
+@media only screen and (max-width: 768px) {
+	div.three{
+		div.img{
+			.wh(100%, 180px);
+		}
+		div.text{
+			.wh(100%, 180px);
+			padding: 0 10px;
+			.name{
+				font-size: 18px;
+				margin: 10px 0;
+			}
+			.summary{
+				margin: 20px 0;
+				font-size: 15px;
+			}
+		}
+	}
+}
 
 
 

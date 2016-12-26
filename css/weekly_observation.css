@@ -17,41 +17,75 @@ div.two .en {
   color: #666666;
 }
 div.three {
-  margin: 43px auto 40px;
-  width: 800px;
-}
-div.three > div {
-  padding: 20px 0;
-  border-bottom: 1px solid #dddddd;
+  background-color: #fafafa;
+  padding: 30px 40px;
 }
 div.three div.img {
-  display: inline-block;
-  width: 160px;
-  height: 110px;
-  margin-right: 20px;
   background-repeat: no-repeat;
   background-size: cover;
+  display: inline-block;
+  width: 33.3%;
+  height: 260px;
+  vertical-align: top;
+  margin-bottom: 30px;
 }
 div.three div.text {
+  width: 66.7%;
+  height: 260px;
+  margin-bottom: 30px;
+  background-color: white;
   display: inline-block;
-  width: 620px;
-  vertical-align: top;
+  padding: 0 50px;
+  box-sizing: border-box;
 }
-div.three p.name {
-  font-size: 19px;
+div.three div.text .name {
+  font-size: 24px;
   color: #333333;
-  margin: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+  margin: 35px 0 25px;
 }
-div.three p.name:hover {
+div.three div.text .name:hover {
   color: #5c95cd;
 }
-div.three p.summary {
-  font-size: 14px;
-  line-height: 20px;
-  color: #666666;
+div.three div.text hr {
+  border: none;
+  border-top: 1px dotted #dddddd;
 }
-div.three p.time {
-  color: #999999;
-  font-size: 12px;
-  margin: 0;
+div.three div.text .summary {
+  margin: 30px 0 35px;
+  color: #666666;
+  font-size: 19px;
+  line-height: 28px;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+div.three div.text .time {
+  color: #9f9f9f;
+  font-size: 14px;
+}
+@media only screen and (max-width: 768px) {
+  div.three div.img {
+    width: 100%;
+    height: 180px;
+  }
+  div.three div.text {
+    width: 100%;
+    height: 180px;
+    padding: 0 10px;
+  }
+  div.three div.text .name {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  div.three div.text .summary {
+    margin: 20px 0;
+    font-size: 15px;
+  }
 }

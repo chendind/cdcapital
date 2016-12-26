@@ -21,7 +21,7 @@ div.two{
 }
 
 div.three{
-	padding: 0 40px;
+	padding: 0 40px 30px;
 	background-color: #fafafa;
 	.leftImage, .rightImage, .content{
 		.wh(50%,360px);
@@ -48,6 +48,11 @@ div.three{
 		font-size: 23px;
 		line-height: 34px;
 		margin: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+	    -webkit-line-clamp: 2;
 	}
 	p.time{
 		font-size: 12px;
@@ -77,5 +82,40 @@ div.three{
 		border: dotted #dddddd;
 		border-width: 1px 0 0;
 	}
+	.M-box{
+		margin-bottom: 0;
+	}
 }
 
+@media only screen and (max-width: 768px) {
+	div.three{
+		padding: 0 0 30px 0;
+		.leftImage, .rightImage, .content{
+			.wh(100%,240px);
+			margin-top: 0px;
+		}
+		.content{
+			padding: 5%;
+		}
+		p.title{
+			font-size: 15px;
+			line-height: 20px;
+	        -webkit-line-clamp: 1;
+		}
+		p.time{
+			margin: 8px 0;
+		}
+		p.text{
+			font-size: 13px;
+			line-height: 20px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+		    -webkit-line-clamp: 4;
+		}
+		button.more{
+			margin-top: 0px;
+		}
+	}
+}

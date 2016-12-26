@@ -2,8 +2,11 @@
 <html>
 <head>
 	<title>Service Experience</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="../css/public.css">
 	<link rel="stylesheet" type="text/css" href="../css/service_experience.css">
+	<link rel="stylesheet" type="text/css" href="../flaticon/flaticon.css">
 </head>
 <body>
 	<div id="vm">
@@ -43,18 +46,17 @@
 					<div class="line"></div>
 					<div class="option" @click="changeToRegister">新用户注册</div>
 				</div>
-				<form v-if="login">
-					<input class="name" type="text" name="name" placeholder="请输入用户名">
-					<input class="pwd" type="password" name="pwd" placeholder="请输入密码">
-					<input class="repwd" type="password" name="repwd" placeholder="请确认密码">
-					<input class="button" type="button" name="button" value="登录">
+				<form class="do_login">
+					<input class="name" type="text" name="login_name" placeholder="请输入用户名">
+					<input class="pwd" type="password" name="login_pwd" placeholder="请输入密码">
+					<input class="button" type="button" name="login_button" value="登录">
 					<div>如需帮助，请拨打客服热线<span>4008-200-025</span></div>
 				</form>
-				<form v-else>
-					<input class="name" type="text" name="name" placeholder="请输入用户名">
-					<input class="pwd" type="password" name="pwd" placeholder="请输入密码">
-					<input class="repwd" type="password" name="repwd" placeholder="请确认密码">
-					<input class="button" type="button" name="button" value="注册">
+				<form class="do_register hidden">
+					<input class="name" type="text" name="register_name" placeholder="请输入用户名">
+					<input class="pwd" type="password" name="register_pwd" placeholder="请输入密码">
+					<input class="repwd" type="password" name="register_repwd" placeholder="请确认密码">
+					<input class="button" type="button" name="register_button" value="注册">
 					<div>如需帮助，请拨打客服热线<span>4008-200-025</span></div>
 				</form>
 				<img src="../images/关闭 (1).png" @click="loginCancel">
@@ -70,8 +72,8 @@
 					<span class="flaticon-cancel33 hidden"></span>
 				</div>
 				<div class="log_reg">
-					<button class="log">登录</button>
-					<button class="reg">注册</button>
+					<button class="log" @click="onlyshowlogin">登录</button>
+					<button class="reg" @click="onlyshowregister">注册</button>
 				</div>
 				<ul class="top">
 					<li><a href="cdcapital.html">首页</a></li>
@@ -404,32 +406,42 @@
 		var vm = new Vue({
 			el: "#vm",
 			data: {
-				login: true
 			},
 			methods: {
 				changeToLogin: function () {
-					if(!this.login){
-						this.login = true;
-						$('.nav .option').toggleClass('current');
-						$('.login_register input[type=text]').val("");
-						$('.login_register input[type=password]').val("");
-					}
+					$(".do_login").removeClass('hidden');
+					$(".do_register").addClass('hidden');
+					$(".nav .option:eq(0)").addClass('current');
+					$(".nav .option:eq(1)").removeClass('current');
 				},
 				changeToRegister: function () {
-					if(this.login){
-						this.login = false;
-						$('.nav .option').toggleClass('current');
-						$('.login_register input[type=text]').val("");
-						$('.login_register input[type=password]').val("");
-					}
+					$(".do_login").addClass('hidden');
+					$(".do_register").removeClass('hidden');
+					$(".nav .option:eq(1)").addClass('current');
+					$(".nav .option:eq(0)").removeClass('current');
 				},
 				loginCancel: function () {
 					$('.login').addClass('hidden');
 					$(".needToKnow").removeClass('hidden');
 				},
 				showlogin: function () {
-					this.login = true;
 					$('.login').removeClass('hidden');
+				},
+				onlyshowlogin: function () {
+					$('.login').removeClass('hidden');
+					$(".nav .option:eq(0)").addClass('current');
+					$(".nav .option:eq(0)").css('display', 'inline-block');
+					$(".nav .option:eq(1)").css('display', 'none');
+					$(".do_login").removeClass('hidden');
+					$(".do_register").addClass('hidden');
+				},
+				onlyshowregister: function () {
+					$('.login').removeClass('hidden');
+					$(".nav .option:eq(1)").addClass('current');
+					$(".nav .option:eq(1)").css('display', 'inline-block');
+					$(".nav .option:eq(0)").css('display', 'none');
+					$(".do_register").removeClass('hidden');
+					$(".do_login").addClass('hidden');
 				},
 				showManu: function () {
 					$(".manu_details").toggleClass('hidden');

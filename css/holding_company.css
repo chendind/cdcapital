@@ -44,3 +44,16 @@ div.three div.description {
 div.three div.description span {
   font-size: 17px;
 }
+@media only screen and (max-width: 768px) {
+  div.three {
+    margin: 20px 5% 100px;
+  }
+  div.three div.img {
+    width: 100%;
+  }
+  div.three div.description {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5%;
+  }
+}

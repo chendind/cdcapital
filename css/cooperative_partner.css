@@ -37,3 +37,14 @@ div.three div:hover {
 div.three img {
   height: 100%;
 }
+@media only screen and (max-width: 768px) {
+  div.three {
+    width: 100%;
+  }
+  div.three div {
+    width: 40%;
+    height: 58px;
+    margin: 20px 5%;
+    box-sizing: border-box;
+  }
+}

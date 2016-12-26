@@ -1,0 +1,75 @@
+.wh(@width, @height){
+	width: @width;
+	height: @height;
+}
+div.one{
+	background-image: url("../images/banner5.jpg");
+}
+div.two{
+	text-align: center;
+	display: inline-block;
+	.wh(100%, 160px);
+	.ch{
+		font-size: 34px;
+		color: #333333;
+		margin: 47px 0 20px;
+	}
+	.en{
+		font-size: 19px;
+		color: #666666;
+	}
+}
+
+div.three{
+	margin: 43px auto 40px;
+	width: 800px;
+	&>div{
+		padding: 20px 0;
+		border-bottom: 1px solid #dddddd;
+	}
+	div.img{
+		display: inline-block;
+		.wh(160px,110px);
+		margin-right: 20px;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	div.text{
+		display: inline-block;
+		width: 620px;
+		vertical-align: top;
+	}
+	p.name{
+		font-size: 19px;
+		color: #333333;
+		margin: 0;
+	}
+	p.name:hover{
+		color: #5c95cd;
+	}
+	p.summary{
+		font-size: 14px;
+		line-height: 20px;
+		color: #666666;
+	}
+	p.time{
+		color: #999999;
+		font-size: 12px;
+		margin: 0;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

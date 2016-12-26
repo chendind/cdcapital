@@ -1,0 +1,99 @@
+.wh(@width, @height){
+	width: @width;
+	height: @height;
+}
+div.one{
+	background-image: url("../images/banner4.jpg");
+}
+div.two{
+	text-align: center;
+	display: inline-block;
+	.wh(100%, 160px);
+	.ch{
+		font-size: 34px;
+		color: #333333;
+		margin: 47px 0 20px;
+	}
+	.en{
+		font-size: 19px;
+		color: #666666;
+	}
+}
+
+div.three{
+	margin: 65px 140px 78px;
+	&>div{
+		margin-bottom: 35px;
+	}
+	.year{
+		font-size: 16px;
+		color: #333333;
+		height: 32px;
+		border-bottom: 1px solid #dddddd;
+	}
+	ul{
+		padding-left: 50px;
+		padding-top: 24px;
+	}
+	li{
+		height: 40px;
+		font-size: 15px;
+		color: #4a4a4a;
+		position: relative;
+		span.time{
+			display: inline-block;
+			color: #333333;
+			width: 80px;
+		}
+		span{
+			color: #666666;
+		}
+		span.blue{
+			color: #5c95cd
+		}
+	}
+	li:first-child div.ruler{
+		div{
+			visibility: hidden;
+		}
+		div.l{
+			visibility: visible;
+		}
+	}
+	div.ruler{
+		height: 40px;
+		position: absolute;
+		left: -50px;
+		top: -25px;
+		div{
+			.wh(4px,1px);
+			background-color: #cccccc;
+			margin-bottom: 3px;
+		}
+		div.l{
+			width: 15px;
+		}
+		div.m{
+			width: 8px;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

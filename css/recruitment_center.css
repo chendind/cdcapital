@@ -1,0 +1,72 @@
+div.one {
+  background-image: url("../images/banner2.jpg");
+}
+div.two {
+  width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+div.two p.place {
+  color: #666666;
+  font-size: 13px;
+  margin: 23px 0 6px;
+}
+div.two p.tel-email {
+  color: #666666;
+  font-size: 13px;
+  margin: 0;
+}
+div.two p.find {
+  color: #333333;
+  font-size: 30px;
+  margin: 70px 0 40px;
+}
+div.two span {
+  display: inline-block;
+  height: 32px;
+  color: #333333;
+  font-size: 15px;
+  margin: 0 20px;
+}
+div.two span:hover {
+  color: #5c95cd;
+}
+div.three {
+  width: 1000px;
+  margin: 0 auto 65px;
+}
+div.three > div {
+  border-top: 1px solid #dddddd;
+}
+div.three div.position {
+  font-size: 17px;
+  color: #666666;
+  padding: 40px 0 32px 0;
+}
+div.three table {
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+div.three tr {
+  margin-bottom: 14px;
+  display: inline-block;
+  width: 100%;
+}
+div.three th {
+  font-size: 13px;
+  color: #999999;
+  vertical-align: top;
+  line-height: 20px;
+  width: 340px;
+  text-align: left;
+  padding: 0;
+}
+div.three li {
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 6px;
+  color: #333333;
+}
+div.three ul {
+  padding: 0;
+}

@@ -78,13 +78,30 @@ div.two p.value {
   color: #666666;
 }
 div.three {
-  height: 306px;
   width: 1000px;
-  margin: 0 auto 80px;
+  margin: 0 auto 60px;
+}
+div.three span {
+  font-size: 18px;
+  color: #5c95cd;
+  vertical-align: middle;
+  line-height: 60px;
+}
+div.three img {
+  height: 18px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+div.three .hidden {
+  display: none;
+}
+div.three div.findusdetail {
   border: 1px solid #c5c5c5;
   background-color: white;
+  margin-bottom: 22px;
 }
 div.three div.findus {
+  height: 306px;
   display: inline-block;
   width: 50%;
   padding-left: 20px;
@@ -101,6 +118,7 @@ div.three div.findus div {
   color: #333333;
 }
 div.three div.position {
+  height: 306px;
   width: 50%;
   height: 100%;
   display: inline-block;
@@ -108,4 +126,34 @@ div.three div.position {
   background-image: url("../images/staticimage.jpg");
   background-repeat: no-repeat;
   vertical-align: top;
+}
+@media only screen and (max-width: 768px) {
+  div.two {
+    width: 90%;
+    height: auto;
+  }
+  div.two > div {
+    display: block;
+    margin: 10px auto;
+  }
+  div.two > div:first-child {
+    margin-right: auto;
+  }
+  div.two > div:last-child {
+    margin-left: auto;
+  }
+  div.three {
+    width: 90%;
+  }
+  div.three div.findus {
+    width: 100%;
+    padding-right: 20px;
+  }
+  div.three div.findus p {
+    margin: 40px 0 30px;
+  }
+  div.three div.position {
+    width: 100%;
+    height: 200px;
+  }
 }

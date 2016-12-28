@@ -18,7 +18,7 @@ div.two .en {
 }
 div.three {
   background-color: #fafafa;
-  padding: 30px 40px;
+  padding: 30px 40px 0;
 }
 div.three div.img {
   background-repeat: no-repeat;
@@ -71,5 +71,24 @@ div.three div.text .time {
   font-size: 14px;
 }
 .M-box {
-  margin: 0 auto;
+  margin: 0 auto 30px;
+}
+@media only screen and (max-width: 768px) {
+  div.three div.img {
+    width: 100%;
+    height: 180px;
+  }
+  div.three div.text {
+    width: 100%;
+    height: 180px;
+    padding: 0 10px;
+  }
+  div.three div.text .name {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  div.three div.text .summary {
+    margin: 20px 0;
+    font-size: 15px;
+  }
 }

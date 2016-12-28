@@ -44,11 +44,14 @@ div.three li span.time {
   width: 80px;
 }
 div.three li span {
-  color: #666666;
   display: inline-block;
   vertical-align: top;
 }
-div.three li span.blue {
+div.three li a {
+  color: #666666;
+  text-decoration: none;
+}
+div.three li a:hover {
   color: #5c95cd;
 }
 div.three li:first-child div.ruler div {

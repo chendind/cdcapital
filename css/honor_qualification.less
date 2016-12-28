@@ -22,7 +22,7 @@ div.two{
 
 div.three{
 	margin: 0px auto 100px;
-	text-align: center;
+	width: 782px;
 	div{
 		width: 235px;
 		margin: 60px 78px 0px;
@@ -43,8 +43,11 @@ div.three{
 
 @media only screen and (max-width: 768px) {
 	div.three{
+		width: auto;
 		div{
+			display: block;
 			width: auto;
+			margin: 60px auto 0;
 		}
 	}
 }

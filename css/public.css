@@ -247,7 +247,7 @@ div.hidden {
 div.manu_items {
   float: right;
   width: 90px;
-  height: 245px;
+  height: 180px;
   box-sizing: border-box;
   padding: 0 25px;
   background-color: rgba(30, 46, 95, 0.502);
@@ -259,10 +259,10 @@ div.manu_items > div {
   margin: 0 auto;
   width: 100%;
   height: 50px;
+  position: relative;
   border-width: 1px 0px;
   border-style: solid;
   border-color: rgba(30, 46, 95, 0.4);
-  position: relative;
 }
 div.manu_items > div > img {
   position: absolute;
@@ -273,17 +273,18 @@ div.manu_items > div > img {
 div.manu_items > div:hover .hidden {
   display: block;
 }
+div.manu_items > div a img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 div.manu_items div.sina {
   margin-top: 14px;
   border-top: none;
 }
-div.manu_items div.manager {
+div.manu_items div.service {
   border-bottom: none;
-}
-div.manu_items div.down {
-  height: 24px;
-  border: none;
-  margin-bottom: 6px;
 }
 div.manu_items .triangle {
   width: 0px;
@@ -647,6 +648,22 @@ div.links ul {
   list-style-type: none;
   display: inline-block;
 }
+div.links ul li {
+  font-size: 12px;
+  transform: translateY(36px);
+  background-color: #283f85;
+  padding: 5px 0 5px 24px;
+}
+div.links ul li.hidden {
+  display: none;
+}
+div.links ul a {
+  text-decoration: none;
+  color: white;
+}
+div.links ul a:hover {
+  color: #24284b;
+}
 div.TDcode {
   height: 75px;
   float: right;
@@ -855,6 +872,11 @@ div.six p {
   }
   ul.top > li:hover ul {
     display: none;
+  }
+  ul.detail_pages {
+    position: relative;
+    top: 0px;
+    padding-top: 0;
   }
   ul.navigation_show,
   div.navigation_show {

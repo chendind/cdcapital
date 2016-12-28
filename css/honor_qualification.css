@@ -18,7 +18,7 @@ div.two .en {
 }
 div.three {
   margin: 0px auto 100px;
-  text-align: center;
+  width: 782px;
 }
 div.three div {
   width: 235px;
@@ -36,7 +36,12 @@ div.three p {
   color: #333333;
 }
 @media only screen and (max-width: 768px) {
-  div.three div {
+  div.three {
     width: auto;
+  }
+  div.three div {
+    display: block;
+    width: auto;
+    margin: 60px auto 0;
   }
 }

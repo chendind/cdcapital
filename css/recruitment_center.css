@@ -24,11 +24,14 @@ div.two p.find {
 div.two span {
   display: inline-block;
   height: 32px;
-  color: #333333;
   font-size: 15px;
   margin: 0 20px;
 }
-div.two span:hover {
+div.two a {
+  text-decoration: none;
+  color: #333333;
+}
+div.two a:hover {
   color: #5c95cd;
 }
 div.three {
@@ -69,4 +72,15 @@ div.three li {
 }
 div.three ul {
   padding: 0;
+}
+@media only screen and (max-width: 768px) {
+  div.two {
+    width: auto;
+  }
+  div.three {
+    width: 90%;
+  }
+  div.three td {
+    width: 80%;
+  }
 }

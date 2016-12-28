@@ -233,7 +233,7 @@ div.hidden{
 }
 div.manu_items{
 	float: right;
-	.wh(90px, 245px);
+	.wh(90px, 180px);
 	box-sizing: border-box;
 	padding: 0 25px;
 	background-color: rgba(30, 46, 95, 0.502);
@@ -243,27 +243,28 @@ div.manu_items{
 	&>div{
 		margin: 0 auto;
 		.wh(100%,50px);
+		.img_center;
 		border-width: 1px 0px;
 		border-style: solid;
 		border-color: rgba(30, 46, 95, 0.4);
-		.img_center;
 		&:hover{
 			.hidden{
 				display: block;
 			}
+		}
+		a img{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
 		}
 	}
 	div.sina{
 		margin-top: 14px;
 		border-top: none;
 	}
-	div.manager{
+	div.service{
 		border-bottom: none;
-	}
-	div.down{
-		height: 24px;
-		border: none;
-		margin-bottom: 6px;
 	}
 	.triangle{
 		.wh(0px,0px);
@@ -608,6 +609,22 @@ div.links{
 		padding: 0;
 		list-style-type: none;
 		display: inline-block;
+		li{
+			font-size: 12px;
+			transform: translateY(36px);
+			background-color: #283f85;
+			padding: 5px 0 5px 24px;
+		}
+		li.hidden{
+			display: none;
+		}
+		a{
+			text-decoration: none;
+			color: white;
+		}
+		a:hover{
+			color: #24284b;
+		}
 	}
 }
 div.TDcode{
@@ -816,6 +833,11 @@ div.six{
 				display: none;
 			}
 		}
+	}
+	ul.detail_pages{
+		position: relative;
+		top: 0px;
+		padding-top: 0;
 	}
 	ul.navigation_show,div.navigation_show{
 		transform: translateX(0);

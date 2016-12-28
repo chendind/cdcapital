@@ -66,18 +66,6 @@ div.touchslider .bg {
   background-position: center;
   background-repeat: no-repeat;
 }
-div.touchslider .bg1 {
-  background-image: url("../images/图层 1.png");
-}
-div.touchslider .bg2 {
-  background-image: url("../images/轮播图1.jpg");
-}
-div.touchslider .bg3 {
-  background-image: url("../images/轮播图2.jpg");
-}
-div.touchslider .bg4 {
-  background-image: url("../images/轮播图3.jpg");
-}
 div.touchslider p {
   color: white;
   position: absolute;
@@ -171,6 +159,9 @@ div.touchslider-nav-item-current div.focusgroup {
   border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
 #search li:hover {
+  color: #24284b;
+}
+#search a:hover {
   color: #24284b;
 }
 #search span:before {
@@ -387,10 +378,10 @@ div.text3 .triangle2 {
 div.three {
   width: 100%;
   height: 586px;
-  background-image: url('../images/图层 4.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+}
+div.three div#video {
+  height: 100% !important;
+  width: 100% !important;
 }
 div.four {
   width: 100%;
@@ -695,8 +686,7 @@ div.four_two div.more {
   }
   div.three {
     width: 100%;
-    height: 0;
-    padding-top: 40%;
+    height: 180px;
   }
   div.one_one {
     width: 50%;
@@ -830,4 +820,15 @@ div.four_two div.more {
     bottom: 11px;
     left: 4%;
   }
+}
+.video-js .vjs-big-play-button {
+  width: 80px;
+  height: 80px;
+  border: 3px solid white;
+  box-sizing: border-box;
+  border-radius: 40px;
+}
+.video-js .vjs-big-play-button:before {
+  font-size: 52px;
+  top: 16px;
 }

@@ -1,5 +1,8 @@
 div.one {
-  background-image: url("../images/banner1.jpg");
+  background-image: url("../images/2.jpg");
+}
+div.one li.li_two {
+  color: #1e2e5f;
 }
 div.two {
   text-align: center;
@@ -50,9 +53,7 @@ div.three p.title {
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  white-space: nowrap;
 }
 div.three p.time {
   font-size: 12px;
@@ -63,6 +64,12 @@ div.three p.text {
   color: #999999;
   font-size: 17px;
   line-height: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  height: 96px;
 }
 div.three button.more {
   width: 140px;
@@ -74,6 +81,7 @@ div.three button.more {
   margin-top: 42px;
   background-color: white;
   outline: none;
+  cursor: pointer;
 }
 div.three button.more:hover {
   background-color: #cccccc;
@@ -103,7 +111,6 @@ div.three .M-box {
   div.three p.title {
     font-size: 15px;
     line-height: 20px;
-    -webkit-line-clamp: 1;
   }
   div.three p.time {
     margin: 8px 0;
@@ -111,11 +118,7 @@ div.three .M-box {
   div.three p.text {
     font-size: 13px;
     line-height: 20px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
+    height: 80px;
   }
   div.three button.more {
     margin-top: 0px;

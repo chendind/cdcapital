@@ -4,12 +4,13 @@
 	<title>Recruitment Center</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no"/>
 	<link rel="stylesheet" type="text/css" href="../css/public.css">
 	<link rel="stylesheet" type="text/css" href="../css/recruitment_center.css">
 	<link rel="stylesheet" type="text/css" href="../flaticon/flaticon.css">
 </head>
 <body>
-	<div id="vm">
+	<div id="vm" v-cloak>
 		<above></above>
 		<login></login>
 		<div class="one">
@@ -21,14 +22,14 @@
 			<p class="tel-email">求职电话：0531-81761513  邮箱：cdcapital@163.com</p>
 			<p class="find">我们在寻找</p>
 			<p class="position">
-				<span v-for="item in items">
-					<a :href="'#'+item.position">渠道部总监/经理</a>
+				<span v-for="item in items" @click="goItem($event)">
+					{{item.position}}
 				</span>
 			</p>
 		</div>
 		<div class="three">
 			<div v-for="item in items">
-				<div class="position" :id="item.position">{{item.position}}</div>
+				<div class="position">{{item.position}}</div>
 				<table>
 					<tr>
 						<th>职责</th>
@@ -60,6 +61,16 @@
 							</ul>
 						</td>
 					</tr>
+					<tr>
+						<th>邮箱</th>
+						<td>
+							<ul>
+								<li>
+									{{item.email}}
+								</li>
+							</ul>
+						</td>
+					</tr>
 				</table>
 			</div>
 		</div>
@@ -77,37 +88,23 @@
 		var vm = new Vue({
 			el: "#vm",
 			data: {
-				items: [
-				    {
-				      "id": 1,
-				      "position": "渠道部总监/经理",
-				      "duty": ["负责开拓并维护与机构客户的合作关系，推动项目的顺利募集,负责开拓并维护与机构客户的合作关系，推动项目的顺利募集负责开拓并维护与机构客户的合作关系，推动项目的顺利募集","负责开拓并维护与机构客户的合作关系，推动项目的顺利募集","负责开拓并维护与机构客户的合作关系，推动项目的顺利募集","负责开拓并维护与机构客户的合作关系，推动项目的顺利募集"],
-				      "requirement": ["金融、经济、管理等相关专业本科及以上学历","金融、经济、管理等相关专业本科及以上学历","金融、经济、管理等相关专业本科及以上学历","金融、经济、管理等相关专业本科及以上学历","金融、经济、管理等相关专业本科及以上学历"],
-				      "place": ["杭州"],
-				      "email": "xxx@163.com",
-				      "attr": {
-				        "attr1": "哈哈哈"
-				      }
-				    },{
-				      "id": 1,
-				      "position": "大客户部总监/经理",
-				      "duty": ["负责开拓并维护与机构客户的合作关系，推动项目的顺利募集","负责开拓并维护与机构客户的合作关系，推动项目的顺利募集","负责开拓并维护与机构客户的合作关系，推动项目的顺利募集","负责开拓并维护与机构客户的合作关系，推动项目的顺利募集"],
-				      "requirement": ["金融、经济、管理等相关专业本科及以上学历","金融、经济、管理等相关专业本科及以上学历","金融、经济、管理等相关专业本科及以上学历","金融、经济、管理等相关专业本科及以上学历","金融、经济、管理等相关专业本科及以上学历"],
-				      "place": ["杭州"],
-				      "email": "xxx@163.com",
-				      "attr": {
-				        "attr1": "哈哈哈"
-				      }
-				    }]
+				items: []
 			},
 			methods: {
-				getTime: function (stamp) {
-					var date = new Date(stamp);
-					y = date.getFullYear();
-					m = date.getMonth() + 1;
-					d = date.getDate();
-					return y + "-" + (m>9?m:"0"+m) + "-"  + (d>9?d:"0"+d);
+				goItem: function (event) {
+					var index = $(event.target).index("div.two span");
+					var top = $("div.three .position:eq("+index+")").position().top;
+					$("html").animate({scrollTop: top}, 400);
+					$("body").animate({scrollTop: top}, 400);
 				}
+			},
+			mounted: function () {
+				var self = this;
+
+				$.when(getRecruitmentList())
+				.done(function (data) {
+					self.items = data.list;
+				})
 			}
 		})
 	</script>

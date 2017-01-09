@@ -4,12 +4,13 @@
 	<title>Development History</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no"/>
 	<link rel="stylesheet" type="text/css" href="../css/public.css">
 	<link rel="stylesheet" type="text/css" href="../css/development_history.css">
 	<link rel="stylesheet" type="text/css" href="../flaticon/flaticon.css">
 </head>
 <body>
-	<div id="vm">
+	<div id="vm" v-cloak>
 		<above></above>
 		<login></login>
 		<div class="one">
@@ -21,10 +22,10 @@
 			<div class="en">- Development History -</div>
 		</div>
 		<div class="three">
-			<div v-for="(val,index) in items">
-				<div class="year">{{index}}</div>
+			<div v-for="val in items">
+				<div class="year">{{val.year}}</div>
 				<ul>
-					<li v-for="item in val">
+					<li v-for="item in val.item">
 						<div class="ruler">
 							<div></div><div></div><div></div><div></div>
 							<div class="m"></div>
@@ -55,7 +56,7 @@
 		var vm = new Vue({
 			el: "#vm",
 			data: {
-				items: {}
+				items: []
 			},
 			methods: {
 				getTimeCh: function (stamp) {
@@ -74,13 +75,17 @@
 				$.when(getDevelopmentList())
 				.done(function (data) {
 					var list = data.list;
-					self.items = {};
+					self.items = [];
+					var year = null;
+					var count = -1;
 					for (var i = 0; i < list.length; i++) {
-						if(self.items[self.getYear(list[i].time)] === undefined){
-							self.items[self.getYear(list[i].time)] = [list[i]];
+						if(self.getYear(list[i].time) === year){
+							self.items[count].item.push(list[i]);
 						}
 						else{
-							self.items[self.getYear(list[i].time)].push(list[i]);
+							year = self.getYear(list[i].time);
+							count ++;
+							self.items.push({"year":year,item:[list[i]]});
 						}
 					}
 				});

@@ -4,12 +4,13 @@
 	<title>Company Announce</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no"/>
 	<link rel="stylesheet" type="text/css" href="../css/public.css">
 	<link rel="stylesheet" type="text/css" href="../css/company_announce.css">
 	<link rel="stylesheet" type="text/css" href="../flaticon/flaticon.css">
 </head>
 <body>
-	<div id="vm">
+	<div id="vm" v-cloak>
 		<above></above>
 		<login></login>
 		<div class="one">
@@ -22,16 +23,18 @@
 		</div>
 		<div class="three">
 			<div v-for="item in items">
-				<div class="img" :style="{backgroundImage: 'url('+item.img+')'}"></div>
+				<div class="img" :style="{backgroundImage: 'url('+baseUrl+item.img+')'}"></div>
 				<div class="text">
-					<p class="name">{{item.name}}</p>
+					<a :href="'detail.html?'+encodeObj({'id':item.id})">
+						<p class="name">{{item.name}}</p>
+					</a>
 					<hr>
 					<p class="summary">{{item.summary}}</p>
 					<p class="time">{{getTime(item.time)}}</p>
 				</div>
 			</div> 
 		</div>
-		<div class="M-box"></div>
+		<div class="M-box" v-if="items.length > 20"></div>
 		<five></five>
 		<six></six>
 	</div>
@@ -46,55 +49,30 @@
 		var vm = new Vue({
 			el: "#vm",
 			data: {
-				items: [{
-					name: "创道记 | 创道资本投资论坛圆满结束 集团执行总裁亲临分享投资...",
-					summary: "12月3日，杭州难得一见的好天气，清风拂面、阳光微醺。创道资本浙江省公司在这天举行的投资论坛吸引了近百名的投资理财客户参与，共飨理财盛宴。",
-					img: "../itemImage/Group-9.jpg",
-					time: 0
-				},{
-					name: "创道记 | 创道资本投资论坛圆满结束 集团执行总裁亲临分享投资...",
-					summary: "12月3日，杭州难得一见的好天气，清风拂面、阳光微醺。创道资本浙江省公司在这天举行的投资论坛吸引了近百名的投资理财客户参与，共飨理财盛宴。",
-					img: "../itemImage/Group-9.jpg",
-					time: 0
-				},{
-					name: "创道记 | 创道资本投资论坛圆满结束 集团执行总裁亲临分享投资...",
-					summary: "12月3日，杭州难得一见的好天气，清风拂面、阳光微醺。创道资本浙江省公司在这天举行的投资论坛吸引了近百名的投资理财客户参与，共飨理财盛宴。",
-					img: "../itemImage/Group-9.jpg",
-					time: 0
-				},{
-					name: "创道记 | 创道资本投资论坛圆满结束 集团执行总裁亲临分享投资...",
-					summary: "12月3日，杭州难得一见的好天气，清风拂面、阳光微醺。创道资本浙江省公司在这天举行的投资论坛吸引了近百名的投资理财客户参与，共飨理财盛宴。",
-					img: "../itemImage/Group-9.jpg",
-					time: 0
-				},{
-					name: "创道记 | 创道资本投资论坛圆满结束 集团执行总裁亲临分享投资...",
-					summary: "12月3日，杭州难得一见的好天气，清风拂面、阳光微醺。创道资本浙江省公司在这天举行的投资论坛吸引了近百名的投资理财客户参与，共飨理财盛宴。",
-					img: "../itemImage/Group-9.jpg",
-					time: 0
-				}]
-			},
-			methods: {
-				getTime: function (stamp) {
-					var date = new Date(stamp);
-					y = date.getFullYear();
-					m = date.getMonth() + 1;
-					d = date.getDate();
-					return y + "-" + (m>9?m:"0"+m) + "-"  + (d>9?d:"0"+d);
-				}
+				items: []
 			},
 			mounted:function(){
-				$(".M-box").pagination({
-					totalData:100,
-				    showData:10,
-				    current:2,
-				    count:2,
-					prevContent:'上一页',
-					nextContent:'下一页',
-					coping:true,
-				    callback:function(pagination){
-				        console.log(pagination.getCurrent());
-				    }
-				});
+				var self = this;
+				$.when(getArticleForPage(0,4,"ANNOUNCEMENT"))
+				.done(function (data) {
+					self.items = data.list;
+					$(".M-box").pagination({
+						totalData: data.countAll,
+					    showData:20,
+					    current:1,
+					    count:2,
+						prevContent:'上一页',
+						nextContent:'下一页',
+						coping:true,
+					    callback:function(pagination){
+					    	$.when(getArticleForPage((pagination.getCurrent()-1)*4,4,"ANNOUNCEMENT"))
+							.done(function (data) {
+								$("body").scrollTop(400);
+								self.items = data.list;
+							})
+					    }
+					});
+				})
 			}
 		})
 	</script>

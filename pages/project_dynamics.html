@@ -4,12 +4,13 @@
 	<title>Project Dynamics</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no"/>
 	<link rel="stylesheet" type="text/css" href="../css/public.css">
 	<link rel="stylesheet" type="text/css" href="../css/project_dynamics.css">
 	<link rel="stylesheet" type="text/css" href="../flaticon/flaticon.css">
 </head>
 <body>
-	<div id="vm">
+	<div id="vm" v-cloak>
 		<above></above>
 		<login></login>
 		<div class="one">
@@ -22,19 +23,19 @@
 		</div>
 		<div class="three">
 			<div v-for="(item, index) in items">
-				<div v-if="index % 2 === 0" class="leftImage" :style="{backgroundImage: 'url('+item.img+')'}">
+				<div v-if="index % 2 === 0" class="leftImage" :style="{backgroundImage: 'url('+baseUrl+item.img+')'}">
 				</div>
-				<div v-else class="rightImage" :style="{backgroundImage: 'url('+item.img+')'}">
+				<div v-else class="rightImage" :style="{backgroundImage: 'url('+baseUrl+item.img+')'}">
 				</div>
 				<div class="content">
-					<p class="title">{{item.title}}</p>
+					<p class="title">{{item.name}}</p>
 					<p class="time">{{getTime(item.time)}}</p>
 					<hr>
-					<p class="text">{{item.text}}</p>
-					<button class="more">了解更多</button>
+					<p class="text">{{item.summary}}</p>
+					<a :href="'detail.html?'+encodeObj({'id':item.id})"><button class="more">了解更多</button></a>
 				</div>
 			</div> 
-			<div class="M-box"></div>
+			<div class="M-box" v-if="items.length > 20"></div>
 		</div>
 		<five></five>
 		<six></six>
@@ -50,50 +51,30 @@
 		var vm = new Vue({
 			el: "#vm",
 			data: {
-				items: [{
-					title: "市委书记孙述涛一行领导视察颐高之信电商产业园市委书记孙述涛一行领导视察颐高之信电商产业园",
-					text: "11月11日上午，威海市委书记...11月11日上午，威海市委书记11月11日上午，威海市委书记11月11日上午，威海市委书记11月11日上午，威海市委书记11月11日上午，威海市委书记11月11日上午，威海市委书记11月11日上午，威海市委书记11月11日上午，威海市委书记",
-					img: "../itemImage/Group-5.jpg",
-					time: 0
-				},{
-					title: "市委书记孙述涛一行领导视察颐高之信电商产业园",
-					text: "11月11日上午，威海市委书记...",
-					img: "../itemImage/Group-5.jpg",
-					time: 0
-				},{
-					title: "市委书记孙述涛一行领导视察颐高之信电商产业园",
-					text: "11月11日上午，威海市委书记...",
-					img: "../itemImage/Group-5.jpg",
-					time: 0
-				},{
-					title: "市委书记孙述涛一行领导视察颐高之信电商产业园",
-					text: "11月11日上午，威海市委书记...",
-					img: "../itemImage/Group-5.jpg",
-					time: 0
-				}]
-			},
-			methods: {
-				getTime: function (stamp) {
-					var date = new Date(stamp);
-					y = date.getFullYear();
-					m = date.getMonth() + 1;
-					d = date.getDate();
-					return y + "-" + (m>9?m:"0"+m) + "-"  + (d>9?d:"0"+d);
-				}
+				items: []
 			},
 			mounted:function(){
-				$(".M-box").pagination({
-					totalData:100,
-				    showData:10,
-				    current:2,
-				    count:2,
-					prevContent:'上一页',
-					nextContent:'下一页',
-					coping:true,
-				    callback:function(pagination){
-				        console.log(pagination.getCurrent());
-				    }
-				});
+				var self = this;
+				$.when(getArticleForPage(0,4,"PROJECT_DYNAMICS"))
+				.done(function (data) {
+					self.items = data.list;
+					$(".M-box").pagination({
+						totalData: data.countAll,
+					    showData:20,
+					    current:1,
+					    count:2,
+						prevContent:'上一页',
+						nextContent:'下一页',
+						coping:true,
+					    callback:function(pagination){
+					    	$.when(getArticleForPage((pagination.getCurrent()-1)*4,4,"PROJECT_DYNAMICS"))
+							.done(function (data) {
+								$("body").scrollTop(400);
+								self.items = data.list;
+							})
+					    }
+					});
+				})
 			}
 		})
 	</script>

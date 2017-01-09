@@ -1,5 +1,8 @@
 div.one {
-  background-image: url("../images/banner3.jpg");
+  background-image: url("../images/2.jpg");
+}
+div.one li.li_two {
+  color: #1e2e5f;
 }
 div.two {
   text-align: center;
@@ -20,17 +23,22 @@ div.three_one {
   border-top: 1px solid #dddddd;
   margin: 0 40px;
 }
-div.three_one div {
+div.three_one > div {
   display: inline-block;
   text-align: center;
   width: 30%;
-  height: 300px;
+  height: auto;
   box-shadow: 0 0 5px 5px #f3f3f3;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin: 30px 0;
 }
-div.three_one div:hover {
+div.three_one > div:hover {
   box-shadow: 0 0 20px 2px #dfdfdf;
+}
+div.three_one div div {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
 }
 div.three_one .marginright {
   margin-right: 2.5%;
@@ -39,13 +47,22 @@ div.three_one .marginleft {
   margin-left: 2.5%;
 }
 div.three_one img {
-  height: 100px;
-  margin-top: 63px;
+  position: absolute;
+  height: 50%;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
 }
 div.three_one p {
+  position: absolute;
   font-size: 24px;
   color: #5c95cd;
-  margin-top: 43px;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
 }
 div.three_two {
   padding: 0 40px;
@@ -67,6 +84,7 @@ div.three_two div.text:after {
   top: 100px;
   right: 0px;
   transform: translateX(100%);
+  -ms-transform: translateX(100%);
   content: "";
   border-width: 15px 0 15px 20px;
   border-style: solid;
@@ -185,6 +203,7 @@ div.three_four .img1 p {
   margin: 0;
   font-weight: bold;
   transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
 }
 div.three_four .img2 {
   background-image: url("../images/1-150P5135545112.jpg");
@@ -192,10 +211,13 @@ div.three_four .img2 {
 div.three_four div.title {
   width: 100%;
   height: 60px;
+  opacity: 1;
   position: absolute;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   text-align: center;
+  transition: all 1s;
+  visibility: visible;
 }
 div.three_four div.title p {
   font-size: 23px;
@@ -203,11 +225,12 @@ div.three_four div.title p {
   margin: 0;
 }
 div.three_four div.detail {
-  display: none;
+  opacity: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   position: relative;
+  transition: all 1s;
 }
 div.three_four div.detail p {
   margin: 0 40px;
@@ -218,12 +241,13 @@ div.three_four div.detail p {
   top: 50%;
   font-weight: lighter;
   transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
 }
 div.three_four > div:hover div.title {
-  display: none;
+  opacity: 0;
 }
 div.three_four > div:hover div.detail {
-  display: block;
+  opacity: 1;
 }
 div.three_four .img3 {
   background-image: url("../images/dept-of-management.jpg");
@@ -238,22 +262,15 @@ div.three_four .img6 {
   background-image: url("../images/Five-Stages-of-Lead-Management.jpg");
 }
 @media only screen and (max-width: 768px) {
-  div.three_one div {
+  div.three_one > div {
     margin: 20px 0;
     width: 100%;
-    height: 200px;
   }
   div.three_one .marginright {
     margin-right: 0;
   }
   div.three_one .marginleft {
     margin-left: 0;
-  }
-  div.three_one img {
-    margin-top: 20px;
-  }
-  div.three_one p {
-    margin-top: 20px;
   }
   div.three_two div.text {
     width: 100%;
@@ -281,10 +298,12 @@ div.three_four .img6 {
   div.three_three .img2,
   div.three_three .img4 {
     transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
   }
   div.three_three .text2,
   div.three_three .text4 {
     transform: translateY(100%);
+    -ms-transform: translateY(100%);
   }
   div.three_three td {
     display: block;

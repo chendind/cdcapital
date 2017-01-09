@@ -3,7 +3,10 @@
 	height: @height;
 }
 div.one{
-	background-image: url("../images/banner.jpg");
+	background-image: url("../images/6.jpg");
+	li.li_six{
+		color: #1e2e5f;
+	}
 }
 div.two{
 	text-align: center;
@@ -81,6 +84,7 @@ div.four{
 		display: inline-block;
 		box-sizing: border-box;
 		padding: 60px 30px 85px;
+		vertical-align: top;
 	}
 	img{
 		height: 150px;
@@ -101,6 +105,7 @@ div.four{
 
 @media only screen and (max-width: 768px) {
 	div.three{
+		text-align: center;
 		ul{
 			display: block;
 			width: 100%;
@@ -109,11 +114,16 @@ div.four{
 			display: block;
 			width: 100%;
 		}
+		img{
+			width: 70%;
+			margin-bottom: 40px;
+		}
 	}
 
 	div.four{
 		&>div{
 			width: 100%;
+			padding: 30px 0;
 		}
 	}
 }

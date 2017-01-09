@@ -16,17 +16,24 @@ body{
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%,-50%);
+		-ms-transform: translate(-50%,-50%);
 	}
 }
 .vertical_center{
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
 }
 .ib_vmid{
 	display: inline-block;
 	vertical-align: middle;
 }
+
+[v-cloak] {
+  display: none;
+}
+
 
 div.above{
 	display: none;
@@ -47,9 +54,16 @@ div.banner{
 }
 div.logo{
 	.wh(166px, 100%);
-	.img_center;
 	.ib_vmid;
 	background-color: #1e2e5f;
+	a{
+		display: inline-block;
+		.wh(100%, 100%);
+		.img_center;
+	}
+	img{
+		border: none;
+	}
 }
 div.ul_manu{
 	display: none;
@@ -57,31 +71,38 @@ div.ul_manu{
 div.log_reg{
 	display: none;
 }
-ul.top{
+div.top{
 	.wh(100%, 100%);
 	.ib_vmid;
-	box-sizing: border-box;
-	list-style-type: none;
-	border-style: solid;
-	border-width: 0 0 2px 0;
-	border-color: rgba(255, 255, 255, 0.1);
 	margin: 0;
 	padding: 0 90px 0 166px;
 	position: absolute;
 	top: 0;
 	left: 0;
 	color: #efefef;
+	box-sizing: border-box;
+	z-index: -1;
+}
+ul.top{
+	.wh(100%, 100%);
+	box-sizing: border-box;
+	list-style-type: none;
+	border-style: solid;
+	border-width: 0 0 2px 0;
+	border-color: rgba(255, 255, 255, 0.1);
+	padding: 0;
 	text-align: center;
 	&>li{
+		color: white;
 		display: inline-block;
-		.wh(85px, 100%);
+		.wh(83px, 100%);
 		line-height: 67px;
 		font-size: 12px;
 		text-align: center;
-		border-width: 0 2px 0 0;
+		border-width: 0 2px 2px 0;
 		border-style: solid;
 		border-color: rgba(255, 255, 255, 0.1);
-		box-sizing: border-box;
+		border-bottom-color: transparent;
 		vertical-align: top;
 		cursor: pointer;
 		position: relative;
@@ -102,7 +123,7 @@ ul.top{
 		float: right;
 		line-height: inherit;
 		text-align: right;
-		padding-right: 2.7%;
+		margin-right: 2.7%;
 		div{
 			height: 16px;
 			padding-top: 14px;
@@ -116,19 +137,21 @@ ul.top{
 			vertical-align: middle;
 			white-space: pre;
 			cursor: pointer;
+			color: white;
 		}
 		span.tel{
 			font-weight: bold;
 			font-size: 17px;
 			height: 17px;
+			color: white;
 		}
 	}
-	.register:hover{
+	span.reg:hover{
 		color: #efefef;
 	}
 	a{
 		text-decoration: none;
-		color: white;
+		color: inherit;
 		display: inline-block;
 		width: 100%;
 		height: 100%;
@@ -145,15 +168,16 @@ ul.top{
 }
 ul.detail_pages::before{
 	content: "";
-	border-width: 0 6px 6px;
+	border-width: 6px;
 	border-style: solid;
-	border-color: #1e2e5f transparent;
+	border-color: transparent transparent #1e2e5f transparent;
 	width: 0;
 	height: 0;
 	position: absolute;
 	top: 0;
 	left: 36px;
 	transform: translateY(-100%);
+	-ms-transform: translateY(-100%) rotate(90deg);
 }
 ul.detail_pages{
 	height: 132px;
@@ -175,10 +199,13 @@ ul.detail_pages{
 	}
 	img{
 		height: 14px;
+		width: 14px;
 		position: absolute;
 		left: 0;
 		top: 50%;
 		transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		border:none;
 	}
 	li{
 		width: 68px;
@@ -215,6 +242,7 @@ div.manu{
 	background-color: #1e2e5f;
 	.manu_hidden{
 		transform: translate(-50%,22px);
+		-ms-transform: translate(-50%,22px);
 	}
 	cursor: pointer;
 	div.diamonds{
@@ -257,6 +285,8 @@ div.manu_items{
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%,-50%);
+			-ms-transform: translate(-50%,-50%);
+			border: none;
 		}
 	}
 	div.sina{
@@ -274,9 +304,11 @@ div.manu_items{
 		position: absolute;
 		top: 50%;
 		transform: translate(-25px, -50%);
+		-ms-transform: translate(-25px, -50%);
 	}
 	div.detail{
 		transform: translate(-25px, -33px);
+		-ms-transform: translate(-25px, -33px);
 		position: absolute;
 		right: 100%;
 		.wh(131px, 151px);
@@ -287,7 +319,8 @@ div.manu_items{
 			text-align: center;
 		}
 		img{
-			width: 100%;
+			width: 131px;
+			height: 131px;
 		}
 	}
 }
@@ -304,7 +337,8 @@ div.login{
 	top: 50vh;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	z-index: 10;
+	-ms-transform: translate(-50%, -50%);
+	z-index: 100;
 	background-color: white;
 	font-size: 0;
 	div.img{
@@ -387,6 +421,7 @@ div.login_register{
 			background-color: #bd0000;
 			color: white;
 			font-size: 17px;
+			cursor: pointer;
 		}
 		div{
 			font-size: 12px;
@@ -441,6 +476,7 @@ div.needToKnow{
 		}
 		.logo{
 			width: 60px;
+			height: 60px;
 		}
 		.ch{
 			font-size: 22px;
@@ -457,6 +493,7 @@ div.needToKnow{
 		}
 		.bitmap{
 			width: 100px;
+			height: 100px;
 			margin-bottom: 30px;
 		}
 	}
@@ -477,7 +514,8 @@ div.needToKnow{
 			}
 		}
 		img{
-			height: 45px;
+			height: 47px;
+			width: 136px;
 			vertical-align: middle;
 			margin-right: 22px;
 		}
@@ -543,7 +581,7 @@ ul.about{
 		display: inline-block;
 		width: 8.45%;
 		text-align: left;
-		transform: translateY(72px);
+		margin-top: 72px;
 	}
 	a{
 		font-size: 12px;
@@ -558,7 +596,7 @@ div.others{
 	float: right;
 	font-size: 12px;
 	color: #e1e2e5;
-	transform: translateY(70px);
+	margin-top: 70px;
 	div{
 		display: inline-block;
 		margin-left: 35px;
@@ -579,6 +617,7 @@ div.five_two{
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
 	}
 }
 div.links{
@@ -587,6 +626,8 @@ div.links{
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	cursor: pointer;
 	span{
 		font-size: 12px;
 		position: absolute;
@@ -612,6 +653,7 @@ div.links{
 		li{
 			font-size: 12px;
 			transform: translateY(36px);
+			-ms-transform: translateY(36px);
 			background-color: #283f85;
 			padding: 5px 0 5px 24px;
 		}
@@ -620,7 +662,7 @@ div.links{
 		}
 		a{
 			text-decoration: none;
-			color: white;
+			color: #d8e0e2;
 		}
 		a:hover{
 			color: #24284b;
@@ -664,6 +706,7 @@ div.six{
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%,-50%);
+		-ms-transform: translate(-50%,-50%);
 		text-align: center;
 	}
 	p{
@@ -749,6 +792,7 @@ div.six{
 		z-index: 1;
 		left: 50%;
 		transform: translateX(-50%);
+		-ms-transform: translateX(-50%);
 		img{
 			width: 80px;
 		}
@@ -786,6 +830,7 @@ div.six{
 		border-color: white;
 		z-index: 1;
 		transform: translateX(-100%);
+		-ms-transform: translateX(-100%);
 		transition: all 0.5s;
 		display: block;
 		button{
@@ -801,8 +846,7 @@ div.six{
 			margin-right: 4.6%;
 		}
 	}
-	ul.top{
-		height: auto;
+	div.top{
 		position: absolute;
 		top: 0;
 		background-color: #1e2e5f;
@@ -810,8 +854,11 @@ div.six{
 		padding: 129px 6.7% 0;
 		height: 100vh;
 		transform: translateX(-100%);
+		-ms-transform: translateX(-100%);
 		transition: all 0.5s;
 		z-index: 0;
+	}
+	ul.top{
 		&>li{
 			display: block;
 			width: 100%;
@@ -841,6 +888,7 @@ div.six{
 	}
 	ul.navigation_show,div.navigation_show{
 		transform: translateX(0);
+		-ms-transform: translateX(0);
 	}
 	div.manu{
 		width: 55px;
@@ -859,6 +907,7 @@ div.six{
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%,-50%);
+			-ms-transform: translate(-50%,-50%);
 			.wh(18px,18px);
 			div{
 				.wh(7px,7px);
@@ -869,6 +918,7 @@ div.six{
 		}
 		div.diamonds.hidden{
 			transform: translate(-50%,-50%) rotate(45deg);
+			-ms-transform: translate(-50%,-50%) rotate(45deg);
 		}
 	}
 	div.manu_details{
@@ -901,6 +951,7 @@ div.six{
 			top: 50vh;
 			left: 50vw;
 			transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
 			.wh(200px, 231px);
 			p{
 				font-size: 14px;
@@ -911,6 +962,7 @@ div.six{
 	div.login{
 		.wh(90%, 750px);
 		transform: translate(-50%, -40%);
+		-ms-transform: translate(-50%, -40%);
 		div.img{
 			display: none;
 		}
@@ -963,7 +1015,7 @@ div.six{
 			width: 50%;
 			height: 40px;
 			line-height: 40px;
-			transform: translateY(0);
+			margin: 0;
 			position: relative;
 		}
 		a{
@@ -971,12 +1023,12 @@ div.six{
 			position: absolute;
 			top: 100%;
 			transform: translateY(-100%);
+			-ms-transform: translateY(-100%);
 		}
 	}
 	div.others{
 		float: none;
 		font-size: 0;
-		transform: translateY(0);
 		position: relative;
 		margin-top: 15px;
 		div{
@@ -994,6 +1046,7 @@ div.six{
 			position: absolute;
 			top: 50%;
 			transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
 		}
 	}
 	div.five_two{
@@ -1009,6 +1062,7 @@ div.six{
 		position: relative;
 		top: 0;
 		transform: translateY(0);
+		-ms-transform: translateY(0);
 		span{
 			line-height: 30px;
 			height: 30px;
@@ -1022,6 +1076,11 @@ div.six{
 		}
 		ul{
 			width: 170px;
+			li{
+				transform: translateY(30px);
+				-ms-transform: translateY(30px);
+				padding-left: 15px;
+			}
 		}
 	}
 	div.TDcode{

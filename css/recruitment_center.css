@@ -1,5 +1,8 @@
 div.one {
-  background-image: url("../images/banner2.jpg");
+  background-image: url("../images/5.jpg");
+}
+div.one li.li_five {
+  color: #1e2e5f;
 }
 div.two {
   width: 1000px;
@@ -26,12 +29,10 @@ div.two span {
   height: 32px;
   font-size: 15px;
   margin: 0 20px;
-}
-div.two a {
-  text-decoration: none;
   color: #333333;
+  cursor: pointer;
 }
-div.two a:hover {
+div.two span:hover {
   color: #5c95cd;
 }
 div.three {

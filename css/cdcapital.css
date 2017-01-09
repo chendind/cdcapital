@@ -9,6 +9,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  borer: none;
 }
 .ib_vmid {
   display: inline-block;
@@ -22,12 +24,26 @@ body {
   font-size: 12px;
   line-height: 16px;
   letter-spacing: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  height: 96px;
 }
 .content2 {
   font-size: 12px;
   line-height: 16px;
   width: 118px;
   letter-spacing: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+a {
+  color: inherit;
+  text-decoration: none;
 }
 .more {
   font-size: 0px;
@@ -38,6 +54,9 @@ body {
 .more span {
   font-size: 14px;
   margin-right: 7px;
+}
+.more img {
+  border: none;
 }
 div.one {
   width: 100%;
@@ -63,7 +82,7 @@ div.touchslider .bg {
   width: 100% !important;
   height: 100%;
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
 }
 div.touchslider p {
@@ -71,6 +90,7 @@ div.touchslider p {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
   white-space: nowrap;
   margin: 0;
 }
@@ -161,6 +181,11 @@ div.touchslider-nav-item-current div.focusgroup {
 #search li:hover {
   color: #24284b;
 }
+#search a {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 #search a:hover {
   color: #24284b;
 }
@@ -184,6 +209,7 @@ div.touchslider-nav-item-current div.focusgroup {
   background-color: transparent;
   line-height: 30px;
   vertical-align: top;
+  width: 80%;
 }
 #search ::-webkit-input-placeholder {
   color: white;
@@ -225,10 +251,20 @@ div.two > div {
 div.img1 {
   width: 50%;
   height: 238px;
-  background-image: url('../images/bitmap.png');
+  overflow: hidden;
+  position: relative;
+}
+div.img1 div {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+div.img1 div:hover {
+  transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
 }
 div.text1 {
   width: 25%;
@@ -247,6 +283,7 @@ div.text1 p.capital_ch {
 }
 div.text1 p.content1 {
   margin: 0px 10.3%;
+  height: 96px;
 }
 div.text1 div.more {
   bottom: 36px;
@@ -277,10 +314,19 @@ div.img2 {
   width: 25%;
   height: 298px;
   position: relative;
-  background-image: url('../images/图层 5.png');
+  overflow: hidden;
+}
+div.img2 div {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+div.img2 div:hover {
+  transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
 }
 div.text2 {
   width: 50%;
@@ -290,8 +336,14 @@ div.text2 {
 div.text2 p.title {
   margin: 23px 5.1%;
 }
+div.text2 div.scroll {
+  height: 96px;
+  overflow: hidden;
+}
 div.text2 p.content1 {
   margin: 0 5.4%;
+  display: block;
+  line-height: normal;
 }
 div.text2 p.date {
   font-size: 12px;
@@ -327,10 +379,19 @@ div.text2 .point3 {
 div.img3 {
   width: 25%;
   height: 239px;
-  background-image: url('../images/图层 6.png');
+  overflow: hidden;
+}
+div.img3 div {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+div.img3 div:hover {
+  transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
 }
 div.text3 {
   width: 25%;
@@ -393,10 +454,19 @@ div.four > div {
 div.one_one {
   width: 25%;
   height: 240px;
-  background-image: url('../images/矢量智能对象3.png');
+  overflow: hidden;
+}
+div.one_one div {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+div.one_one div:hover {
+  transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
 }
 div.one_two {
   width: 25%;
@@ -416,10 +486,19 @@ div.one_two div.more {
 div.one_three {
   width: 50%;
   height: 240px;
-  background-image: url('../images/矢量智能对象.png');
+  overflow: hidden;
+}
+div.one_three div {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+div.one_three div:hover {
+  transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
 }
 div.two_one {
   width: 25%;
@@ -439,10 +518,19 @@ div.two_one div.more {
 div.two_two {
   width: 25%;
   height: 237px;
-  background-image: url('../images/矢量智能对象2.png');
+  overflow: hidden;
+}
+div.two_two div {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+div.two_two div:hover {
+  transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
 }
 div.two_three {
   width: 50%;
@@ -450,6 +538,7 @@ div.two_three {
   background-color: #1e2e5f;
   color: white;
   position: relative;
+  z-index: -1;
 }
 div.two_three p.title {
   margin: 42px 0 31px 5%;
@@ -465,11 +554,11 @@ div.two_three div.more {
 div.three_one {
   width: 50%;
   height: 238px;
-  background-image: url('../images/图层 3.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   position: relative;
+  z-index: -1;
   color: white;
 }
 div.three_one p.title {
@@ -486,18 +575,36 @@ div.three_one div.more {
 div.three_two {
   width: 50%;
   height: 238px;
-  background-image: url('../images/矢量智能对象1.png');
+  overflow: hidden;
+}
+div.three_two div {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
+div.three_two div:hover {
+  transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
+}
 div.four_one {
   width: 50%;
   height: 238px;
-  background-image: url('../images/矢量智能对象4.png');
+  overflow: hidden;
+}
+div.four_one div {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+div.four_one div:hover {
+  transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
 }
 div.four_two {
   width: 50%;
@@ -525,10 +632,6 @@ div.four_two div.more {
   .content1 {
     font-size: 9px;
     line-height: 14px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
   }
   .more {
     text-decoration: underline;
@@ -538,6 +641,7 @@ div.four_two div.more {
   }
   .more img {
     display: none;
+    border: none;
   }
   div.one {
     height: auto;
@@ -598,7 +702,8 @@ div.four_two div.more {
   div.text1 {
     width: 50%;
     height: 182px;
-    transform: translateY(300px);
+    transform: translateY(200px);
+    -ms-transform: translateY(200px);
   }
   div.text1 p.capital {
     font-size: 12px;
@@ -612,6 +717,7 @@ div.four_two div.more {
     margin: 0px 8.3%;
     font-weight: lighter;
     -webkit-line-clamp: 5;
+    height: 80px;
   }
   div.text1 div.more {
     bottom: 11px;
@@ -624,12 +730,14 @@ div.four_two div.more {
   div.img2 {
     width: 50%;
     height: 182px;
-    transform: translateY(300px);
+    transform: translateY(200px);
+    -ms-transform: translateY(200px);
   }
   div.text2 {
     width: 100%;
-    height: 300px;
+    height: 200px;
     transform: translateY(-182px);
+    -ms-transform: translateY(-182px);
   }
   div.text2 p.title {
     margin: 13px 4%;
@@ -640,7 +748,6 @@ div.four_two div.more {
     margin: 0 4%;
     font-size: 13px;
     line-height: 19px;
-    -webkit-line-clamp: 10;
     font-weight: normal;
     color: #3b3b3b;
   }
@@ -671,6 +778,7 @@ div.four_two div.more {
   div.text3 p.content1 {
     margin: 0 9.6%;
     -webkit-line-clamp: 3;
+    height: 48px;
   }
   div.text3 div.more {
     display: block;
@@ -702,13 +810,10 @@ div.four_two div.more {
   div.one_two p.content2 {
     font-size: 9px;
     line-height: 14px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
     margin: 0 8%;
     -webkit-line-clamp: 4;
     width: auto;
+    height: 64px;
   }
   div.one_two div.more {
     bottom: 10px;
@@ -718,11 +823,13 @@ div.four_two div.more {
     width: 100%;
     height: 123px;
     transform: translateY(123px);
+    -ms-transform: translateY(123px);
   }
   div.two_one {
     width: 50%;
     height: 123px;
     transform: translateY(-123px);
+    -ms-transform: translateY(-123px);
   }
   div.two_one p.title {
     margin: 17px 8% 13px;
@@ -730,12 +837,9 @@ div.four_two div.more {
   div.two_one p.content2 {
     font-size: 9px;
     line-height: 14px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
     margin: 0 8%;
     -webkit-line-clamp: 3;
+    height: 48px;
     width: auto;
   }
   div.two_one div.more {
@@ -746,6 +850,7 @@ div.four_two div.more {
     width: 50%;
     height: 123px;
     transform: translateY(-123px);
+    -ms-transform: translateY(-123px);
   }
   div.two_three {
     width: 100%;
@@ -772,6 +877,7 @@ div.four_two div.more {
     width: 100%;
     height: 178px;
     transform: translateY(301px);
+    -ms-transform: translateY(301px);
   }
   div.three_one p.title {
     font-size: 15px;
@@ -794,16 +900,19 @@ div.four_two div.more {
     width: 100%;
     height: 123px;
     transform: translateY(-178px);
+    -ms-transform: translateY(-178px);
   }
   div.four_one {
     width: 100%;
     height: 123px;
     transform: translateY(178px);
+    -ms-transform: translateY(178px);
   }
   div.four_two {
     width: 100%;
     height: 178px;
     transform: translateY(-301px);
+    -ms-transform: translateY(-301px);
   }
   div.four_two p.title {
     font-size: 15px;
@@ -831,4 +940,23 @@ div.four_two div.more {
 .video-js .vjs-big-play-button:before {
   font-size: 52px;
   top: 16px;
+}
+.list-news-item {
+  transition: all 1s;
+  display: inline-block;
+  width: 100%;
+  height: 16px;
+}
+.list-news-enter {
+  opacity: 0;
+  transform: translateY(15px);
+  -ms-transform: translateY(15px);
+}
+.list-news-leave-active {
+  opacity: 0;
+  transform: translateY(-15px);
+  -ms-transform: translateY(-15px);
+}
+.list-news-leave-active {
+  position: absolute;
 }

@@ -4,12 +4,13 @@
 	<title>Cooperative Partner</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no"/>
 	<link rel="stylesheet" type="text/css" href="../css/public.css">
 	<link rel="stylesheet" type="text/css" href="../css/cooperative_partner.css">
 	<link rel="stylesheet" type="text/css" href="../flaticon/flaticon.css">
 </head>
 <body>
-	<div id="vm">
+	<div id="vm" v-cloak>
 		<above></above>
 		<login></login>
 		<div class="one">
@@ -22,8 +23,8 @@
 		</div>
 		<div class="three">
 			<div v-for="item in items">
-				<a :href="item.turn_url">
-					<img :src="item.img">
+				<a :href="(new RegExp('^http://').test(item.turn_url))?item.turn_url:('http://'+item.turn_url)" target="_blank">
+					<div class="img" :style="'background-image: url(' + baseUrl +item.img+')'"></div>
 				</a>
 			</div>
 		</div>
@@ -41,175 +42,7 @@
 		var vm = new Vue({
 			el: "#vm",
 			data: {
-				items: [
-				    {
-				      "id": 1,
-				      "name": "方正证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.fzzq.com"
-				    },
-				    {
-				      "id": 2,
-				      "name": "中山证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.zszq.com"
-				    },
-				    {
-				      "id": 1,
-				      "name": "方正证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.fzzq.com"
-				    },
-				    {
-				      "id": 2,
-				      "name": "中山证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.zszq.com"
-				    },
-				    {
-				      "id": 1,
-				      "name": "方正证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.fzzq.com"
-				    },
-				    {
-				      "id": 2,
-				      "name": "中山证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.zszq.com"
-				    },
-				    {
-				      "id": 1,
-				      "name": "方正证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.fzzq.com"
-				    },
-				    {
-				      "id": 2,
-				      "name": "中山证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.zszq.com"
-				    },
-				    {
-				      "id": 1,
-				      "name": "方正证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.fzzq.com"
-				    },
-				    {
-				      "id": 2,
-				      "name": "中山证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.zszq.com"
-				    },
-				    {
-				      "id": 1,
-				      "name": "方正证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.fzzq.com"
-				    },
-				    {
-				      "id": 2,
-				      "name": "中山证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.zszq.com"
-				    },
-				    {
-				      "id": 1,
-				      "name": "方正证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.fzzq.com"
-				    },
-				    {
-				      "id": 2,
-				      "name": "中山证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.zszq.com"
-				    },
-				    {
-				      "id": 1,
-				      "name": "方正证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.fzzq.com"
-				    },
-				    {
-				      "id": 2,
-				      "name": "中山证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.zszq.com"
-				    },
-				    {
-				      "id": 1,
-				      "name": "方正证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.fzzq.com"
-				    },
-				    {
-				      "id": 2,
-				      "name": "中山证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.zszq.com"
-				    },
-				    {
-				      "id": 1,
-				      "name": "方正证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.fzzq.com"
-				    },
-				    {
-				      "id": 2,
-				      "name": "中山证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.zszq.com"
-				    },
-				    {
-				      "id": 1,
-				      "name": "方正证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.fzzq.com"
-				    },
-				    {
-				      "id": 2,
-				      "name": "中山证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.zszq.com"
-				    },
-				    {
-				      "id": 1,
-				      "name": "方正证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.fzzq.com"
-				    },
-				    {
-				      "id": 2,
-				      "name": "中山证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.zszq.com"
-				    },
-				    {
-				      "id": 1,
-				      "name": "方正证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.fzzq.com"
-				    },
-				    {
-				      "id": 2,
-				      "name": "中山证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.zszq.com"
-				    },
-				    {
-				      "id": 1,
-				      "name": "方正证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.fzzq.com"
-				    },
-				    {
-				      "id": 2,
-				      "name": "中山证券",
-				      "img": "../itemImage/1的副本.png",
-				      "turn_url": "www.zszq.com"
-				    }]
+				items: []
 			},
 			mounted: function () {
 				var self = this;

@@ -1,5 +1,8 @@
 div.one {
-  background-image: url("../images/banner2.jpg");
+  background-image: url("../images/4.jpg");
+}
+div.one li.li_four {
+  color: #1e2e5f;
 }
 div.two {
   text-align: center;
@@ -65,10 +68,14 @@ div.three div.text .summary {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+  height: 56px;
 }
 div.three div.text .time {
   color: #9f9f9f;
   font-size: 14px;
+}
+div.three div.text a {
+  text-decoration: none;
 }
 .M-box {
   margin: 0 auto 30px;

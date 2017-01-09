@@ -12,6 +12,8 @@ body{
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%,-50%);
+		-ms-transform: translate(-50%,-50%);
+		borer: none;
 	}
 }
 .ib_vmid{
@@ -26,12 +28,26 @@ body{
 	font-size: 12px;
 	line-height: 16px;
 	letter-spacing: 2px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    height: 96px;
 }
 .content2{
 	font-size: 12px;
 	line-height: 16px;
 	width: 118px;
 	letter-spacing: 2px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+}
+a{
+	color: inherit;
+	text-decoration: none;
 }
 .more{
 	font-size: 0px;
@@ -42,10 +58,13 @@ body{
 		font-size: 14px;
 		margin-right: 7px;
 	}
+	img{
+		border:none;
+	}
 }
 
 div.one{
-	.wh(100%, 100vh);//height:672+60px
+	.wh(100%, 100vh);
   	position: relative;
 }
 div.touchslider{
@@ -65,7 +84,7 @@ div.touchslider{
 		width: 100% !important;
 		height: 100%;
 		background-size: cover;
-		background-position: center;
+		background-position: center center;
 		background-repeat: no-repeat;
 	}
 	p{
@@ -73,6 +92,7 @@ div.touchslider{
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);
+		-ms-transform: translateX(-50%);
 		white-space: nowrap;
 		margin: 0;
 	}
@@ -163,6 +183,11 @@ div.touchslider-nav-item-current{
 	li:hover{
 		color: #24284b;
 	}
+	a{
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
 	a:hover{
 		color: #24284b;
 	}
@@ -186,6 +211,7 @@ div.touchslider-nav-item-current{
 		background-color: transparent;
 		line-height: 30px;
 		vertical-align: top;
+		width: 80%;
 	}
 	::-webkit-input-placeholder{
 		color: white;
@@ -229,10 +255,19 @@ div.two{
 }
 div.img1{
 	.wh(50%, 238px);
-	background-image: url('../images/bitmap.png');
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+	overflow: hidden;
+	position: relative;
+	div{
+		.wh(100%,100%);
+		transition: all 0.5s;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+	div:hover{
+		transform: scale(1.1,1.1);
+		-ms-transform: scale(1.1,1.1);
+	}
 }
 div.text1{
 	.wh(25%, 298px);
@@ -249,6 +284,7 @@ div.text1{
 	}
 	p.content1{
 		margin: 0px 10.3%;
+		height: 96px;
 	}
 	div.more{
 		bottom: 36px;
@@ -278,10 +314,18 @@ div.points{
 div.img2{
 	.wh(25%, 298px);
 	position: relative;
-	background-image: url('../images/图层 5.png');
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+	overflow: hidden;
+	div{
+		.wh(100%,100%);
+		transition: all 0.5s;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+	div:hover{
+		transform: scale(1.1,1.1);
+		-ms-transform: scale(1.1,1.1);
+	}
 }
 div.text2{
 	.wh(50%, 239px);
@@ -289,8 +333,14 @@ div.text2{
 	p.title{
 		margin: 23px 5.1%;
 	}
+	div.scroll{
+		height: 96px;
+		overflow: hidden;
+	}
 	p.content1{
 		margin: 0 5.4%;
+		display: block;
+		line-height: normal;
 	}
 	p.date{
 		font-size: 12px;
@@ -326,10 +376,18 @@ div.text2{
 }
 div.img3{
 	.wh(25%, 239px);
-	background-image: url('../images/图层 6.png');
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+	overflow: hidden;
+	div{
+		.wh(100%,100%);
+		transition: all 0.5s;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+	div:hover{
+		transform: scale(1.1,1.1);
+		-ms-transform: scale(1.1,1.1);
+	}
 }
 div.text3{
 	.wh(25%, 239px);
@@ -389,10 +447,18 @@ div.four{
 }
 div.one_one{
 	.wh(25%, 240px);
-	background-image: url('../images/矢量智能对象3.png');
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+	overflow: hidden;
+	div{
+		.wh(100%,100%);
+		transition: all 0.5s;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+	div:hover{
+		transform: scale(1.1,1.1);
+		-ms-transform: scale(1.1,1.1);
+	}
 }
 div.one_two{
 	.wh(25%, 240px);
@@ -410,10 +476,18 @@ div.one_two{
 }
 div.one_three{
 	.wh(50%, 240px);
-	background-image: url('../images/矢量智能对象.png');
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+	overflow: hidden;
+	div{
+		.wh(100%,100%);
+		transition: all 0.5s;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+	div:hover{
+		transform: scale(1.1,1.1);
+		-ms-transform: scale(1.1,1.1);
+	}
 }
 div.two_one{
 	.wh(25%, 237px);
@@ -431,16 +505,25 @@ div.two_one{
 }
 div.two_two{
 	.wh(25%, 237px);
-	background-image: url('../images/矢量智能对象2.png');
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+	overflow: hidden;
+	div{
+		.wh(100%,100%);
+		transition: all 0.5s;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+	div:hover{
+		transform: scale(1.1,1.1);
+		-ms-transform: scale(1.1,1.1);
+	}
 }
 div.two_three{
 	.wh(50%, 237px);
 	background-color: #1e2e5f;
 	color: white;
 	position: relative;
+	z-index: -1;
 	p.title{
 		margin: 42px 0 31px 5%;
 	}
@@ -455,11 +538,11 @@ div.two_three{
 }
 div.three_one{
 	.wh(50%, 238px);
-	background-image: url('../images/图层 3.png');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
 	position: relative;
+	z-index: -1;
 	color: white;
 	p.title{
 		margin: 46px 0 31px 4.7%;
@@ -475,17 +558,33 @@ div.three_one{
 }
 div.three_two{
 	.wh(50%, 238px);
-	background-image: url('../images/矢量智能对象1.png');
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+	overflow: hidden;
+	div{
+		.wh(100%,100%);
+		transition: all 0.5s;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+	div:hover{
+		transform: scale(1.1,1.1);
+		-ms-transform: scale(1.1,1.1);
+	}
 }
 div.four_one{
 	.wh(50%, 238px);
-	background-image: url('../images/矢量智能对象4.png');
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+	overflow: hidden;
+	div{
+		.wh(100%,100%);
+		transition: all 0.5s;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+	div:hover{
+		transform: scale(1.1,1.1);
+		-ms-transform: scale(1.1,1.1);
+	}
 }
 div.four_two{
 	.wh(50%, 238px);
@@ -514,10 +613,6 @@ div.four_two{
 	.content1{
 		font-size: 9px;
 		line-height: 14px;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
 	}
 	.more{
 		text-decoration: underline;
@@ -526,6 +621,7 @@ div.four_two{
 		}
 		img{
 			display: none;
+			border: none;
 		}
 	}
 	div.one{
@@ -586,7 +682,8 @@ div.four_two{
 	}
 	div.text1{
 		.wh(50%, 182px);
-		transform: translateY(300px);
+		transform: translateY(200px);
+		-ms-transform: translateY(200px);
 		p.capital{
 			font-size: 12px;
 			margin: 14px 8.3% 0;
@@ -599,6 +696,7 @@ div.four_two{
 			margin: 0px 8.3%;
 			font-weight: lighter;
 		    -webkit-line-clamp: 5;
+		    height: 80px;
 		}
 		div.more{
 			bottom: 11px;
@@ -611,11 +709,13 @@ div.four_two{
 	}
 	div.img2{
 		.wh(50%, 182px);
-		transform: translateY(300px);
+		transform: translateY(200px);
+		-ms-transform: translateY(200px);
 	}
 	div.text2{
-		.wh(100%, 300px);
+		.wh(100%, 200px);
 		transform: translateY(-182px);
+		-ms-transform: translateY(-182px);
 		p.title{
 			margin: 13px 4%;
 			font-size: 16px;
@@ -625,7 +725,6 @@ div.four_two{
 			margin: 0 4%;
 			font-size: 13px;
 			line-height: 19px;
-			-webkit-line-clamp: 10;
 			font-weight: normal;
 			color: #3b3b3b;
 		}
@@ -654,6 +753,7 @@ div.four_two{
 		p.content1{
 			margin: 0 9.6%;
 			-webkit-line-clamp: 3;
+			height: 48px;
 		}
 		div.more{
 			display: block;
@@ -685,6 +785,7 @@ div.four_two{
 			margin: 0 8%;
 		    -webkit-line-clamp: 4;
 		    width: auto;
+		    height: 64px;
 		}
 		div.more{
 			bottom: 10px;
@@ -694,10 +795,12 @@ div.four_two{
 	div.one_three{
 		.wh(100%, 123px);
 		transform: translateY(123px);
+		-ms-transform: translateY(123px);
 	}
 	div.two_one{
 		.wh(50%, 123px);
 		transform: translateY(-123px);
+		-ms-transform: translateY(-123px);
 		p.title{
 			margin: 17px 8% 13px;
 		}
@@ -705,6 +808,7 @@ div.four_two{
 			.content1;
 			margin: 0 8%;
 		    -webkit-line-clamp: 3;
+		    height: 48px;
 		    width: auto;
 		}
 		div.more{
@@ -715,6 +819,7 @@ div.four_two{
 	div.two_two{
 		.wh(50%, 123px);
 		transform: translateY(-123px);
+		-ms-transform: translateY(-123px);
 	}
 	div.two_three{
 		.wh(100%, 138px);
@@ -739,6 +844,7 @@ div.four_two{
 	div.three_one{
 		.wh(100%, 178px);
 		transform: translateY(301px);
+		-ms-transform: translateY(301px);
 		p.title{
 			font-size: 15px;
 			line-height: 15px;
@@ -760,14 +866,17 @@ div.four_two{
 	div.three_two{
 		.wh(100%, 123px);
 		transform: translateY(-178px);
+		-ms-transform: translateY(-178px);
 	}
 	div.four_one{
 		.wh(100%, 123px);
 		transform: translateY(178px);
+		-ms-transform: translateY(178px);
 	}
 	div.four_two{
 		.wh(100%, 178px);
 		transform: translateY(-301px);
+		-ms-transform: translateY(-301px);
 		p.title{
 			font-size: 15px;
 			line-height: 15px;
@@ -801,7 +910,25 @@ div.four_two{
 	top: 16px;
 }
 
-
+.list-news-item{
+	transition: all 1s;
+	display: inline-block;
+	width: 100%;
+	height: 16px;
+}
+.list-news-enter{
+	opacity: 0;
+	transform: translateY(15px);
+	-ms-transform: translateY(15px);
+}
+.list-news-leave-active{
+	opacity: 0;
+	transform: translateY(-15px);
+	-ms-transform: translateY(-15px);
+}
+.list-news-leave-active {
+  position: absolute;
+}
 
 
 

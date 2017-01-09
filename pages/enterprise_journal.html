@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Enterprise Journal</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no"/>
+	<link rel="stylesheet" type="text/css" href="../css/public.css">
+	<link rel="stylesheet" type="text/css" href="../css/enterprise_journal.css">
+	<link rel="stylesheet" type="text/css" href="../flaticon/flaticon.css">
+</head>
+<body>
+	<div id="vm" v-cloak>
+		<above></above>
+		<login></login>
+		<div class="one">
+			<banner></banner>
+			<manu-details></manu-details>
+		</div>
+		<div class="two">
+			<div class="ch">企业内刊</div>
+			<div class="en">- Enterprise Journal -</div>
+		</div>
+		<div class="three">
+			<div v-for="item in items">
+				<div v-for="list in item">
+					<a :href="baseUrl+list.url" target="_blank">
+						<img :src="baseUrl + list.img">
+						<p>{{list.name}}</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		<five></five>
+		<six></six>
+	</div>
+	<script src="../js/jquery-1.7.1.js" type="text/javascript"></script>
+	<script src="../js/jquery.touchslider.min.js" type="text/javascript"></script>
+	<script src="../js/vue.js" type="text/javascript"></script>
+	<script src="../js/pagination.js" type="text/javascript"></script>
+	<script src="../js/ajax.js" type="text/javascript"></script>
+	<script src="../js/public.js" type="text/javascript"></script>
+	<script type="text/javascript">
+
+		var vm = new Vue({
+			el: "#vm",
+			data: {
+				items: []
+			},
+			mounted: function () {
+				var self = this;
+				$.when(getMagazineList())
+				.done(function (data) {
+					var item = [];
+					for(var i = 0, length1 = data.list.length; i < length1; i++){
+						item.push(data.list[i]);
+						if(i%3 === 2){
+							self.items.push(item);
+							item = [];
+						}
+					}
+					if(item !== []){
+						self.items.push(item);
+					}
+					// self.items = data.list;
+				});
+			}
+		})
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

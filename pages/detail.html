@@ -2,31 +2,60 @@
 <html>
 <head>
 	<title>Detail</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no"/>
 	<link rel="stylesheet" type="text/css" href="../css/public.css">
 	<link rel="stylesheet" type="text/css" href="../css/detail.css">
+	<link rel="stylesheet" type="text/css" href="../flaticon/flaticon.css">
 </head>
 <body>
-	<div id="vm">
+	<div id="vm" v-cloak>
 		<above></above>
 		<login></login>
-		<div class="questionnaire">
-			<button class="person" @click="ques_person">个人问卷</button>
-			<button class="organization" @click="ques_organization">机构问卷</button>
+		<div class="questionnaire" v-if="option >= 0">
+		<div>
+			<div class="title">
+					<fieldset>
+						<legend>问卷调查</legend>
+					</fieldset>
+					<img src="../images/关闭 (1).png" @click="option = -1">
+			</div>
+			<div class="content">
+				<div class="choose" v-if="option === 0">
+					<p>您第一次进行预约理财，请先进行问卷调查</p>
+					<div class="person" @click="option = 1">
+						<img src="../images/个人 (1).png">
+						<p>个人投资者</p>
+					</div>
+					<div class="organization" @click="option = 2">
+						<img src="../images/机构 (1).png">
+						<p>机构投资者</p>
+					</div>
+				</div>
+				<ques-person v-on:submitques="appointment" class="ques-person" v-if="option === 1">
+				</ques-person>
+				<ques-organization v-on:submitques="appointment" class="ques-organization" v-if="option === 2">
+				</ques-organization>
+			</div>
+		</div>
 		</div>
 		<div class="one">
 			<banner></banner>
 			<manu-details></manu-details>
 		</div>
 		<div class="two">
-			<div class="top">
+			<div class="two_top">
 				<p class="title">{{item.title}}</p>
-				<p class="time">{{getTime(item.time)}}</p>
+				<p class="time" v-if="item.time">{{getTime(item.time)}}</p>
 			</div>
 			<div class="text" v-html="item.text"></div>
 		</div>
 		<div class="three" v-if="item.type === 'PROJECT_GALLERY'">
-			<div @click="subscribe"><img src="../images/预约.png">预约理财</div>
-			<div><img src="../images/咨询.png">我要咨询</div>
+			<div @click="appointment"><img src="../images/理财.png">预约理财</div>
+			<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=364044816&site=qq&menu=yes">
+				<div><img src="../images/咨询.png">我要咨询</div>
+			</a>
 		</div>
 		<five></five>
 		<six></six>
@@ -42,44 +71,55 @@
 		var vm = new Vue({
 			el: "#vm",
 			data: {
-				login: true,
-				item: {
-					  "id": 10,
-					  "time": 1481212800000,
-					  "title": "公司公告1",
-					  "summary": "哈哈哈",
-					  "text": "公司公告1的内容",
-					  "img": [
-					    "uploads/img/an1.jpg"
-					  ],
-					  "type": "PROJECT_GALLERY"
+				item: {},
+				option: -1,
+				ques_result: {},
+			},
+			methods:{
+				appointment: function (argument) {
+					var self = this;
+					var id = self.getQueryData().id;
+					$.when(isLogin())
+					.done(function (data) {
+						if(data.state === 0){
+							$.when(isSubmitted())
+							.done(function (data) {
+								if(data){
+									$.when(reserve (id))
+									.done(function (data) {
+										if(data.state === 0){
+											alert("预约成功！");
+											self.option = -1;
+										}
+										else{
+											alert(data.detail);
+										}
+									})
+								}
+								else{
+									self.option = 0;
+								}
+							})
+						}
+						else{
+							$('.login').removeClass('hidden');
+							$("ul.top li.register div span").text("注册-登录");
+						}
+					})
 				}
 			},
-			methods: {
-				getTime: function (stamp) {
-					var date = new Date(stamp);
-					y = date.getFullYear();
-					m = date.getMonth() + 1;
-					d = date.getDate();
-					return y + "-" + (m>9?m:"0"+m) + "-"  + (d>9?d:"0"+d);
-				},
-				subscribe: function () {
-					$(".questionnaire").css("display","block");
-				},
-				ques_person: function () {
-					$(".questionnaire").load("questionnaire_person.html");
-				},
-				ques_organization: function () {
-					$(".questionnaire").load("questionnaire_organization.html");
-				}
+			mounted: function () {
+				var self = this;
+				var id = self.getQueryData().id;
+				$.when(getGallery(id))
+				.done(function (data) {
+					self.item = data;
+				})
 			}
 		})
 	</script>
 </body>
 </html>
-
-
-
 
 
 

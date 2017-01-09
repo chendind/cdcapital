@@ -2,8 +2,11 @@ body {
   background-color: #fafafa;
 }
 div.one {
-  background-image: url("../images/banner2.jpg");
+  background-image: url("../images/7.jpg");
   margin-bottom: 80px;
+}
+div.one li.li_seven {
+  color: #1e2e5f;
 }
 h1 {
   font-size: 30px;
@@ -50,9 +53,6 @@ div.two > div:hover div.img:before {
   height: 138px;
   border: 1px solid #c5c5c5;
 }
-div.two > div:hover img {
-  display: none;
-}
 div.two > div:hover img.hidden {
   display: block;
 }
@@ -61,10 +61,12 @@ div.two > div:hover p.value {
 }
 div.two img {
   width: 50px;
+  height: 50px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
 }
 div.two img.hidden {
   display: none;
@@ -76,6 +78,10 @@ div.two p.description {
 div.two p.value {
   font-size: 15px;
   color: #666666;
+}
+div.two a {
+  text-decoration: none;
+  color: inherit;
 }
 div.three {
   width: 1000px;
@@ -120,10 +126,8 @@ div.three div.findus div {
 div.three div.position {
   height: 306px;
   width: 50%;
-  height: 100%;
   display: inline-block;
   background-size: cover;
-  background-image: url("../images/staticimage.jpg");
   background-repeat: no-repeat;
   vertical-align: top;
 }

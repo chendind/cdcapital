@@ -4,12 +4,13 @@
 	<title>Social Responsibility</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no"/>
 	<link rel="stylesheet" type="text/css" href="../css/public.css">
 	<link rel="stylesheet" type="text/css" href="../css/social_responsibility.css">
 	<link rel="stylesheet" type="text/css" href="../flaticon/flaticon.css">
 </head>
 <body>
-	<div id="vm">
+	<div id="vm" v-cloak>
 		<above></above>
 		<login></login>
 		<div class="one">
@@ -21,12 +22,8 @@
 			<div class="en">- Social Responsibility -</div>
 		</div>
 		<div class="three">
-			<img src="../images/图层 5.png">
-			<div>
-				<p>对股东负责————资产增值、稳定回报</p>
-				<p>对员工负责————生涯规划、安居乐业</p>
-				<p>对客户负责————服务至上、诚信保障</p>
-				<p>对社会负责————回馈省会、建设国家</p>
+			<img :src="baseUrl + responsibility.img">
+			<div v-html="responsibility.text">
 			</div>
 		</div>
 		<five></five>
@@ -43,15 +40,14 @@
 		var vm = new Vue({
 			el: "#vm",
 			data: {
+				responsibility: {}
 			},
-			methods: {
-				getTime: function (stamp) {
-					var date = new Date(stamp);
-					y = date.getFullYear();
-					m = date.getMonth() + 1;
-					d = date.getDate();
-					return y + "-" + (m>9?m:"0"+m) + "-"  + (d>9?d:"0"+d);
-				}
+			mounted: function () {
+				var self = this;
+				$.when(getResponsibility())
+				.done(function (data) {
+					self.responsibility = data;
+				})
 			}
 		})
 	</script>

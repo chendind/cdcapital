@@ -4,12 +4,13 @@
 	<title>Contact Us</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no"/>
 	<link rel="stylesheet" type="text/css" href="../css/public.css">
 	<link rel="stylesheet" type="text/css" href="../css/contact_us.css">
 	<link rel="stylesheet" type="text/css" href="../flaticon/flaticon.css">
 </head>
 <body>
-	<div id="vm">
+	<div id="vm" v-cloak>
 		<above></above>
 		<login></login>
 		<div class="one">
@@ -18,39 +19,66 @@
 		</div>
 		<h1>联系我们</h1>
 		<div class="two">
-			<div v-for="item in items">
+			<div v-if="items[0]">
 				<div class="img">
-					<img :src="item.img[0]">
-					<img class="hidden" :src="item.img[1]">
+					<img src="../images/icon-tel.png">
 				</div>
-				<p class="description">{{item.description}}</p>
-				<p class="value">{{item.value}}<p>
+				<p class="description">{{items[0].description}}</p>
+				<a :href="'tel:'+items[0].value">
+					<p class="value">{{items[0].value}}</p>
+				</a>
+			</div>
+			<div v-if="items[1]">
+				<div class="img">
+					<img src="../images/传真.png">
+				</div>
+				<p class="description">{{items[1].description}}</p>
+				<p class="value">{{items[1].value}}</p>
+			</div>
+			<div v-if="items[2]">
+				<div class="img">
+					<img src="../images/icon-mail-biz.png">
+				</div>
+				<p class="description">{{items[2].description}}</p>
+				<a :href="'mailto:'+items[2].value">
+					<p class="value">{{items[2].value}}</p>
+				</a>
+			</div>
+			<div v-if="items[3]">
+				<div class="img">
+					<img src="../images/icon-weibo.png">
+					<img src="../images/WechatIMG24.png" class="hidden">
+				</div>
+				<p class="description">{{items[3].description}}</p>
+				<a href="http://m.weibo.cn/u/5071154518?retcode=6102">
+					<p class="value">{{items[3].value}}<p>
+				</a>
+			</div>
+			<div v-if="items[4]">
+				<div class="img">
+					<img src="../images/icon-weixin.png">
+					<img src="../images/创道微信公众号.png" class="hidden">
+				</div>
+				<p class="description">{{items[4].description}}</p>
+				<p class="value">{{items[4].value}}<p>
 			</div>
 		</div>
 		<h1>找到我们</h1>
 		<div class="three">
-			<div>
-				<span>总部地址</span>
-				<img class="hidden" @click="togglefindus($event)" src="../images/加.png">
-				<img @click="togglefindus($event)" src="../images/减.png">
-				<div class="findusdetail">
+			<div v-for="(address,index) in addresses">
+				<span>{{address.type}}</span>
+				<img :class="index!==0?'':'hidden'" @click="togglefindus($event)" src="../images/加.png">
+				<img :class="index===0?'':'hidden'" @click="togglefindus($event)" src="../images/减.png">
+				<div :class="index===0?'findusdetail':'findusdetail hidden'">
 					<div class="findus">
 						<p>我们的坐标</p>
-						<div v-for="list in findus1">{{list.description}}: {{list.value}}</div>
+						<div>地址：{{address.address.value}}</div>
+						<div>电话：{{address.tel.value}}</div>
+						<div>手机：{{address.cellphone.value}}</div>
+						<div>邮编：{{address.zipcode.value}}</div>
 					</div>
-					<div class="position"></div>
-				</div>
-			</div>
-			<div>
-				<span>山东地址</span>
-				<img class="hidden" @click="togglefindus($event)" src="../images/加.png">
-				<img @click="togglefindus($event)" src="../images/减.png">
-				<div class="findusdetail">
-					<div class="findus">
-						<p>我们的坐标</p>
-						<div v-for="list in findus2">{{list.description}}: {{list.value}}</div>
+					<div class="position" :style="'background-image: url(' + baseUrl+ address.img+')'">
 					</div>
-					<div class="position"></div>
 				</div>
 			</div>
 		</div>
@@ -68,114 +96,27 @@
 		var vm = new Vue({
 			el: "#vm",
 			data: {
-				items: [
-					{
-				      "id": 2,
-				      "name": "hotline",
-				      "value": "400-0670-877",
-				      "description": "财富热线",
-				      "img": ["../itemImage/icon-tel.png","../itemImage/icon-tel.png"]
-				    },
-				    {
-				      "id": 3,
-				      "name": "fax",
-				      "value": "0571-81969226",
-				      "description": "传真",
-				      "img": ["../itemImage/传真.png","../itemImage/传真.png"]
-				    },
-				    {
-				      "id": 4,
-				      "name": "email",
-				      "value": "cdcapital@163.com",
-				      "description": "商务支持邮箱",
-				      "img": ["../itemImage/icon-mail-biz.png","../itemImage/icon-mail-biz.png"]
-				    },
-				    {
-				      "id": 4,
-				      "name": "email",
-				      "value": "weibo.com/chuangdao",
-				      "description": "新浪微博",
-				      "img": ["../itemImage/icon-weibo.png","../itemImage/icon-weibo.png"]
-				    },
-				    {
-				      "id": 4,
-				      "name": "email",
-				      "value": "扫一扫关注",
-				      "description": "官方微信",
-				      "img": ["../itemImage/icon-weixin.png","../itemImage/创道微信公众号.png"]
-				    }],
-				findus1: [
-					{
-				      "id": 5,
-				      "name": "address",
-				      "value": "浙江省杭州市教工路18号欧美中心A座B区1707室",
-				      "description": "地址",
-				      "img": "/uploads/s5.jpg"
-				    },
-				    {
-				      "id": 6,
-				      "name": "tel",
-				      "value": "400-0670-877",
-				      "description": "电话",
-				      "img": "/uploads/s6.jpg"
-				    },
-				    {
-				      "id": 7,
-				      "name": "cellphone",
-				      "value": "13911275067(王经理)",
-				      "description": "手机",
-				      "img": "/uploads/s7.jpg"
-				    },
-				    {
-				      "id": 8,
-				      "name": "zipcode",
-				      "value": "100102",
-				      "description": "邮编",
-				      "img": "/uploads/s8.jpg"
-				    }],
-				findus2: [
-					{
-				      "id": 5,
-				      "name": "address",
-				      "value": "浙江省杭州市教工路18号欧美中心A座B区1707室",
-				      "description": "地址",
-				      "img": "/uploads/s5.jpg"
-				    },
-				    {
-				      "id": 6,
-				      "name": "tel",
-				      "value": "400-0670-877",
-				      "description": "电话",
-				      "img": "/uploads/s6.jpg"
-				    },
-				    {
-				      "id": 7,
-				      "name": "cellphone",
-				      "value": "13911275067(王经理)",
-				      "description": "手机",
-				      "img": "/uploads/s7.jpg"
-				    },
-				    {
-				      "id": 8,
-				      "name": "zipcode",
-				      "value": "100102",
-				      "description": "邮编",
-				      "img": "/uploads/s8.jpg"
-				    }]
+				items: [],
+				addresses: []
 			},
 			methods: {
-				getTime: function (stamp) {
-					var date = new Date(stamp);
-					y = date.getFullYear();
-					m = date.getMonth() + 1;
-					d = date.getDate();
-					return y + "-" + (m>9?m:"0"+m) + "-"  + (d>9?d:"0"+d);
-				},
 				togglefindus: function (event) {
 					var $parent = $(event.target).parent("div");
 					$parent.children("img").toggleClass('hidden');
 					$parent.children(".findusdetail").toggleClass('hidden');
 				}
+			},
+			mounted: function () {
+				var self = this;
+				$(".findusdetail:eq(0)").removeClass('hidden');
+				$.when(getContact())
+				.done(function (data) {
+					self.items = data.list;
+				});
+				$.when(getFind())
+				.done(function (data) {
+					self.addresses = data.list;
+				});
 			}
 		})
 	</script>

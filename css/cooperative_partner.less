@@ -3,7 +3,10 @@
 	height: @height;
 }
 div.one{
-	background-image: url("../images/banner4.jpg");
+	background-image: url("../images/1.jpg");
+	li.li_one{
+		color: #1e2e5f;
+	}
 }
 div.two{
 	text-align: center;
@@ -23,7 +26,7 @@ div.two{
 div.three{
 	width: 816px;
 	margin: 50px auto;
-	div{
+	&>div{
 		border-radius: 4px;
 		border: 1px solid #c6c9d5;
 		text-align: center;
@@ -33,18 +36,21 @@ div.three{
 		overflow: hidden;
 		vertical-align: middle;
 	}
-	div:hover{
+	&>div:hover{
 		border-color: #5c95cd;
 	}
-	img{
+	div.img{
 		height: 100%;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: contain;
 	}
 }
 
 @media only screen and (max-width: 768px) {
 	div.three{
 		width: 100%;
-		div{
+		&>div{
 			width: 40%;
 			height: 58px;
 			margin: 20px 5%;

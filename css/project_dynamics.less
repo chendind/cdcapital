@@ -3,7 +3,10 @@
 	height: @height;
 }
 div.one{
-	background-image: url("../images/banner1.jpg");
+	background-image: url("../images/2.jpg");
+	li.li_two{
+		color: #1e2e5f;
+	}
 }
 div.two{
 	text-align: center;
@@ -50,9 +53,7 @@ div.three{
 		margin: 0;
 		overflow: hidden;
 		text-overflow: ellipsis;
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-	    -webkit-line-clamp: 2;
+		white-space: nowrap;
 	}
 	p.time{
 		font-size: 12px;
@@ -63,6 +64,12 @@ div.three{
 		color: #999999;
 		font-size: 17px;
 		line-height: 24px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+	    -webkit-line-clamp: 4;
+	    height: 96px;
 	}
 	button.more{
 		.wh(140px, 44px);
@@ -73,6 +80,7 @@ div.three{
 		margin-top: 42px;
 		background-color: white;
 		outline: none;
+		cursor: pointer;
 	}
 	button.more:hover{
 		background-color: #cccccc;
@@ -100,7 +108,6 @@ div.three{
 		p.title{
 			font-size: 15px;
 			line-height: 20px;
-	        -webkit-line-clamp: 1;
 		}
 		p.time{
 			margin: 8px 0;
@@ -108,11 +115,7 @@ div.three{
 		p.text{
 			font-size: 13px;
 			line-height: 20px;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			display: -webkit-box;
-			-webkit-box-orient: vertical;
-		    -webkit-line-clamp: 4;
+			height: 80px;
 		}
 		button.more{
 			margin-top: 0px;

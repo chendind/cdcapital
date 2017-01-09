@@ -1,5 +1,8 @@
 div.one {
-  background-image: url("../images/banner4.jpg");
+  background-image: url("../images/1.jpg");
+}
+div.one li.li_one {
+  color: #1e2e5f;
 }
 div.two {
   text-align: center;

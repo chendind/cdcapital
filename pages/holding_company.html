@@ -4,12 +4,13 @@
 	<title>Holding Company</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no"/>
 	<link rel="stylesheet" type="text/css" href="../css/public.css">
 	<link rel="stylesheet" type="text/css" href="../css/holding_company.css">
 	<link rel="stylesheet" type="text/css" href="../flaticon/flaticon.css">
 </head>
 <body>
-	<div id="vm">
+	<div id="vm" v-cloak>
 		<above></above>
 		<login></login>
 		<div class="one">
@@ -22,7 +23,7 @@
 		</div>
 		<div class="three">
 			<div v-for="item in items">
-				<div class="img" :style="'background-image: url('+item.img+')'"></div>
+				<div class="img" :style="'background-image: url(' + baseUrl +item.img+')'"></div>
 				<div class="description"><span>{{item.name}}</span>{{item.description}}</div>
 			</div>
 		</div>

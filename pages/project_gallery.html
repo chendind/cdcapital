@@ -4,12 +4,13 @@
 	<title>Project Gallery</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no"/>
 	<link rel="stylesheet" type="text/css" href="../css/public.css">
 	<link rel="stylesheet" type="text/css" href="../css/project_gallery.css">
 	<link rel="stylesheet" type="text/css" href="../flaticon/flaticon.css">
 </head>
 <body>
-	<div id="vm">
+	<div id="vm" v-cloak>
 		<above></above>
 		<login></login>
 		<div class="one">
@@ -22,17 +23,17 @@
 		</div>
 		<div class="three">
 			<div v-for="(item, index) in items">
-				<div v-if="index % 2 === 0" class="leftImage" :style="{backgroundImage: 'url('+item.img+')'}">
+				<div v-if="index % 2 === 0" class="leftImage" :style="{backgroundImage: 'url('+baseUrl+item.img+')'}">
 				</div>
-				<div v-else class="rightImage" :style="{backgroundImage: 'url('+item.img+')'}">
+				<div v-else class="rightImage" :style="{backgroundImage: 'url('+baseUrl+item.img+')'}">
 				</div>
 				<div class="content">
-					<p class="title">{{item.title}}</p>
-					<p class="text">{{item.text}}</p>
-					<button class="more">查看详情</button>
+					<p class="title">{{item.name}}</p>
+					<p class="text">{{item.summary}}</p>
+					<a :href="'detail.html?'+encodeObj({'id':item.id})"><button class="more">查看详情</button></a>
 				</div>
 			</div> 
-			<div class="M-box"></div>
+			<div class="M-box" v-if="items.length > 20"></div>
 		</div>
 		<five></five>
 		<six></six>
@@ -48,37 +49,30 @@
 		var vm = new Vue({
 			el: "#vm",
 			data: {
-				items: [{
-					title: "创道国际项目",
-					text: "项目坐镇杭州大城西核心CBD，北临萍水街，西侧紧靠城西银泰，规划为地铁上盖物业，聚集整个大城西高端...项目坐镇杭州大城西核心CBD，北临萍水街，西侧紧靠城西银泰，规划为地铁上盖物业，聚集整个大城西高端...",
-					img: "../itemImage/1.jpg"
-				},{
-					title: "南京市鼓楼区河西公共服务中心项目",
-					text: "项目发包人为南京市...",
-					img: "../itemImage/2.jpg"
-				},{
-					title: "创道·弘盈定增1号私募投资基金",
-					text: "炒股难，炒A股更难。谁...",
-					img: "../itemImage/3.jpg"
-				},{
-					title: "横店圆明新园",
-					text: "“横店圆明新园”位于...",
-					img: "../itemImage/4.jpg"
-				}]
+				items: []
 			},
 			mounted:function(){
-				$(".M-box").pagination({
-					totalData:100,
-				    showData:10,
-				    current:2,
-				    count:2,
-					prevContent:'上一页',
-					nextContent:'下一页',
-					coping:true,
-				    callback:function(pagination){
-				        console.log(pagination.getCurrent());
-				    }
-				});
+				var self = this;
+				$.when(getArticleForPage(0,4,"PROJECT_GALLERY"))
+				.done(function (data) {
+					self.items = data.list;
+					$(".M-box").pagination({
+						totalData: data.countAll,
+					    showData:20,
+					    current:1,
+					    count:2,
+						prevContent:'上一页',
+						nextContent:'下一页',
+						coping:true,
+					    callback:function(pagination){
+					    	$.when(getArticleForPage((pagination.getCurrent()-1)*4,4,"PROJECT_GALLERY"))
+							.done(function (data) {
+								$("body").scrollTop(400);
+								self.items = data.list;
+							})
+					    }
+					});
+				})
 			}
 		})
 	</script>

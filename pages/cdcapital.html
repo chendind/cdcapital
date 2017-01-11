@@ -54,7 +54,7 @@
 		</div>
 		<div class="two">
 			<div class="img1">
-				<div :style="'background-image: url('+baseUrl+homeimg[0]+')'"></div>
+				<div v-if="homeimg[0]" :style="'background-image: url('+baseUrl+homeimg[0]+')'"></div>
 			</div>
 			<div class="text1">
 				<p class="capital">CHUANGDAO CAPITAL</p>
@@ -73,7 +73,7 @@
 				</a>
 			</div>
 			<div class="img2">
-				<div :style="'background-image: url('+baseUrl+homeimg[1]+')'"></div>
+				<div v-if="homeimg[1]" :style="'background-image: url('+baseUrl+homeimg[1]+')'"></div>
 			</div>
 			<div class="text2">
 				<p class="title" v-if="firstNews">
@@ -107,7 +107,7 @@
 				</div>
 			</div>
 			<div class="img3">
-				<div :style="'background-image: url('+baseUrl+homeimg[2]+')'"></div>
+				<div v-if="homeimg[2]" :style="'background-image: url('+baseUrl+homeimg[2]+')'"></div>
 			</div>
 			<div class="text3">
 				<p class="title">
@@ -138,7 +138,7 @@
 		</div>
 		<div class="four">
 			<div class="one_one">
-				<div :style="'background-image: url('+baseUrl+homeimg[3]+')'"></div>
+				<div v-if="homeimg[3]" :style="'background-image: url('+baseUrl+homeimg[3]+')'"></div>
 			</div>
 			<div class="one_two">
 				<a v-if="articleSquare[0]"
@@ -156,7 +156,7 @@
 				</div>
 			</div>
 			<div class="one_three">
-				<div :style="'background-image: url('+baseUrl+homeimg[4]+')'"></div>
+				<div v-if="homeimg[4]" :style="'background-image: url('+baseUrl+homeimg[4]+')'"></div>
 			</div>
 			<div class="two_one">
 				<a v-if="articleSquare[1]" 
@@ -174,7 +174,7 @@
 				</div>
 			</div>
 			<div class="two_two">
-				<div :style="'background-image: url('+baseUrl+homeimg[5]+')'"></div>
+				<div v-if="homeimg[5]" :style="'background-image: url('+baseUrl+homeimg[5]+')'"></div>
 			</div>
 			<div class="two_three">
 				<a v-if="articleSquare[2]" 
@@ -191,7 +191,7 @@
 					</a>
 				</div>
 			</div>
-			<div class="three_one" :style="'background-image: url('+baseUrl+homeimg[6]+')'">
+			<div class="three_one" v-if="homeimg[6]" :style="'background-image: url('+baseUrl+homeimg[6]+')'">
 				<a v-if="articleSquare[3]" 
 					:href="'detail.html?'+encodeObj({'id':articleSquare[3].id})">
 					<p class="title">{{articleSquare[3].title}}</p>
@@ -207,10 +207,10 @@
 				</div>
 			</div>
 			<div class="three_two">
-				<div :style="'background-image: url('+baseUrl+homeimg[7]+')'"></div>
+				<div v-if="homeimg[7]" :style="'background-image: url('+baseUrl+homeimg[7]+')'"></div>
 			</div>
 			<div class="four_one">
-				<div :style="'background-image: url('+baseUrl+homeimg[8]+')'"></div>
+				<div v-if="homeimg[8]" :style="'background-image: url('+baseUrl+homeimg[8]+')'"></div>
 			</div>
 			<div class="four_two">
 				<a v-if="articleSquare[4]" 

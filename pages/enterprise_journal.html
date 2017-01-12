@@ -25,7 +25,8 @@
 			<div v-for="item in items">
 				<div v-for="list in item">
 					<a :href="baseUrl+list.url" target="_blank">
-						<img :src="baseUrl + list.img">
+						<!-- <img :src="baseUrl + list.img"> -->
+						<img src="../images/book.png" :style="'background-image:url('+baseUrl + list.img + ')'">
 						<p>{{list.name}}</p>
 					</a>
 				</div>

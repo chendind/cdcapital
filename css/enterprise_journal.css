@@ -34,9 +34,14 @@ div.three > div div {
   width: 33%;
   text-align: center;
   display: inline-block;
+  position: relative;
 }
 div.three img {
   height: 260px;
+  width: 200px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 div.three p {
   font-size: 23px;
@@ -54,7 +59,7 @@ div.three a {
 }
 @media only screen and (max-width: 768px) {
   div.three > div {
-    margin: 0 40px;
+    margin: 0 auto;
     background-image: none;
   }
   div.three > div div {

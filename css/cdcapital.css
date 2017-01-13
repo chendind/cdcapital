@@ -40,6 +40,8 @@ body {
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  height: 96px;
 }
 a {
   color: inherit;
@@ -108,8 +110,8 @@ div.touchslider-nav {
   cursor: pointer;
 }
 div.touchslider-nav div.circle {
-  width: 2px;
-  height: 2px;
+  width: 4px;
+  height: 4px;
   border-radius: 3px;
   background-color: transparent;
   border-width: 1px;
@@ -119,31 +121,8 @@ div.touchslider-nav div.circle {
   vertical-align: middle;
   margin: 8px 17px 8px 37px;
 }
-div.touchslider-nav div.focusgroup {
-  display: none;
-  text-align: center;
-  color: #6c6c6c;
-  width: 80px;
-  height: 16px;
-  border-radius: 8px;
-  background-color: white;
-  font-size: 8px;
-  line-height: 16px;
-  vertical-align: middle;
-  margin: 7px 0;
-}
 div.touchslider-nav-item-current div.circle {
-  width: 6px;
-  height: 6px;
-  border-width: 0;
-  border-radius: 3px;
   background-color: white;
-  margin: 0;
-  margin-left: 36px;
-  margin-right: 16px;
-}
-div.touchslider-nav-item-current div.focusgroup {
-  display: inline-block;
 }
 #search {
   display: inline-block;
@@ -163,6 +142,8 @@ div.touchslider-nav-item-current div.focusgroup {
   padding: 0;
   color: white;
   list-style-type: none;
+  max-height: 125px;
+  overflow: scroll;
 }
 #search li {
   width: 100%;
@@ -210,6 +191,7 @@ div.touchslider-nav-item-current div.focusgroup {
   line-height: 30px;
   vertical-align: top;
   width: 80%;
+  overflow-x: hidden;
 }
 #search ::-webkit-input-placeholder {
   color: white;
@@ -474,7 +456,7 @@ div.one_two {
   position: relative;
 }
 div.one_two p.title {
-  margin: 42px 0 31px 10%;
+  margin: 42px 10% 31px;
 }
 div.one_two p.content2 {
   margin-left: 10%;
@@ -506,7 +488,7 @@ div.two_one {
   position: relative;
 }
 div.two_one p.title {
-  margin: 42px 0 31px 10%;
+  margin: 42px 10% 31px;
 }
 div.two_one p.content2 {
   margin-left: 10%;
@@ -538,10 +520,9 @@ div.two_three {
   background-color: #1e2e5f;
   color: white;
   position: relative;
-  z-index: -1;
 }
 div.two_three p.title {
-  margin: 42px 0 31px 5%;
+  margin: 42px 5% 31px;
 }
 div.two_three p.content1 {
   margin: 0px 5.1%;
@@ -558,11 +539,10 @@ div.three_one {
   background-position: center;
   background-size: cover;
   position: relative;
-  z-index: -1;
   color: white;
 }
 div.three_one p.title {
-  margin: 46px 0 31px 4.7%;
+  margin: 46px 4.7% 31px;
 }
 div.three_one p.content2 {
   margin-left: 5%;
@@ -612,7 +592,7 @@ div.four_two {
   position: relative;
 }
 div.four_two p.title {
-  margin: 44px 0 31px 4.7%;
+  margin: 44px 4.7% 31px;
 }
 div.four_two p.content2 {
   margin-left: 5%;

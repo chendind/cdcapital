@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>cdcapital</title>
+	<title>创道资本</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="format-detection" content="telephone=no"/>
@@ -9,6 +9,135 @@
 	<link rel="stylesheet" type="text/css" href="../css/public.css">
 	<link rel="stylesheet" type="text/css" href="../css/cdcapital.css">
 	<link rel="stylesheet" type="text/css" href="../flaticon/flaticon.css">
+	<script src="../js/jquery-1.7.1.js" type="text/javascript"></script>
+	<script src="../js/jquery.touchslider.min.js" type="text/javascript"></script>
+	<script src="../js/vue.js" type="text/javascript"></script>
+	<script src="../js/video.min.js" type="text/javascript"></script>
+	<script src="../js/ajax.js" type="text/javascript"></script>
+	<script src="../js/public.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	$(function(){
+		var vm = new Vue({
+			el: "#vm",
+			data: {
+				searchItem: "",
+				searchResults: [],
+				carouselLists: [],
+				introduction: "",
+				firstNews: {},
+				news: [],
+				scrollIndex: -1,
+				scrollLength: 0,
+				scrollStop: false,
+				scrollFlag: false,
+				homevideo: {},
+				homearticle: {},
+				homeimg: {},
+				articleSquare: {}
+			},
+			watch: {
+				searchItem: function (val) {
+					var self = this;
+					if(val === ""){
+						self.searchResults = [];
+					}
+					else{
+						$.when(getArticle(val))
+						.done(function (data) {
+							self.searchResults = data.list;
+						});
+					}
+				},
+				scrollIndex: function (val) {
+					var self = this;
+					self.scrollFlag = true;
+					setTimeout(function () {
+						if(!self.scrollStop){
+							self.scrollIndex = (self.scrollIndex+1)%(self.scrollLength);
+						}
+						self.scrollFlag = false;
+					},1000);
+				}
+			},
+			mounted: function () {
+				var self = this;
+				$.when(getCarouselList())
+				.done(function (data) {
+					self.carouselLists = data.list;
+					self.$nextTick(function(){
+						$(".touchslider").touchSlider({
+							duration:600, 
+							interval:3000, 
+							autoplay:true, 
+							mousewheel:true,
+							margin:0
+						});
+           			})
+				})
+
+				$.when(getIntroduction())
+				.done(function (data) {
+					self.introduction = $(data.info.value).text().replace(/\s/g,'');
+				})
+
+				$.when(getArticleForPage(0,5,"ANNOUNCEMENT"))
+				.done(function (data) {
+					self.news = data.list;
+					self.firstNews = self.news.shift();
+					self.scrollLength = self.news.length;
+					$.when(getArticleForPage(0,5,"COMPANY_NEWS"))
+					.done(function (data) {
+						for (var i = 0; i < data.list.length; i++) {
+							self.news.push(data.list[i]);
+							self.scrollLength ++;
+						}
+					})
+				})
+				.done(function () {
+					$.when(getArticleForPage(0,5,"INDUSTRY_NEWS"))
+					.done(function (data) {
+						for (var i = 0; i < data.list.length; i++) {
+							self.news.push(data.list[i]);
+							self.scrollLength ++;
+						}
+					})
+				})
+
+				self.scrollIndex = 0;
+
+				$("div.scroll").hover(function() {
+					self.scrollStop = true;
+				}, function() {
+					self.scrollStop = false;
+					if(!self.scrollFlag)
+					{
+						self.scrollIndex = (self.scrollIndex+1)%(self.scrollLength);
+					}
+				});
+
+				$.when(getHomeVideo())
+				.done(function (data) {
+					self.homevideo = data;
+				})
+
+				$.when(getHomeArticle())
+				.done(function (data) {
+					self.homearticle = data;
+				})
+
+				$.when(getHomeImg())
+				.done(function (data) {
+					self.homeimg = data.list;
+				})
+
+				$.when(getArticleSquare())
+				.done(function (data) {
+					self.articleSquare = data.list;
+				})
+			}
+		})
+	})
+	</script>
 </head>
 <body>
 	<div id="vm" v-cloak>
@@ -111,13 +240,13 @@
 			</div>
 			<div class="text3">
 				<p class="title">
-					<a :href="(new RegExp('^http://').test(homearticle.url))?item.turn_url:('http://'+homearticle.url)" target="_blank">
+					<a :href="(new RegExp('^http://').test(homearticle.url))?homearticle.url:('http://'+homearticle.url)" target="_blank">
 						{{homearticle.title}}
 					</a>
 					</p>
 				<p class="content1">{{homearticle.summary}}</p>	
 				<div class="more">
-					<a :href="(new RegExp('^http://').test(homearticle.url))?item.turn_url:('http://'+homearticle.url)" target="_blank">
+					<a :href="(new RegExp('^http://').test(homearticle.url))?homearticle.url:('http://'+homearticle.url)" target="_blank">
 						<span>MORE</span>
 					</a>
 				</div>
@@ -231,133 +360,6 @@
 		<five></five>
 		<six></six>
 	</div>
-	<script src="../js/jquery-1.7.1.js" type="text/javascript"></script>
-	<script src="../js/jquery.touchslider.min.js" type="text/javascript"></script>
-	<script src="../js/vue.js" type="text/javascript"></script>
-	<script src="../js/video.min.js" type="text/javascript"></script>
-	<script src="../js/ajax.js" type="text/javascript"></script>
-	<script src="../js/public.js" type="text/javascript"></script>
-	<script type="text/javascript">
-		var vm = new Vue({
-			el: "#vm",
-			data: {
-				searchItem: "",
-				searchResults: [],
-				carouselLists: [],
-				introduction: "",
-				firstNews: {},
-				news: [],
-				scrollIndex: -1,
-				scrollLength: 0,
-				scrollStop: false,
-				scrollFlag: false,
-				homevideo: {},
-				homearticle: {},
-				homeimg: {},
-				articleSquare: {}
-			},
-			watch: {
-				searchItem: function (val) {
-					var self = this;
-					if(val === ""){
-						self.searchResults = [];
-					}
-					else{
-						$.when(getArticle(val))
-						.done(function (data) {
-							self.searchResults = data.list;
-						});
-					}
-				},
-				scrollIndex: function (val) {
-					var self = this;
-					self.scrollFlag = true;
-					setTimeout(function () {
-						if(!self.scrollStop){
-							self.scrollIndex = (self.scrollIndex+1)%(self.scrollLength);
-						}
-						self.scrollFlag = false;
-					},1000);
-				}
-			},
-			mounted: function () {
-				var self = this;
-				$.when(getCarouselList())
-				.done(function (data) {
-					self.carouselLists = data.list;
-					self.$nextTick(function(){
-						$(".touchslider").touchSlider({
-							duration:600, 
-							interval:3000, 
-							autoplay:true, 
-							mousewheel:true,
-							margin:0
-						});
-           			})
-				})
-
-				$.when(getIntroduction())
-				.done(function (data) {
-					self.introduction = $.trim($(data.info.value).text());
-				})
-
-				$.when(getArticleForPage(0,5,"ANNOUNCEMENT"))
-				.done(function (data) {
-					self.news = data.list;
-					self.firstNews = self.news.shift();
-					self.scrollLength = self.news.length;
-					$.when(getArticleForPage(0,5,"COMPANY_NEWS"))
-					.done(function (data) {
-						for (var i = 0; i < data.list.length; i++) {
-							self.news.push(data.list[i]);
-							self.scrollLength ++;
-						}
-					})
-				})
-				.done(function () {
-					$.when(getArticleForPage(0,5,"INDUSTRY_NEWS"))
-					.done(function (data) {
-						for (var i = 0; i < data.list.length; i++) {
-							self.news.push(data.list[i]);
-							self.scrollLength ++;
-						}
-					})
-				})
-
-				self.scrollIndex = 0;
-
-				$("div.scroll").hover(function() {
-					self.scrollStop = true;
-				}, function() {
-					self.scrollStop = false;
-					if(!self.scrollFlag)
-					{
-						self.scrollIndex = (self.scrollIndex+1)%(self.scrollLength);
-					}
-				});
-
-				$.when(getHomeVideo())
-				.done(function (data) {
-					self.homevideo = data;
-				})
-
-				$.when(getHomeArticle())
-				.done(function (data) {
-					self.homearticle = data;
-				})
-
-				$.when(getHomeImg())
-				.done(function (data) {
-					self.homeimg = data.list;
-				})
-
-				$.when(getArticleSquare())
-				.done(function (data) {
-					self.articleSquare = data.list;
-				})
-			}
-		})
-	</script>
 </body>
 </html>
 

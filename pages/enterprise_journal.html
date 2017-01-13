@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Enterprise Journal</title>
+	<title>创道资本</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="format-detection" content="telephone=no"/>
@@ -26,7 +26,7 @@
 				<div v-for="list in item">
 					<a :href="baseUrl+list.url" target="_blank">
 						<!-- <img :src="baseUrl + list.img"> -->
-						<img src="../images/book.png" :style="'background-image:url('+baseUrl + list.img + ')'">
+						<img v-if="list.img" src="../images/book.png" :style="'background-image:url('+baseUrl + list.img + ')'">
 						<p>{{list.name}}</p>
 					</a>
 				</div>
@@ -63,7 +63,16 @@
 					if(item !== []){
 						self.items.push(item);
 					}
-					// self.items = data.list;
+					while(self.items.length < 3){
+						console.log("hello");
+						item = [{
+							name: "",
+							url: "",
+							img: ""
+						}];
+						self.items.push(item);
+						item = [];
+					}
 				});
 			}
 		})

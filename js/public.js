@@ -9,7 +9,7 @@ Vue.prototype.getTime = function (stamp) {
 	d = date.getDate();
 	return y + "-" + (m>9?m:"0"+m) + "-"  + (d>9?d:"0"+d);
 }
-Vue.prototype.baseUrl = "http://chuangdao.moovi-tech.com";
+Vue.prototype.baseUrl = "";
 Vue.prototype.getQueryData = function(){
     var searchUrl = window.location.search.split("?")[1];
     var URI = decodeURIComponent(searchUrl);

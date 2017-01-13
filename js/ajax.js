@@ -1,4 +1,4 @@
-var baseurl = "http://chuangdao.moovi-tech.com"
+var baseurl = ""
 
 function register(name, password, type) {
 	var ajax = $.ajax({

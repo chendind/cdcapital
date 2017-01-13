@@ -25,6 +25,7 @@ div.three {
 }
 div.three > div {
   margin: 60px 40px 80px;
+  height: 327px;
   background-image: url("../images/line.png");
   background-position: 0 260px;
   background-repeat: no-repeat;
@@ -41,7 +42,7 @@ div.three img {
   width: 200px;
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: center;
+  background-position: -6px;
 }
 div.three p {
   font-size: 23px;

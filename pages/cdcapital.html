@@ -62,41 +62,24 @@
 			mounted: function () {
 				var self = this;
 
-				$.when(isLogin())
-				.done(function (data) {
-					if(data.state !== 0){
-						if($("body").width() > 768){
+				if($("body").width() > 768){
+					$.when(isLogin())
+					.done(function (data) {
+						if(data.state !== 0){
 							$('.login').removeClass('hidden');
 						}
 						else{
-							$('.login').removeClass('hidden');
-							$(".nav .option:eq(0)").addClass('current');
-							$(".nav .option:eq(0)").css('display', 'inline-block');
-							$(".nav .option:eq(1)").css('display', 'none');
-							$(".do_login").removeClass('hidden');
-							$(".do_register").addClass('hidden');
+							$("ul.top li.register div span").text(data.name);
+							$.when(isSubmitted())
+							.done(function (data) {
+								if(!data){
+									$('.login').removeClass('hidden');
+								}
+							})
 						}
-					}
-					else{
-						$("ul.top li.register div span").text(data.name);
-						$.when(isSubmitted())
-						.done(function (data) {
-							if(!data){
-								if($("body").width() > 768){
-									$('.login').removeClass('hidden');
-								}
-								else{
-									$('.login').removeClass('hidden');
-									$(".nav .option:eq(0)").addClass('current');
-									$(".nav .option:eq(0)").css('display', 'inline-block');
-									$(".nav .option:eq(1)").css('display', 'none');
-									$(".do_login").removeClass('hidden');
-									$(".do_register").addClass('hidden');
-								}
-							}
-						})
-					}
-				})
+					})
+				}
+				
 
 				$.when(getCarouselList())
 				.done(function (data) {

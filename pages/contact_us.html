@@ -21,7 +21,7 @@
 		<div class="two">
 			<div v-if="items[0]">
 				<div class="img">
-					<img src="../images/icon-tel.png">
+					<img src="../images/icon-tel.png" style="width: 50px;">
 				</div>
 				<p class="description">{{items[0].description}}</p>
 				<a :href="'tel:'+items[0].value">
@@ -30,14 +30,14 @@
 			</div>
 			<div v-if="items[1]">
 				<div class="img">
-					<img src="../images/传真.png">
+					<img src="../images/传真.png" style="width: 51px;">
 				</div>
 				<p class="description">{{items[1].description}}</p>
 				<p class="value">{{items[1].value}}</p>
 			</div>
 			<div v-if="items[2]">
 				<div class="img">
-					<img src="../images/icon-mail-biz.png">
+					<img src="../images/icon-mail-biz.png" style="width: 40px;">
 				</div>
 				<p class="description">{{items[2].description}}</p>
 				<a :href="'mailto:'+items[2].value">
@@ -46,8 +46,8 @@
 			</div>
 			<div v-if="items[3]">
 				<div class="img">
-					<img src="../images/icon-weibo.png">
-					<img src="../images/WechatIMG24.png" class="hidden">
+					<img src="../images/icon-weibo.png" style="width: 60px;">
+					<img src="../images/WechatIMG24.png" class="hidden bigger">
 				</div>
 				<p class="description">{{items[3].description}}</p>
 				<a href="http://m.weibo.cn/u/5071154518?retcode=6102">
@@ -56,8 +56,8 @@
 			</div>
 			<div v-if="items[4]">
 				<div class="img">
-					<img src="../images/icon-weixin.png">
-					<img src="../images/创道微信公众号.png" class="hidden">
+					<img src="../images/icon-weixin.png" style="width: 59px;">
+					<img src="../images/创道微信公众号.png" class="hidden bigger">
 				</div>
 				<p class="description">{{items[4].description}}</p>
 				<p class="value">{{items[4].value}}<p>
@@ -84,6 +84,7 @@
 		</div>
 		<five></five>
 		<six></six>
+		<back-button></back-button>
 	</div>
 	<script src="../js/jquery-1.7.1.js" type="text/javascript"></script>
 	<script src="../js/jquery.touchslider.min.js" type="text/javascript"></script>

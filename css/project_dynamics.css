@@ -46,6 +46,10 @@ div.three .content {
   box-sizing: border-box;
   background-color: white;
 }
+div.three a {
+  color: inherit;
+  text-decoration: none;
+}
 div.three p.title {
   color: #333333;
   font-size: 23px;

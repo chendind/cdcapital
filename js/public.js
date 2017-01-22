@@ -180,7 +180,8 @@ Vue.component("banner",{
 				<ul class="top">\
 					<slot></slot>\
 					<li><a href="cdcapital.html">首页</a></li>\
-					<li @click="showlinks($event)" class="li_one">关于创道\
+					<li class="li_one">\
+						<a href="company_profile.html" @click="showlinks($event)">关于创道</a>\
 						<ul class="detail_pages">\
 							<li>\
 								<a href="company_profile.html">\
@@ -240,7 +241,8 @@ Vue.component("banner",{
 							</li>\
 						</ul>\
 					</li>\
-					<li @click="showlinks($event)" class="li_two">产品与服务\
+					<li class="li_two">\
+						<a href="project_gallery.html" @click="showlinks($event)">产品与服务</a>\
 						<ul class="detail_pages">\
 							<li>\
 								<a href="project_gallery.html">\
@@ -272,7 +274,8 @@ Vue.component("banner",{
 							</li>\
 						</ul>\
 					</li>\
-					<li @click="showlinks($event)" class="li_three">创道研究\
+					<li class="li_three">\
+						<a href="research.html" @click="showlinks($event)">创道研究</a>\
 						<ul class="detail_pages" style="height: 66px;">\
 							<li>\
 								<a href="research.html">\
@@ -290,7 +293,8 @@ Vue.component("banner",{
 							</li>\
 						</ul>\
 					</li>\
-					<li @click="showlinks($event)" class="li_four">新闻中心\
+					<li class="li_four">\
+						<a href="company_announce.html" @click="showlinks($event)">新闻中心</a>\
 						<ul class="detail_pages" style="height: 99px;">\
 							<li>\
 								<a href="company_announce.html">\
@@ -372,9 +376,10 @@ Vue.component("banner",{
 		},
 		showlinks: function (event) {
 			if( parseInt($("body").css("width")) < 769){
-				$(event.target).children("ul").css("display","block");
-				$(event.target).css("height","auto");
-				$(event.target).siblings().children("ul").css("display","none");
+				$(event.target).parent("li").children("ul").css("display","block");
+				$(event.target).parent("li").css("height","auto");
+				$(event.target).parent("li").siblings().children("ul").css("display","none");
+				event.preventDefault();
 			}
 		}
 	},
@@ -382,7 +387,7 @@ Vue.component("banner",{
 		$.when(isLogin())
 		.done(function (data) {
 			if(data.state === 0){
-				$("ul.top li.register div span").text(data.detail);
+				$("ul.top li.register div span").text(data.name);
 			}
 		})
 	}
@@ -430,12 +435,13 @@ Vue.component("five",{
 		<div class="five">\
 			<div class="five_one">\
 				<ul class="about">\
-					<li><a href="http://www.baidu.com">关于金融</a></li>\
-					<li><a href="http://www.baidu.com">产品服务</a></li>\
-					<li><a href="http://www.baidu.com">分支机构</a></li>\
-					<li><a href="http://www.baidu.com">企业动态</a></li>\
-					<li><a href="http://www.baidu.com">招贤纳士</a></li>\
-					<li><a href="http://www.baidu.com">免责申明</a></li>\
+					<li><a href="company_profile.html">关于创道</a></li>\
+					<li><a href="project_gallery.html">产品与服务</a></li>\
+					<li><a href="research.html">创道研究</a></li>\
+					<li><a href="company_announce.html">新闻中心</a></li>\
+					<li><a href="recruitment_center.html">招聘中心</a></li>\
+					<li><a href="vip_club.html">VIP俱乐部</a></li>\
+					<li><a href="contact_us.html">联系我们</a></li>\
 				</ul>\
 				<div class="others">\
 					<div>\
@@ -503,6 +509,33 @@ Vue.component("six",{
 				<p class="small"><span>济南市市中区经四路9号万达广场写字楼A座11F</span> <span>鲁1CP备14020449号-1 鲁公网安备 37010302000377号</span></p>\
 			</div>\
 		</div>'
+})
+
+Vue.component("back-button",{
+	template: '\
+		<transition name="back">\
+			<div class="back-button" v-if="top > 500" @click="back">\
+				<img src="../images/top@2X.png">\
+			</div>\
+		</transition>',
+	data: function () {
+		return {
+			top: 0
+		}
+	},
+	methods: {
+		back: function () {
+			$("html").animate({scrollTop: 0}, 400);
+			$("body").animate({scrollTop: 0}, 400);
+		}
+	},
+	mounted: function (){
+		var self = this;
+		this.top = $("body").scrollTop() || $("htmp").scrollTop() || 0;
+		$(window).scroll(function(event){
+			self.top = $("body").scrollTop() || $("htmp").scrollTop() || 0;
+	    });
+	}
 })
 
 Vue.component("ques-person",{
@@ -743,7 +776,7 @@ Vue.component("ques-person",{
 					$.when(submitQuestionnaire(json))
 					.done(function (data) {
 						if(data.state == "0"){
-							alert("问卷提交成功！");
+							// alert("问卷提交成功！");
 							self.$emit("submitques");
 						}
 						else{
@@ -980,7 +1013,7 @@ Vue.component("ques-organization",{
 					$.when(submitQuestionnaire(json))
 					.done(function (data) {
 						if(data.state == "0"){
-							alert("问卷提交成功！");
+							// alert("问卷提交成功！");
 							self.$emit("submitques");
 						}
 						else{

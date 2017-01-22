@@ -61,6 +61,43 @@
 			},
 			mounted: function () {
 				var self = this;
+
+				$.when(isLogin())
+				.done(function (data) {
+					if(data.state !== 0){
+						if($("body").width() > 768){
+							$('.login').removeClass('hidden');
+						}
+						else{
+							$('.login').removeClass('hidden');
+							$(".nav .option:eq(0)").addClass('current');
+							$(".nav .option:eq(0)").css('display', 'inline-block');
+							$(".nav .option:eq(1)").css('display', 'none');
+							$(".do_login").removeClass('hidden');
+							$(".do_register").addClass('hidden');
+						}
+					}
+					else{
+						$("ul.top li.register div span").text(data.name);
+						$.when(isSubmitted())
+						.done(function (data) {
+							if(!data){
+								if($("body").width() > 768){
+									$('.login').removeClass('hidden');
+								}
+								else{
+									$('.login').removeClass('hidden');
+									$(".nav .option:eq(0)").addClass('current');
+									$(".nav .option:eq(0)").css('display', 'inline-block');
+									$(".nav .option:eq(1)").css('display', 'none');
+									$(".do_login").removeClass('hidden');
+									$(".do_register").addClass('hidden');
+								}
+							}
+						})
+					}
+				})
+
 				$.when(getCarouselList())
 				.done(function (data) {
 					self.carouselLists = data.list;
@@ -152,7 +189,8 @@
 						</span>
 						<ul>
 							<li v-for="searchResult in searchResults">
-								<a :href="'detail.html?'+encodeObj({'id':searchResult.id})">{{searchResult.title}}
+								<a :href="searchResult.url?(new RegExp('^http://').test(searchResult.url)?searchResult.url:('http://'+searchResult.url)):'detail.html?'+encodeObj({'id':searchResult.id})" target="_blank">
+									{{searchResult.title}}
 								</a>
 							</li>
 						</ul>
@@ -194,7 +232,7 @@
 					<div class="point2"></div>
 					<div class="point3"></div>
 				</div>
-				<a href="company_profile.html">
+				<a href="company_profile.html" target="_blank">
 					<div class="more">
 						<span>MORE</span>
 						<img src="../images/箭头.png">
@@ -206,24 +244,24 @@
 			</div>
 			<div class="text2">
 				<p class="title" v-if="firstNews">
-					<a :href="'detail.html?'+encodeObj({'id':firstNews.id})">{{firstNews.name}}</a>
+					<a :href="'detail.html?'+encodeObj({'id':firstNews.id})" target="_blank">{{firstNews.name}}</a>
 				</p>
 				<div class="scroll">
 					<transition-group name="list-news" tag="p" class="content1">
 						<span v-for="(item,index) in news" v-if="index > scrollIndex && index - scrollIndex <= 6" v-bind:key="index" class="list-news-item">
-							<a :href="'detail.html?'+encodeObj({'id':item.id})">
+							<a :href="'detail.html?'+encodeObj({'id':item.id})" target="_blank">
 								{{item.name}}<br>
 							</a>
 						</span>
 						<span v-for="(item,index) in news" v-if="index < scrollIndex && index + scrollLength - scrollIndex <= 6" v-bind:key="index" class="list-news-item">
-							<a :href="'detail.html?'+encodeObj({'id':item.id})">
+							<a :href="'detail.html?'+encodeObj({'id':item.id})" target="_blank">
 								{{item.name}}<br>
 							</a>
 						</span> 
 					</transition-group>
 				</div>
 				<p class="date" v-if="firstNews">{{getTime(firstNews.time)}}</p>
-				<a href="company_news.html">
+				<a href="company_news.html" target="_blank">
 					<div class="more">
 						<span>MORE</span>
 						<img src="../images/箭头 副本.png">
@@ -271,14 +309,14 @@
 			</div>
 			<div class="one_two">
 				<a v-if="articleSquare[0]"
-					 :href="'detail.html?'+encodeObj({'id':articleSquare[0].id})">
+					 :href="'detail.html?'+encodeObj({'id':articleSquare[0].id})" target="_blank">
 					<p class="title">{{articleSquare[0].title}}</p>
 				</a>
 				<p class="content2" v-if="articleSquare[0]">
 					{{articleSquare[0].summary}}
 				</p>
 				<div class="more" v-if="articleSquare[0]">
-					<a :href="'detail.html?'+encodeObj({'id':articleSquare[0].id})">
+					<a :href="'detail.html?'+encodeObj({'id':articleSquare[0].id})" target="_blank">
 						<span>MORE</span>
 						<img src="../images/箭头 副本.png">
 					</a>
@@ -289,14 +327,14 @@
 			</div>
 			<div class="two_one">
 				<a v-if="articleSquare[1]" 
-					:href="'detail.html?'+encodeObj({'id':articleSquare[1].id})">
+					:href="'detail.html?'+encodeObj({'id':articleSquare[1].id})" target="_blank">
 					<p class="title">{{articleSquare[1].title}}</p>
 				</a>
 				<p class="content2" v-if="articleSquare[1]">
 					{{articleSquare[1].summary}}
 				</p>
 				<div class="more" v-if="articleSquare[1]">
-					<a :href="'detail.html?'+encodeObj({'id':articleSquare[1].id})">
+					<a :href="'detail.html?'+encodeObj({'id':articleSquare[1].id})" target="_blank">
 						<span>MORE</span>
 						<img src="../images/箭头 副本.png">
 					</a>
@@ -307,14 +345,14 @@
 			</div>
 			<div class="two_three">
 				<a v-if="articleSquare[2]" 
-					:href="'detail.html?'+encodeObj({'id':articleSquare[2].id})">
+					:href="'detail.html?'+encodeObj({'id':articleSquare[2].id})" target="_blank">
 					<p class="title">{{articleSquare[2].title}}</p>
 				</a>
 				<p class="content1" v-if="articleSquare[2]">
 					{{articleSquare[2].summary}}
 				</p>
 				<div class="more" v-if="articleSquare[2]">
-					<a :href="'detail.html?'+encodeObj({'id':articleSquare[2].id})">
+					<a :href="'detail.html?'+encodeObj({'id':articleSquare[2].id})" target="_blank">
 						<span>MORE</span>
 						<img src="../images/箭头.png">
 					</a>
@@ -322,14 +360,14 @@
 			</div>
 			<div class="three_one" v-if="homeimg[6]" :style="'background-image: url('+baseUrl+homeimg[6]+')'">
 				<a v-if="articleSquare[3]" 
-					:href="'detail.html?'+encodeObj({'id':articleSquare[3].id})">
+					:href="'detail.html?'+encodeObj({'id':articleSquare[3].id})" target="_blank">
 					<p class="title">{{articleSquare[3].title}}</p>
 				</a>
 				<p class="content2" v-if="articleSquare[3]">
 					{{articleSquare[3].summary}}
 				</p>
 				<div class="more" v-if="articleSquare[3]">
-					<a :href="'detail.html?'+encodeObj({'id':articleSquare[3].id})">
+					<a :href="'detail.html?'+encodeObj({'id':articleSquare[3].id})" target="_blank">
 						<span>MORE</span>
 						<img src="../images/箭头.png">
 					</a>
@@ -343,14 +381,14 @@
 			</div>
 			<div class="four_two">
 				<a v-if="articleSquare[4]" 
-					:href="'detail.html?'+encodeObj({'id':articleSquare[4].id})">
+					:href="'detail.html?'+encodeObj({'id':articleSquare[4].id})" target="_blank">
 					<p class="title">{{articleSquare[4].title}}</p>
 				</a>
 				<p class="content2" v-if="articleSquare[4]">
 					{{articleSquare[4].summary}}
 				</p>
 				<div class="more" v-if="articleSquare[4]">
-					<a :href="'detail.html?'+encodeObj({'id':articleSquare[4].id})">
+					<a :href="'detail.html?'+encodeObj({'id':articleSquare[4].id})" target="_blank">
 						<span>MORE</span>
 						<img src="../images/箭头 副本.png">
 					</a>
@@ -359,6 +397,7 @@
 		</div>
 		<five></five>
 		<six></six>
+		<back-button></back-button>
 	</div>
 </body>
 </html>

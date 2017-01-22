@@ -31,9 +31,31 @@ body{
 }
 
 [v-cloak] {
-  display: none;
+    display: none;
 }
 
+#vm{
+	position: relative;
+}
+
+.back-button{
+	position: fixed;
+	right: 0;
+	bottom: 180px;
+	z-index: 100;
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+	img{
+		.wh(100%,100%);
+	}
+}
+.back-enter-active, .back-leave-active {
+  transition: opacity .3s
+}
+.back-enter, .back-leave-active {
+  opacity: 0
+}
 
 div.above{
 	display: none;
@@ -777,6 +799,9 @@ div.six{
 	body{
 		min-width: 0;
 	}
+	.back-button{
+		display: none;
+	}
 	div.above.show{
 		display: block;
 		position: fixed;
@@ -876,6 +901,9 @@ div.six{
 			line-height: 50px;
 			text-align: left;
 			color: white !important;
+			a{
+				color: white !important;
+			}
 		}
 		.register{
 			display: none;
@@ -1010,7 +1038,7 @@ div.six{
 		padding-right: 4%;
 	}
 	div.five_one{
-		.wh(100%, 185px); 
+		.wh(100%, 225px); 
 	}
 	ul.about{
 		.wh(100%, auto);

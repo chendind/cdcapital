@@ -508,7 +508,16 @@ Vue.component("six",{
 				<p>2014-2015 山东创道股权投资基金管理有限公司<span class="hidden"> All rights reserved.</span></p>\
 				<p class="small"><span>济南市市中区经四路9号万达广场写字楼A座11F</span> <span>鲁1CP备14020449号-1 鲁公网安备 37010302000377号</span></p>\
 			</div>\
-		</div>'
+		</div>',
+	mounted: function(){
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?9a49842aaa9ba81190e56c9b7751dc55";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	}
 })
 
 Vue.component("back-button",{

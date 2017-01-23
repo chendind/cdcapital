@@ -27,6 +27,7 @@ div.three div.img {
   background-repeat: no-repeat;
   background-size: cover;
   display: inline-block;
+  background-position: center;
   width: 33.3%;
   height: 260px;
   vertical-align: top;
@@ -76,6 +77,11 @@ div.three div.text .time {
 }
 div.three div.text a {
   text-decoration: none;
+}
+.M-box {
+  background-color: #fafafa;
+  margin: 0;
+  padding: 0 0 30px;
 }
 @media only screen and (max-width: 768px) {
   div.three div.img {

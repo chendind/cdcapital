@@ -26,6 +26,7 @@ div.three {
 div.three div.img {
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   display: inline-block;
   width: 33.3%;
   height: 260px;

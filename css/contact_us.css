@@ -132,6 +132,7 @@ div.three div.position {
   display: inline-block;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   vertical-align: top;
 }
 @media only screen and (max-width: 768px) {

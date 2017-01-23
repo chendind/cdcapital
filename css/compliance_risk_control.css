@@ -114,6 +114,7 @@ div.three_two div.img {
   background-image: url("../images/1-150P511542E38.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 div.three_three {
   padding: 30px 40px;
@@ -123,21 +124,25 @@ div.three_three .img1 {
   background-image: url("../images/1-150P512215U44.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 div.three_three .img2 {
   background-image: url("../images/1-150P5122S0H2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 div.three_three .img3 {
   background-image: url("../images/1-150P5122T3A8.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 div.three_three .img4 {
   background-image: url("../images/1-150P5122U2205.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 div.three_three table {
   border-collapse: collapse;
@@ -172,6 +177,7 @@ div.three_four div {
   display: inline-block;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   width: 30%;
   height: 280px;
   vertical-align: top;

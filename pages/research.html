@@ -34,7 +34,7 @@
 				</div>
 			</div> 
 		</div>
-		<div class="M-box" v-if="items.length > 20"></div>
+		<div class="M-box" v-if="countAll > 20"></div>
 		<five></five>
 		<six></six>
 		<back-button></back-button>
@@ -50,29 +50,33 @@
 		var vm = new Vue({
 			el: "#vm",
 			data: {
-				items: []
+				items: [],
+				countAll: 0
 			},
 			mounted: function () {
 				var self = this;
 				$.when(getArticleForPage(0,20,"RESEARCH_REPORT"))
 				.done(function (data) {
 					self.items = data.list;
-					$(".M-box").pagination({
-						totalData: data.countAll,
-					    showData:20,
-					    current:1,
-					    count:2,
-						prevContent:'上一页',
-						nextContent:'下一页',
-						coping:true,
-					    callback:function(pagination){
-					    	$.when(getArticleForPage((pagination.getCurrent()-1)*20,20,"RESEARCH_REPORT"))
-							.done(function (data) {
-								$("body").scrollTop(400);
-								self.items = data.list;
-							})
-					    }
-					});
+					self.countAll = data.countAll;
+					self.$nextTick(function(){
+						$(".M-box").pagination({
+							totalData: data.countAll,
+						    showData:20,
+						    current:1,
+						    count:2,
+							prevContent:'上一页',
+							nextContent:'下一页',
+							coping:true,
+						    callback:function(pagination){
+						    	$.when(getArticleForPage((pagination.getCurrent()-1)*20,20,"RESEARCH_REPORT"))
+								.done(function (data) {
+									$("body").scrollTop(400);
+									self.items = data.list;
+								})
+						    }
+						});
+					})
 				})
 			}
 		})

@@ -54,7 +54,7 @@
 			},
 			mounted:function(){
 				var self = this;
-				$.when(getArticleForPage(0,4,"COMPANY_NEWS"))
+				$.when(getArticleForPage(0,20,"COMPANY_NEWS"))
 				.done(function (data) {
 					self.items = data.list;
 					$(".M-box").pagination({
@@ -66,7 +66,7 @@
 						nextContent:'下一页',
 						coping:true,
 					    callback:function(pagination){
-					    	$.when(getArticleForPage((pagination.getCurrent()-1)*4,4,"COMPANY_NEWS"))
+					    	$.when(getArticleForPage((pagination.getCurrent()-1)*20,20,"COMPANY_NEWS"))
 							.done(function (data) {
 								$("body").scrollTop(400);
 								self.items = data.list;

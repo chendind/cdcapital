@@ -75,14 +75,14 @@ Vue.component("login",{
 					<input class="name" type="text" name="login_name" v-model="login_name" placeholder="请输入用户名">\
 					<input class="pwd" type="password" name="login_pwd" v-model="login_pwd" placeholder="请输入密码">\
 					<input class="button" type="button" name="login_button" value="登录" @click="login">\
-					<div>如需帮助，请拨打客服热线<span>4008-200-025</span></div>\
+					<div>如需帮助，请拨打客服热线<span>400-0670-877</span></div>\
 				</form>\
 				<form class="do_register hidden">\
 					<input class="name" type="text" name="register_name" v-model="register_name" placeholder="请输入用户名">\
 					<input class="pwd" type="password" name="register_pwd" v-model="register_pwd" placeholder="请输入密码">\
 					<input class="repwd" type="password" name="register_repwd" v-model="register_repwd" placeholder="请确认密码">\
 					<input class="button" type="button" name="register_button" value="注册" @click="register">\
-					<div>如需帮助，请拨打客服热线<span>4008-200-025</span></div>\
+					<div>如需帮助，请拨打客服热线<span>400-0670-877</span></div>\
 				</form>\
 				<img src="../images/关闭 (1).png" @click="loginCancel">\
 			</div>\
@@ -474,7 +474,7 @@ Vue.component("five",{
 					<div class="TDcode">\
 						<div>\
 							<p>全国服务热线</p>\
-							<p class="mid">4008 980 618</p>\
+							<p class="mid">400-0670-877</p>\
 							<p>人工服务时间 工作日 9:00-18:00</p>\
 						</div>\
 						<img src="../images/创道微信公众号 副本.png">\

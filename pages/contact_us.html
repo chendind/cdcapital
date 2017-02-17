@@ -5,6 +5,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="format-detection" content="telephone=no"/>
+	<meta name="keywords" content="创道资本,金融理财专家,投资理财,私募基金,山东创道股权投资基金管理有限公司">
+	<meta name="description" content="创道资本始创于2009年，实缴注册资本一亿元，总部位于杭州。2014年经中国证券监督管理委员会、中国证券投资基金业协会审核，成为首批获得私募投资基金牌照的金融机构。是一家集股权投资、证券投资、财富管理等业务于一体的综合性金融服务集团。自成立之初，创道资本不断完善金融运作体系，不断建立健全风险管控机制，以风险管控为公司的第一核心竞争力，正逐步向以股权投资、证券投资、创业投资三大业务板块为主要内容的综合性金融服务集团迈进。秉承着“厚德懋勤创道九州”的经营理念，创道资本在这场现代金融浪潮中脱颖而出，以金融为剑，以产业为基，立格局之上，创发展之道。迄今为止，创道资本已成功发行各类基金十余支，资产管理规模近50亿，与横店集团、颐高集团、广厦集团、天弘基金等国内知名品牌建立了合作关系。" />
 	<link rel="stylesheet" type="text/css" href="../css/public.css">
 	<link rel="stylesheet" type="text/css" href="../css/contact_us.css">
 	<link rel="stylesheet" type="text/css" href="../flaticon/flaticon.css">
@@ -17,65 +19,59 @@
 			<banner></banner>
 			<manu-details></manu-details>
 		</div>
-		<h1>联系我们</h1>
 		<div class="two">
-			<div v-if="items[0]">
-				<div class="img">
-					<img src="../images/icon-tel.png" style="width: 50px;">
-				</div>
+			<div class="ch">联系我们</div>
+			<div>
+				<span class="line"></span>
+				<span class="en">CONTACT INFORMATION</span>
+				<span class="line"></span>
+			</div>
+		</div>
+		<div class="three">
+			<div class="left" v-if="items[0]&&items[1]&&items[2]">
 				<p class="description">{{items[0].description}}</p>
 				<a :href="'tel:'+items[0].value">
 					<p class="value">{{items[0].value}}</p>
 				</a>
-			</div>
-			<div v-if="items[1]">
-				<div class="img">
-					<img src="../images/传真.png" style="width: 51px;">
-				</div>
 				<p class="description">{{items[1].description}}</p>
 				<p class="value">{{items[1].value}}</p>
-			</div>
-			<div v-if="items[2]">
-				<div class="img">
-					<img src="../images/icon-mail-biz.png" style="width: 40px;">
-				</div>
 				<p class="description">{{items[2].description}}</p>
 				<a :href="'mailto:'+items[2].value">
 					<p class="value">{{items[2].value}}</p>
 				</a>
 			</div>
-			<div v-if="items[3]">
-				<div class="img">
-					<img src="../images/icon-weibo.png" style="width: 60px;">
-					<img src="../images/WechatIMG24.png" class="hidden bigger">
-				</div>
+			<div class="middle" v-if="items[3]">
 				<p class="description">{{items[3].description}}</p>
 				<a href="http://m.weibo.cn/u/5071154518?retcode=6102">
 					<p class="value">{{items[3].value}}<p>
 				</a>
+				<img src="../images/WechatIMG24.png">
 			</div>
-			<div v-if="items[4]">
-				<div class="img">
-					<img src="../images/icon-weixin.png" style="width: 59px;">
-					<img src="../images/创道微信公众号.png" class="hidden bigger">
-				</div>
+			<div class="right" v-if="items[4]">
 				<p class="description">{{items[4].description}}</p>
 				<p class="value">{{items[4].value}}<p>
+				<img src="../images/创道微信公众号.png">
 			</div>
 		</div>
-		<h1>找到我们</h1>
-		<div class="three">
+		<div class="two find">
+			<div class="ch">找到我们</div>
+			<div>
+				<span class="line"></span>
+				<span class="en">ADDRESS</span>
+				<span class="line"></span>
+			</div>
+		</div>
+		<div class="four">
 			<div v-for="(address,index) in addresses">
 				<span>{{address.type}}</span>
 				<img :class="index!==0?'':'hidden'" @click="togglefindus($event)" src="../images/加.png">
 				<img :class="index===0?'':'hidden'" @click="togglefindus($event)" src="../images/减.png">
 				<div :class="index===0?'findusdetail':'findusdetail hidden'">
 					<div class="findus">
-						<p>我们的坐标</p>
-						<div v-if="address.address.value">地址：{{address.address.value}}</div>
-						<div v-if="address.tel.value">电话：{{address.tel.value}}</div>
-						<div v-if="address.cellphone.value">手机：{{address.cellphone.value}}</div>
-						<div v-if="address.zipcode.value">邮编：{{address.zipcode.value}}</div>
+						<p v-if="address.address">{{address.address.value}}</p>
+						<div v-if="address.tel">电话：{{address.tel.value}}</div>
+						<div v-if="address.cellphone">手机：{{address.cellphone.value}}</div>
+						<div v-if="address.zipcode">邮编：{{address.zipcode.value}}</div>
 					</div>
 					<div class="position" :style="'background-image: url(' + baseUrl+ address.img.value+')'">
 					</div>
@@ -89,6 +85,7 @@
 	<script src="../js/jquery-1.7.1.js" type="text/javascript"></script>
 	<script src="../js/jquery.touchslider.min.js" type="text/javascript"></script>
 	<script src="../js/vue.js" type="text/javascript"></script>
+	<script src="../js/vue-tap.js" type="text/javascript"></script>
 	<script src="../js/pagination.js" type="text/javascript"></script>
 	<script src="../js/public.js" type="text/javascript"></script>
 	<script src="../js/ajax.js" type="text/javascript"></script>

@@ -5,6 +5,16 @@ body{
   	min-width: 1080px;
   	position: relative;
 }
+@font-face{
+	font-family: PingFang;
+	font-weight: normal;
+	src: url('../fonts/PingFang_Regular.ttf');
+}
+@font-face{
+	font-family: PingFang;
+	font-weight: bold;
+	src: url('../fonts/PingFang_Bold.ttf');
+}
 .wh(@width, @height){
 	width: @width;
 	height: @height;
@@ -196,10 +206,8 @@ ul.detail_pages::before{
 	width: 0;
 	height: 0;
 	position: absolute;
-	top: 0;
+	top: -12px;
 	left: 36px;
-	transform: translateY(-100%);
-	-ms-transform: translateY(-100%) rotate(90deg);
 }
 ul.detail_pages{
 	height: 132px;
@@ -297,7 +305,7 @@ div.manu_items{
 		border-width: 1px 0px;
 		border-style: solid;
 		border-color: rgba(30, 46, 95, 0.4);
-		&:hover{
+		&:hover,&.hover{
 			.hidden{
 				display: block;
 			}
@@ -882,7 +890,7 @@ div.six{
 		background-color: #1e2e5f;
 		box-sizing: border-box;
 		padding: 129px 6.7% 0;
-		height: 100vh;
+		height: 700px;
 		transform: translateX(-100%);
 		-ms-transform: translateX(-100%);
 		transition: all 0.5s;
@@ -901,7 +909,7 @@ div.six{
 			line-height: 50px;
 			text-align: left;
 			color: white !important;
-			a{
+			&>a{
 				color: white !important;
 			}
 		}
@@ -974,7 +982,13 @@ div.six{
 			&>img{
 				z-index: -1;
 			}
+			&.hover{
+				.hidden{
+					display: block;
+				}
+			}
 		}
+
 		.triangle{
 			visibility: hidden;
 		}
@@ -986,6 +1000,9 @@ div.six{
 			transform: translate(-50%, -50%);
 			-ms-transform: translate(-50%, -50%);
 			.wh(200px, 231px);
+			img {
+				.wh(200px, 200px);
+			}
 			p{
 				font-size: 14px;
 			}

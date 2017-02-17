@@ -9,7 +9,7 @@ Vue.prototype.getTime = function (stamp) {
 	d = date.getDate();
 	return y + "-" + (m>9?m:"0"+m) + "-"  + (d>9?d:"0"+d);
 }
-Vue.prototype.baseUrl = "";
+Vue.prototype.baseUrl = "" //"http://www.cdcapital.net";
 Vue.prototype.getQueryData = function(){
     var searchUrl = window.location.search.split("?")[1];
     var URI = decodeURIComponent(searchUrl);
@@ -30,6 +30,7 @@ Vue.component("above",{
 	methods: {
 		hiddenAbove: function () {
 			$("div.above").removeClass('show');
+			$("div.manu_items>div").removeClass("hover");
 		}
 	}
 })
@@ -184,56 +185,56 @@ Vue.component("banner",{
 						<a href="company_profile.html" @click="showlinks($event)">关于创道</a>\
 						<ul class="detail_pages">\
 							<li>\
-								<a href="company_profile.html">\
+								<a href="company_profile.html" v-tap>\
 									<img class="show" src="../images/公司简介-01.png">\
 									<img class="hidden" src="../images/公司简介-01的副本.png">\
 									公司简介\
 								</a>\
 							</li>\
 							<li>\
-								<a href="development_history.html">\
+								<a href="development_history.html" v-tap>\
 									<img class="show" src="../images/发展历程.png">\
 									<img class="hidden" src="../images/发展历程的副本.png">\
 									发展历程\
 								</a>\
 							</li>\
 							<li>\
-								<a href="honor_qualification.html">\
+								<a href="honor_qualification.html" v-tap>\
 									<img class="show" src="../images/资质荣誉.png">\
 									<img class="hidden" src="../images/资质荣誉的副本.png">\
 									荣誉资质\
 								</a>\
 							</li>\
 							<li>\
-								<a href="cooperative_partner.html">\
+								<a href="cooperative_partner.html" v-tap>\
 									<img class="show" src="../images/合作伙伴.png">\
 									<img class="hidden" src="../images/合作伙伴的副本.png">\
 									合作伙伴\
 								</a>\
 							</li>\
 							<li>\
-								<a href="management_team.html">\
+								<a href="management_team.html" v-tap>\
 									<img class="show" src="../images/团队.png">\
 									<img class="hidden" src="../images/团队的副本.png">\
 									管理团队\
 								</a>\
 							</li>\
 							<li>\
-								<a href="holding_company.html">\
+								<a href="holding_company.html" v-tap>\
 									<img class="show" src="../images/资金股份.png">\
 									<img class="hidden" src="../images/资金股份的副本.png">\
 								    控股企业\
 							    </a>\
 							</li>\
 							<li>\
-								<a href="social_responsibility.html">\
+								<a href="social_responsibility.html" v-tap>\
 									<img class="show" src="../images/社会责任.png">\
 									<img class="hidden" src="../images/社会责任的副本.png">\
 									社会责任\
 								</a>\
 							</li>\
 							<li>\
-								<a href="enterprise_journal.html">\
+								<a href="enterprise_journal.html" v-tap>\
 									<img class="show" src="../images/期刊1.png">\
 									<img class="hidden" src="../images/期刊.png">\
 									企业内刊\
@@ -245,28 +246,28 @@ Vue.component("banner",{
 						<a href="project_gallery.html" @click="showlinks($event)">产品与服务</a>\
 						<ul class="detail_pages">\
 							<li>\
-								<a href="project_gallery.html">\
+								<a href="project_gallery.html" v-tap>\
 									<img class="show" src="../images/展示2.png">\
 									<img class="hidden" src="../images/展示2的副本.png">\
 									项目展示\
 								</a>\
 							</li>\
 							<li>\
-								<a href="project_dynamics.html">\
+								<a href="project_dynamics.html" v-tap>\
 									<img class="show" src="../images/动态.png">\
 									<img class="hidden" src="../images/动态的副本.png">\
 									项目动态\
 								</a>\
 							</li>\
 							<li>\
-								<a href="service_experience.html">\
+								<a href="service_experience.html" v-tap>\
 									<img class="show" src="../images/服务体验定义1.png">\
 									<img class="hidden" src="../images/服务体验定义.png">\
 									服务体验\
 								</a>\
 							</li>\
 							<li>\
-								<a href="compliance_risk_control.html">\
+								<a href="compliance_risk_control.html" v-tap>\
 									<img class="show" src="../images/风控意见1.png">\
 									<img class="hidden" src="../images/风控意见.png">\
 									合规风控\
@@ -278,14 +279,14 @@ Vue.component("banner",{
 						<a href="research.html" @click="showlinks($event)">创道研究</a>\
 						<ul class="detail_pages" style="height: 66px;">\
 							<li>\
-								<a href="research.html">\
+								<a href="research.html" v-tap>\
 									<img class="show" src="../images/研报.png">\
 									<img class="hidden" src="../images/研报的副本.png">\
 									创道研究\
 								</a>\
 							</li>\
 							<li>\
-								<a href="weekly_observation.html">\
+								<a href="weekly_observation.html" v-tap>\
 									<img class="show" src="../images/观察评价.png">\
 									<img class="hidden" src="../images/观察评价的副本.png">\
 									每周观察\
@@ -297,21 +298,21 @@ Vue.component("banner",{
 						<a href="company_announce.html" @click="showlinks($event)">新闻中心</a>\
 						<ul class="detail_pages" style="height: 99px;">\
 							<li>\
-								<a href="company_announce.html">\
+								<a href="company_announce.html" v-tap>\
 									<img class="show" src="../images/公司公告.png">\
 									<img class="hidden" src="../images/公司公告的副本.png">\
 									公司公告\
 								</a>\
 							</li>\
 							<li>\
-								<a href="company_news.html">\
+								<a href="company_news.html" v-tap>\
 									<img class="show" src="../images/新闻.png">\
 									<img class="hidden" src="../images/新闻的副本.png">\
 									公司新闻\
 								</a>\
 							</li>\
 							<li>\
-								<a href="trade_news.html">\
+								<a href="trade_news.html" v-tap>\
 									<img class="show" src="../images/行业新闻.png">\
 									<img class="hidden" src="../images/行业新闻的副本.png">\
 									行业新闻\
@@ -396,8 +397,8 @@ Vue.component("banner",{
 Vue.component("manu-details",{
 	template: '\
 		<div class="manu_details hidden">\
-			<div class="manu_items" @click="showAbove">\
-				<div class="sina">\
+			<div class="manu_items">\
+				<div class="sina" v-tap="{methods:showAbove}">\
 					<img src="../images/新浪图标.png">\
 					<img class="hidden" src="../images/新浪图标2.png">\
 					<div class="triangle hidden"></div>\
@@ -406,7 +407,7 @@ Vue.component("manu-details",{
 						<p>扫描二维码 关注创道</p>\
 					</div>\
 				</div>\
-				<div class="wechat">\
+				<div class="wechat" v-tap="{methods:showAbove}">\
 					<img src="../images/微信图标2.png">\
 					<img class="hidden" src="../images/微信图标.png">\
 					<div class="triangle hidden"></div>\
@@ -416,7 +417,7 @@ Vue.component("manu-details",{
 					</div>\
 				</div>\
 				<div class="service">\
-					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=364044816&site=qq&menu=yes">\
+					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=364044816&site=qq&menu=yes" v-tap>\
 						<img src="../images/在线客服.png">\
 						<img class="hidden" src="../images/在线客服2.png">\
 					</a>\
@@ -424,8 +425,10 @@ Vue.component("manu-details",{
 			</div>\
 		</div>',
 	methods: {
-		showAbove: function () {
+		showAbove: function (params) {
 			$("div.above").addClass('show');
+			$(params.event.target).siblings().removeClass('hover');
+			$(params.event.target).addClass('hover');
 		}
 	}
 })

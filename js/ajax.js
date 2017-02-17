@@ -1,4 +1,4 @@
-var baseurl = ""
+var baseurl = ""//"http://www.cdcapital.net"
 
 function register(name, password, type) {
 	var ajax = $.ajax({

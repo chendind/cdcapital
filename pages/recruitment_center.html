@@ -3,8 +3,10 @@
 <head>
 	<title>创道资本</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<meta name="format-detection" content="telephone=no"/>
+	<meta name="keywords" content="创道资本,金融理财专家,投资理财,私募基金,山东创道股权投资基金管理有限公司">
+	<meta name="description" content="创道资本始创于2009年，实缴注册资本一亿元，总部位于杭州。2014年经中国证券监督管理委员会、中国证券投资基金业协会审核，成为首批获得私募投资基金牌照的金融机构。是一家集股权投资、证券投资、财富管理等业务于一体的综合性金融服务集团。自成立之初，创道资本不断完善金融运作体系，不断建立健全风险管控机制，以风险管控为公司的第一核心竞争力，正逐步向以股权投资、证券投资、创业投资三大业务板块为主要内容的综合性金融服务集团迈进。秉承着“厚德懋勤创道九州”的经营理念，创道资本在这场现代金融浪潮中脱颖而出，以金融为剑，以产业为基，立格局之上，创发展之道。迄今为止，创道资本已成功发行各类基金十余支，资产管理规模近50亿，与横店集团、颐高集团、广厦集团、天弘基金等国内知名品牌建立了合作关系。" />
 	<link rel="stylesheet" type="text/css" href="../css/public.css">
 	<link rel="stylesheet" type="text/css" href="../css/recruitment_center.css">
 	<link rel="stylesheet" type="text/css" href="../flaticon/flaticon.css">
@@ -18,60 +20,72 @@
 			<manu-details></manu-details>
 		</div>
 		<div class="two">
-			<p class="place">现根据公司发展需求，招聘岗位如下；以下职位面向全国招贤纳士，工作地点：杭州、宁波、慈溪、义乌、金华、衢州、台州、合肥、蚌埠、济南、潍坊、南京、苏州、常州、无锡、宜兴、威海、烟台、青岛、福建、厦门、北京、上海、深圳等。</p>
-			<p class="tel-email">求职电话：0571-86502215  邮箱：hr@cdcapital.net</p>
-			<p class="find">我们在寻找</p>
-			<p class="position">
-				<span v-for="item in items" @click="goItem($event)">
-					{{item.position}}
-				</span>
+			<p class="title">现根据公司发展需求，招聘岗位如下（以下职位面向全国招贤纳士）</p>
+			<p>
+				<span class="position">工作地点：</span>
+				<span>杭州、宁波、慈溪、义乌、金华、衢州、台州、合肥、蚌埠、济南、潍坊、南京、苏州、常州、无锡、宜兴、威海、烟台、青岛、福建、厦门、北京、上海、深圳等。</span>
 			</p>
+			<p><span>求职电话：</span><span>0571-86502215</span></p>
+			<p><span>邮箱：</span><span>hr@cdcapital.net</span></p>
+			<p class="find">我们在寻找</p>
 		</div>
 		<div class="three">
-			<div v-for="item in items">
-				<div class="position">{{item.position}}</div>
-				<table>
-					<tr>
-						<th>职责</th>
-						<td>
-							<ul>
-								<li v-for="dutyitem in item.duty">
-									{{dutyitem}}
-								</li>
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<th>要求</th>
-						<td>
-							<ul>
-								<li v-for="requirementitem in item.requirement">
-									{{requirementitem}}
-								</li>
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<th>地点</th>
-						<td>
-							<ul>
-								<li v-for="placeitem in item.place">
-									{{placeitem}}
-								</li>
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<th>邮箱</th>
-						<td>
-							<ul>
-								<li>
-									{{item.email}}
-								</li>
-							</ul>
-						</td>
-					</tr>
-				</table>
+			<div class="left">
+				<ul v-if="width > 768">
+					<li v-for="(item, index) in items" :class="index==0?'show':''" @click.stop="showItem($event)">
+						{{item.position}}
+					</li>
+				</ul>
+				<div class="left_else" v-else>
+					<div class="left_title">
+						招聘的岗位
+						<span v-if="items[index]">{{items[index].position}}
+							<img src="../images/you@2x.png">
+						</span>
+					</div>
+					<select id="Select" @change="selectChange" autofocus="false">
+						<option v-for="(item, index) in items" :class="index==0?'show':''">
+							{{item.position}}
+						</option>
+					</select>
+				</div>
+			</div>
+			<div class="right" v-if="items[index]">
+				<div>
+					<p class="position">{{items[index].position}}</p>
+					<div>
+						<div class="title"><span>职责</span><span></span></div>
+						<ol>
+							<li v-for="dutyitem in items[index].duty">
+								{{dutyitem}}
+							</li>
+						</ol>
+					</div>
+					<div>
+						<div class="title"><span>要求</span><span></span></div>
+						<ol>
+							<li v-for="requirementitem in items[index].requirement">
+								{{requirementitem}}
+							</li>
+						</ol>
+					</div>
+					<div>
+						<div class="title"><span>地点</span><span></span></div>
+						<ol>
+							<li v-for="placeitem in items[index].place">
+								{{placeitem}}
+							</li>
+						</ol>
+					</div>
+					<div>
+						<div class="title"><span>邮箱</span><span></span></div>
+						<ul>
+							<li>
+								{{items[index].email}}
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 		<five></five>
@@ -81,6 +95,7 @@
 	<script src="../js/jquery-1.7.1.js" type="text/javascript"></script>
 	<script src="../js/jquery.touchslider.min.js" type="text/javascript"></script>
 	<script src="../js/vue.js" type="text/javascript"></script>
+	<script src="../js/vue-tap.js" type="text/javascript"></script>
 	<script src="../js/pagination.js" type="text/javascript"></script>
 	<script src="../js/public.js" type="text/javascript"></script>
 	<script src="../js/ajax.js" type="text/javascript"></script>
@@ -89,19 +104,27 @@
 		var vm = new Vue({
 			el: "#vm",
 			data: {
-				items: []
+				items: [],
+				index: 0,
+				width: 0
 			},
 			methods: {
-				goItem: function (event) {
-					var index = $(event.target).index("div.two span");
-					var top = $("div.three .position:eq("+index+")").position().top;
-					$("html").animate({scrollTop: top}, 400);
-					$("body").animate({scrollTop: top}, 400);
+				showItem: function (event) {
+					var self = this;
+					$("div.left li").removeClass("show");
+					$(event.target).addClass("show");
+					self.index = $(event.target).index("div.left li");
+					$("html").animate({scrollTop: 550}, 400);
+					$("body").animate({scrollTop: 550}, 400);
+				},
+				selectChange: function () {
+					var x=document.getElementById("Select")
+  					this.index = x.selectedIndex;
 				}
 			},
 			mounted: function () {
 				var self = this;
-
+				self.width = parseInt($('body').css('width'));
 				$.when(getRecruitmentList())
 				.done(function (data) {
 					self.items = data.list;

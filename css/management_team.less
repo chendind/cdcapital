@@ -10,118 +10,169 @@ div.one{
 }
 div.two{
 	text-align: center;
-	display: inline-block;
-	.wh(100%, 160px);
+	margin: 0 auto;
+	width: 75%;
 	.ch{
-		font-size: 34px;
-		color: #333333;
-		margin: 47px 0 20px;
+		font-size: 25px;
+		font-weight: 900;
+		color: #333;
+		margin: 42px 0 13px;
 	}
 	.en{
-		font-size: 19px;
-		color: #666666;
+		width: 30%;
+		display: inline-block;
+		font-family: PingFang,"Microsoft YaHei";
+		letter-spacing: 2px;
+		font-size: 16px;
+		color: #888;
+		vertical-align: middle;
+	}
+	.line{
+		width: 35%;
+		display: inline-block;
+		border-width: 1px 0 0;
+		border-style: solid;
+		border-color: #888;
+		vertical-align: middle;
 	}
 }
 
 div.three{
-	ul{
-		list-style-type: none;
-		padding: 60px 140px;
+	margin: 50px auto 85px;
+	width: 75%;
+	.left{
+		text-align: center;
+		display: inline-block;
+		vertical-align: middle;
+		width: 100%;
 	}
-	li{
-		margin-bottom: 40px;
-		position: relative;
+	.right {
+		display: inline-block;
+		vertical-align: middle;
+		ul {
+			padding-left: 18px;
+			padding-bottom: 20px;
+			list-style-type: disc;
+		}
+		li {
+			font-size: 13px;
+			line-height: 30px;
+			color: #666;
+		}
+	}
+	div.top_man{
+		width: 100%;
+		background-color: #f5f6f8;
+		.left {
+			width: 46%;
+		}
+		.right {
+			width: 54%;
+			padding-right: 90px;
+			box-sizing: border-box;
+		}
+	}
+	&>ul{
+		list-style-type: none;
+		padding: 0;
+		&>li{
+			width: 42%;
+			display: inline-block;
+			vertical-align: top;
+		}
+		&>li:first-child {
+			margin-right: 16%;
+		}
+		div.main_title {
+			margin-bottom: 20px;
+		}
+		div.description.hidden{
+			height: 69px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+		    -webkit-line-clamp: 3;
+		}
+		.right ul {
+			padding-bottom: 0;
+		}
 	}
 	div.img{
+		.wh(200px, 200px);
+		border-radius: 100px;
 		display: inline-block;
-		.wh(175px, 240px);
+		margin: 40px auto 25px;
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
 	}
-	div.middle{
-		display: inline-block;
-		width: 262px;
-		margin-left: 20px;
-		vertical-align: bottom;
-	}
 	div.name{
-		font-size: 19px;
-		color: #333333;
+		font-size: 20px;
+		color: #1e2e5f;
 		margin: 0 0 7px;
-		span{
-			font-size: 12px;
-			color: #666666;
-			padding-left: 10px;
-		}
 	}
 	div.spell{
 		font-size: 12px;
-		color: #666666;
+		color: #888;
 	}
 	div.main_title{
 		font-size: 15px;
-		color: #3b3b3b;
-		margin: 35px 0 0;
-	}
-	div.sub_title{
-		font-size: 15px;
-		color: #666666;
-		margin: 16px 0 0;
+		color: #333;
+		margin: 15px 0 43px;
 	}
 	div.description{
-		display: inline-block;
-		color: #666666;
-		font-size: 16px;
+		color: #666;
+		font-size: 12px;
 		line-height: 23px;
-		width: 100%;
-		position: absolute;
-		box-sizing: border-box;
-		padding-left: 460px;
-		left: 0;
-		bottom: 0;
-		overflow: hidden;
+	}
+	div.up, div.down{
+		float: right;
+		font-size: 12px;
+		color: #5896ce;
+		cursor: pointer;
+	}
+	div.hidd{
+		display: none;
 	}
 }
 
 
 @media only screen and (max-width: 768px) {
+	div.two{
+		width: 90%;
+		.en{
+			width: 70%;
+		}
+		.line{
+			width: 15%;
+		}
+	}
 	div.three{
-		ul{
-			padding: 60px 5% 60px 5%;
-		}
-		div.img{
-			.wh(88px, 120px);
-		}
-		div.middle{
-			width: 100%;
-			position: absolute;
-			left: 0;
-			top: 120px;
-			transform: translateY(-100%);
-			-ms-transform: translateY(-100%);
-			box-sizing: border-box;
-			padding-left: 88px;
-		}
-		div.name{
-			font-size: 14px;
-			margin: 0 0 4px;
-		}
-		div.spell{
-			font-size: 12px;
-		}
-		div.main_title{
-			font-size: 13px;
-			margin: 15px 0 0;
-		}
-		div.sub_title{
-			font-size: 12px;
-			margin: 6px 0 0;
-		}
-		div.description{
+		width: 90%;
+		.left{
 			display: block;
-			position: static;
-			padding: 20px 0 0;
+		}
+		.right {
+			display: block;
+			margin: 0 auto;
+		}
+		div.top_man{
+			.left {
+				width: 100%;
+			}
+			.right {
+				width: 90%;
+				padding-right: 0;
+			}
+		}
+		&>ul{
+			&>li{
+				width: 100%;
+			}
+			&>li:first-child {
+				margin-right: 0;
+			}
 		}
 	}
 }

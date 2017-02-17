@@ -3,7 +3,6 @@ body {
 }
 div.one {
   background-image: url("../images/7.jpg");
-  margin-bottom: 80px;
 }
 div.one li.li_seven {
   color: #1e2e5f;
@@ -15,118 +14,133 @@ h1 {
   color: #333333;
 }
 div.two {
-  width: 1000px;
-  height: 275px;
-  margin: 0 auto;
-  border-bottom: 1px solid #dddddd;
-}
-div.two > div {
-  display: inline-block;
-  width: 220px;
-  height: 210px;
   text-align: center;
-  position: relative;
-}
-div.two > div:first-child {
-  width: 120px;
-  margin-right: 50px;
-}
-div.two > div:last-child {
-  width: 120px;
-  margin-left: 50px;
-}
-div.two div.img {
-  background-color: #c5c5c5;
-  width: 120px;
-  height: 120px;
   margin: 0 auto;
-  border-radius: 60px;
+  width: 75%;
+}
+div.two .ch {
+  font-size: 25px;
+  font-weight: 900;
+  color: #333;
+  margin: 42px 0 13px;
+}
+div.two .en {
+  width: 30%;
+  display: inline-block;
+  font-family: PingFang, "Microsoft YaHei";
+  letter-spacing: 2px;
+  font-size: 16px;
+  color: #888;
+  vertical-align: middle;
+}
+div.two .line {
+  width: 35%;
+  display: inline-block;
+  border-width: 1px 0 0;
+  border-style: solid;
+  border-color: #888;
+  vertical-align: middle;
+}
+div.two.find .ch {
+  margin-top: 23px;
+}
+div.three {
+  width: 75%;
+  margin: 40px auto 0;
+  text-align: center;
+}
+div.three > div {
+  display: inline-block;
+  width: 260px;
+  height: 400px;
+  box-sizing: border-box;
   position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 100px;
 }
-div.two > div:hover div.img:before {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  border-radius: 70px;
-  width: 138px;
-  height: 138px;
-  border: 1px solid #c5c5c5;
+div.three div.left {
+  text-align: left;
+  padding-left: 50px;
+  float: left;
+  background-image: url(../images/lianxifangshi@2x.png);
 }
-div.two > div:hover img.hidden {
-  display: block;
+div.three div.middle {
+  background-image: url(../images/weibo@2x.png);
 }
-div.two > div:hover p.value {
-  text-decoration: underline;
+div.three div.middle a {
+  color: #5896ce;
 }
-div.two img {
-  height: 50px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+div.three div.middle a p.value {
+  color: #5896ce;
 }
-div.two img.bigger {
-  height: 80px;
-  width: 80px;
+div.three div.right {
+  float: right;
+  background-image: url(../images/weixin@2x.png);
 }
-div.two img.hidden {
-  display: none;
+div.three img {
+  height: 131px;
+  width: 131px;
 }
-div.two p.description {
-  font-size: 19px;
-  color: #5c95cd;
+div.three p.description {
+  font-size: 20px;
+  color: #333;
+  margin: 20px 0 14px;
+  font-weight: bolder;
 }
-div.two p.value {
+div.three p.value {
   font-size: 15px;
-  color: #666666;
+  color: #666;
+  margin: 0 0 30px;
 }
-div.two a {
+div.three a {
   text-decoration: none;
   color: inherit;
 }
-div.three {
-  width: 1000px;
-  margin: 0 auto 60px;
+div.four {
+  width: 75%;
+  margin: 30px auto 10px;
 }
-div.three span {
+div.four span {
   font-size: 18px;
   color: #5c95cd;
   vertical-align: middle;
   line-height: 60px;
 }
-div.three img {
+div.four img {
   height: 18px;
   margin-left: 10px;
   vertical-align: middle;
 }
-div.three .hidden {
+div.four .hidden {
   display: none;
 }
-div.three div.findusdetail {
+div.four div.findusdetail {
   border: 1px solid #c5c5c5;
   background-color: white;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
-div.three div.findus {
+div.four div.findus {
   height: 306px;
   display: inline-block;
   width: 50%;
   padding-left: 20px;
+  padding-right: 85px;
   box-sizing: border-box;
+  color: #333;
 }
-div.three div.findus p {
-  font-size: 20px;
-  color: #5c95cd;
-  margin: 72px 0 30px;
+div.four div.findus p {
+  font-size: 23px;
+  line-height: 35px;
+  margin: 70px 0 25px;
+  font-weight: bolder;
 }
-div.three div.findus div {
+div.four div.findus div {
   font-size: 17px;
-  line-height: 31px;
-  color: #333333;
+  line-height: 30px;
 }
-div.three div.position {
+div.four div.position {
   height: 306px;
   width: 50%;
   display: inline-block;
@@ -138,29 +152,34 @@ div.three div.position {
 @media only screen and (max-width: 768px) {
   div.two {
     width: 90%;
-    height: auto;
   }
-  div.two > div {
+  div.two .en {
+    width: 70%;
+  }
+  div.two .line {
+    width: 15%;
+  }
+  div.three > div {
     display: block;
-    margin: 10px auto;
+    margin: 0 auto;
   }
-  div.two > div:first-child {
-    margin-right: auto;
+  div.three div.left {
+    float: none;
   }
-  div.two > div:last-child {
-    margin-left: auto;
+  div.three div.right {
+    float: none;
   }
-  div.three {
+  div.four {
     width: 90%;
   }
-  div.three div.findus {
+  div.four div.findus {
     width: 100%;
     padding-right: 20px;
   }
-  div.three div.findus p {
+  div.four div.findus p {
     margin: 40px 0 30px;
   }
-  div.three div.position {
+  div.four div.position {
     width: 100%;
     height: 200px;
   }

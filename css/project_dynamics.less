@@ -10,16 +10,29 @@ div.one{
 }
 div.two{
 	text-align: center;
-	display: inline-block;
-	.wh(100%, 160px);
+	margin: 0 40px;
 	.ch{
-		font-size: 34px;
-		color: #333333;
-		margin: 47px 0 20px;
+		font-size: 25px;
+		font-weight: 900;
+		color: #333;
+		margin: 42px 0 13px;
 	}
 	.en{
-		font-size: 19px;
-		color: #666666;
+		width: 30%;
+		display: inline-block;
+		font-family: PingFang,"Microsoft YaHei";
+		letter-spacing: 2px;
+		font-size: 16px;
+		color: #888;
+		vertical-align: middle;
+	}
+	.line{
+		width: 35%;
+		display: inline-block;
+		border-width: 1px 0 0;
+		border-style: solid;
+		border-color: #888;
+		vertical-align: middle;
 	}
 }
 
@@ -101,14 +114,24 @@ div.three{
 }
 
 @media only screen and (max-width: 768px) {
+	div.two {
+		width: 90%;
+		margin: 0 auto;
+		.en{
+			width: 70%;
+		}
+		.line{
+			width: 15%;
+		}
+	}
 	div.three{
-		padding: 0 0 30px 0;
 		.leftImage, .rightImage, .content{
 			.wh(100%,240px);
-			margin-top: 0px;
+			// margin-top: 0px;
 		}
 		.content{
 			padding: 5%;
+			margin-top: 0;
 		}
 		p.title{
 			font-size: 15px;

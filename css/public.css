@@ -5,6 +5,16 @@ body {
   min-width: 1080px;
   position: relative;
 }
+@font-face {
+  font-family: PingFang;
+  font-weight: normal;
+  src: url('../fonts/PingFang_Regular.ttf');
+}
+@font-face {
+  font-family: PingFang;
+  font-weight: bold;
+  src: url('../fonts/PingFang_Bold.ttf');
+}
 .img_center {
   position: relative;
 }
@@ -206,10 +216,8 @@ ul.detail_pages::before {
   width: 0;
   height: 0;
   position: absolute;
-  top: 0;
+  top: -12px;
   left: 36px;
-  transform: translateY(-100%);
-  -ms-transform: translateY(-100%) rotate(90deg);
 }
 ul.detail_pages {
   height: 132px;
@@ -325,7 +333,8 @@ div.manu_items > div > img {
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
 }
-div.manu_items > div:hover .hidden {
+div.manu_items > div:hover .hidden,
+div.manu_items > div.hover .hidden {
   display: block;
 }
 div.manu_items > div a img {
@@ -929,7 +938,7 @@ div.six p {
     background-color: #1e2e5f;
     box-sizing: border-box;
     padding: 129px 6.7% 0;
-    height: 100vh;
+    height: 700px;
     transform: translateX(-100%);
     -ms-transform: translateX(-100%);
     transition: all 0.5s;
@@ -948,7 +957,7 @@ div.six p {
     text-align: left;
     color: white !important;
   }
-  ul.top > li a {
+  ul.top > li > a {
     color: white !important;
   }
   ul.top .register {
@@ -1022,6 +1031,9 @@ div.six p {
   div.manu_items > div > img {
     z-index: -1;
   }
+  div.manu_items > div.hover .hidden {
+    display: block;
+  }
   div.manu_items .triangle {
     visibility: hidden;
   }
@@ -1034,6 +1046,10 @@ div.six p {
     -ms-transform: translate(-50%, -50%);
     width: 200px;
     height: 231px;
+  }
+  div.manu_items div.detail img {
+    width: 200px;
+    height: 200px;
   }
   div.manu_items div.detail p {
     font-size: 14px;

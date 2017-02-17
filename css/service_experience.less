@@ -10,21 +10,35 @@ div.one{
 }
 div.two{
 	text-align: center;
-	display: inline-block;
-	.wh(100%, 160px);
+	margin: 0 auto;
+	width: 75%;
 	.ch{
-		font-size: 34px;
-		color: #333333;
-		margin: 47px 0 20px;
+		font-size: 25px;
+		font-weight: 900;
+		color: #333;
+		margin: 42px 0 13px;
 	}
 	.en{
-		font-size: 19px;
-		color: #666666;
+		width: 30%;
+		display: inline-block;
+		font-family: PingFang,"Microsoft YaHei";
+		letter-spacing: 2px;
+		font-size: 16px;
+		color: #888;
+		vertical-align: middle;
+	}
+	.line{
+		width: 35%;
+		display: inline-block;
+		border-width: 1px 0 0;
+		border-style: solid;
+		border-color: #888;
+		vertical-align: middle;
 	}
 }
 
 div.three{
-	border-top: 1px solid #dddddd;
+	// border-top: 1px solid #dddddd;
 	margin: 0 40px 20px;
 	&>p:first-child{
 		font-size: 18px;
@@ -68,6 +82,15 @@ div.three{
 }
 
 @media only screen and (max-width: 768px) {
+	div.two {
+		width: 90%;
+		.en{
+			width: 70%;
+		}
+		.line{
+			width: 15%;
+		}
+	}
 	div.three{
 		margin: 0 5% 20px;
 		ul{

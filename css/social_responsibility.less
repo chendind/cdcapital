@@ -10,49 +10,80 @@ div.one{
 }
 div.two{
 	text-align: center;
-	display: inline-block;
-	.wh(100%, 160px);
+	margin: 0 auto;
+	width: 75%;
 	.ch{
-		font-size: 34px;
-		color: #333333;
-		margin: 47px 0 20px;
+		font-size: 25px;
+		font-weight: 900;
+		color: #333;
+		margin: 42px 0 13px;
 	}
 	.en{
-		font-size: 19px;
-		color: #666666;
+		width: 30%;
+		display: inline-block;
+		font-family: PingFang,"Microsoft YaHei";
+		letter-spacing: 2px;
+		font-size: 16px;
+		color: #888;
+		vertical-align: middle;
+	}
+	.line{
+		width: 35%;
+		display: inline-block;
+		border-width: 1px 0 0;
+		border-style: solid;
+		border-color: #888;
+		vertical-align: middle;
 	}
 }
 
 div.three{
-	margin: 60px;
-	img{
-		width: 245px;
-		vertical-align: middle;
-	}
-	div{
+	margin: 95px auto 110px;
+	width: 75%;
+	div.img{
+		height: 340px;
+		width: 20.5%;
+		margin: 0 3%;
 		display: inline-block;
-		padding-left: 60px;
-		vertical-align: middle;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
 	}
-	p{
-		font-size: 19px;
-		color: #333333;
-		margin: 18px 0;
+	div.img:first-child {
+		margin-left: 0;
+	}
+	div.img:last-child {
+		margin-right: 0;
+	}
+	.bg1{
+		background-image: url(../images/gudong@2x.png);
+	}
+	.bg2{
+		background-image: url(../images/yuangong@2x.png);
+	}
+	.bg3{
+		background-image: url(../images/kehu@2x.png);
+	}
+	.bg4{
+		background-image: url(../images/shehui@2x.png);
 	}
 }
 
 @media only screen and (max-width: 768px) {
+	div.two {
+		width: 90%;
+		.en{
+			width: 70%;
+		}
+		.line{
+			width: 15%;
+		}
+	}
 	div.three{
-		margin: 5%;
-		img{
+		width: 90%;
+		div.img{
 			width: 100%;
-		}
-		div{
-			padding-left: 0px;
-			width: 100%;
-		}
-		p{
-			font-size: 18px;
+			margin: 20px auto;
 		}
 	}
 }

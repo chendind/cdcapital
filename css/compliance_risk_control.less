@@ -11,24 +11,37 @@ div.one{
 }
 
 
-
 div.two{
 	text-align: center;
-	display: inline-block;
-	.wh(100%, 160px);
+	margin: 0 40px;
+	// width: 75%;
 	.ch{
-		font-size: 34px;
-		color: #333333;
-		margin: 47px 0 20px;
+		font-size: 25px;
+		font-weight: 900;
+		color: #333;
+		margin: 42px 0 13px;
 	}
 	.en{
-		font-size: 19px;
-		color: #666666;
+		width: 34%;
+		display: inline-block;
+		font-family: PingFang,"Microsoft YaHei";
+		letter-spacing: 2px;
+		font-size: 16px;
+		color: #888;
+		vertical-align: middle;
+	}
+	.line{
+		width: 33%;
+		display: inline-block;
+		border-width: 1px 0 0;
+		border-style: solid;
+		border-color: #888;
+		vertical-align: middle;
 	}
 }
 
 div.three_one{
-	border-top: 1px solid #dddddd;
+	// border-top: 1px solid #dddddd;
 	margin: 0 40px;
 	&>div{
 		display: inline-block;
@@ -278,6 +291,16 @@ div.three_four{
 }
 
 @media only screen and (max-width: 768px) {
+	div.two {
+		width: 90%;
+		margin: 0 auto;
+		.en{
+			width: 84%;
+		}
+		.line{
+			width: 8%;
+		}
+	}
 	div.three_one{
 		&>div{
 			margin: 20px 0;

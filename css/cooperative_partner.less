@@ -10,33 +10,54 @@ div.one{
 }
 div.two{
 	text-align: center;
-	display: inline-block;
-	.wh(100%, 160px);
+	margin: 0 auto;
+	width: 75%;
 	.ch{
-		font-size: 34px;
-		color: #333333;
-		margin: 47px 0 20px;
+		font-size: 25px;
+		font-weight: 900;
+		color: #333;
+		margin: 42px 0 13px;
 	}
 	.en{
-		font-size: 19px;
-		color: #666666;
+		width: 30%;
+		display: inline-block;
+		font-family: PingFang,"Microsoft YaHei";
+		letter-spacing: 2px;
+		font-size: 16px;
+		color: #888;
+		vertical-align: middle;
+	}
+	.line{
+		width: 35%;
+		display: inline-block;
+		border-width: 1px 0 0;
+		border-style: solid;
+		border-color: #888;
+		vertical-align: middle;
 	}
 }
 
 div.three{
-	width: 816px;
+	width: 75%;
 	margin: 50px auto;
-	&>div{
+	div.text{
+		font-size: 12px;
+		color: #444;
+		line-height: 22px;
+		margin-bottom: 40px;
+	}
+	div.list{
 		border-radius: 4px;
 		border: 1px solid #c6c9d5;
 		text-align: center;
-		.wh(188px,70px);
+		.wh(23%,70px);
+		box-sizing: border-box;
 		display: inline-block;
-		margin: 7px;
+		margin: 1%;
 		overflow: hidden;
 		vertical-align: middle;
 	}
-	&>div:hover{
+	div.list:hover{
 		border-color: #5c95cd;
 	}
 	div.img{
@@ -48,9 +69,18 @@ div.three{
 }
 
 @media only screen and (max-width: 768px) {
+	div.two {
+		width: 90%;
+		.en{
+			width: 70%;
+		}
+		.line{
+			width: 15%;
+		}
+	}
 	div.three{
-		width: 100%;
-		&>div{
+		width: 90%;
+		div.list{
 			width: 40%;
 			height: 58px;
 			margin: 20px 5%;

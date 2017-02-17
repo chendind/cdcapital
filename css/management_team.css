@@ -6,114 +6,164 @@ div.one li.li_one {
 }
 div.two {
   text-align: center;
-  display: inline-block;
-  width: 100%;
-  height: 160px;
+  margin: 0 auto;
+  width: 75%;
 }
 div.two .ch {
-  font-size: 34px;
-  color: #333333;
-  margin: 47px 0 20px;
+  font-size: 25px;
+  font-weight: 900;
+  color: #333;
+  margin: 42px 0 13px;
 }
 div.two .en {
-  font-size: 19px;
-  color: #666666;
+  width: 30%;
+  display: inline-block;
+  font-family: PingFang, "Microsoft YaHei";
+  letter-spacing: 2px;
+  font-size: 16px;
+  color: #888;
+  vertical-align: middle;
 }
-div.three ul {
+div.two .line {
+  width: 35%;
+  display: inline-block;
+  border-width: 1px 0 0;
+  border-style: solid;
+  border-color: #888;
+  vertical-align: middle;
+}
+div.three {
+  margin: 50px auto 85px;
+  width: 75%;
+}
+div.three .left {
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+}
+div.three .right {
+  display: inline-block;
+  vertical-align: middle;
+}
+div.three .right ul {
+  padding-left: 18px;
+  padding-bottom: 20px;
+  list-style-type: disc;
+}
+div.three .right li {
+  font-size: 13px;
+  line-height: 30px;
+  color: #666;
+}
+div.three div.top_man {
+  width: 100%;
+  background-color: #f5f6f8;
+}
+div.three div.top_man .left {
+  width: 46%;
+}
+div.three div.top_man .right {
+  width: 54%;
+  padding-right: 90px;
+  box-sizing: border-box;
+}
+div.three > ul {
   list-style-type: none;
-  padding: 60px 140px;
+  padding: 0;
 }
-div.three li {
-  margin-bottom: 40px;
-  position: relative;
+div.three > ul > li {
+  width: 42%;
+  display: inline-block;
+  vertical-align: top;
+}
+div.three > ul > li:first-child {
+  margin-right: 16%;
+}
+div.three > ul div.main_title {
+  margin-bottom: 20px;
+}
+div.three > ul div.description.hidden {
+  height: 69px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+div.three > ul .right ul {
+  padding-bottom: 0;
 }
 div.three div.img {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
   display: inline-block;
-  width: 175px;
-  height: 240px;
+  margin: 40px auto 25px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-div.three div.middle {
-  display: inline-block;
-  width: 262px;
-  margin-left: 20px;
-  vertical-align: bottom;
-}
 div.three div.name {
-  font-size: 19px;
-  color: #333333;
+  font-size: 20px;
+  color: #1e2e5f;
   margin: 0 0 7px;
-}
-div.three div.name span {
-  font-size: 12px;
-  color: #666666;
-  padding-left: 10px;
 }
 div.three div.spell {
   font-size: 12px;
-  color: #666666;
+  color: #888;
 }
 div.three div.main_title {
   font-size: 15px;
-  color: #3b3b3b;
-  margin: 35px 0 0;
-}
-div.three div.sub_title {
-  font-size: 15px;
-  color: #666666;
-  margin: 16px 0 0;
+  color: #333;
+  margin: 15px 0 43px;
 }
 div.three div.description {
-  display: inline-block;
-  color: #666666;
-  font-size: 16px;
+  color: #666;
+  font-size: 12px;
   line-height: 23px;
-  width: 100%;
-  position: absolute;
-  box-sizing: border-box;
-  padding-left: 460px;
-  left: 0;
-  bottom: 0;
-  overflow: hidden;
+}
+div.three div.up,
+div.three div.down {
+  float: right;
+  font-size: 12px;
+  color: #5896ce;
+  cursor: pointer;
+}
+div.three div.hidd {
+  display: none;
 }
 @media only screen and (max-width: 768px) {
-  div.three ul {
-    padding: 60px 5% 60px 5%;
+  div.two {
+    width: 90%;
   }
-  div.three div.img {
-    width: 88px;
-    height: 120px;
+  div.two .en {
+    width: 70%;
   }
-  div.three div.middle {
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 120px;
-    transform: translateY(-100%);
-    -ms-transform: translateY(-100%);
-    box-sizing: border-box;
-    padding-left: 88px;
+  div.two .line {
+    width: 15%;
   }
-  div.three div.name {
-    font-size: 14px;
-    margin: 0 0 4px;
+  div.three {
+    width: 90%;
   }
-  div.three div.spell {
-    font-size: 12px;
-  }
-  div.three div.main_title {
-    font-size: 13px;
-    margin: 15px 0 0;
-  }
-  div.three div.sub_title {
-    font-size: 12px;
-    margin: 6px 0 0;
-  }
-  div.three div.description {
+  div.three .left {
     display: block;
-    position: static;
-    padding: 20px 0 0;
+  }
+  div.three .right {
+    display: block;
+    margin: 0 auto;
+  }
+  div.three div.top_man .left {
+    width: 100%;
+  }
+  div.three div.top_man .right {
+    width: 90%;
+    padding-right: 0;
+  }
+  div.three > ul > li {
+    width: 100%;
+  }
+  div.three > ul > li:first-child {
+    margin-right: 0;
   }
 }

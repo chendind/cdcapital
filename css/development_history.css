@@ -6,99 +6,132 @@ div.one li.li_one {
 }
 div.two {
   text-align: center;
-  display: inline-block;
-  width: 100%;
-  height: 160px;
+  margin: 0 auto;
+  width: 75%;
 }
 div.two .ch {
-  font-size: 34px;
-  color: #333333;
-  margin: 47px 0 20px;
+  font-size: 25px;
+  font-weight: 900;
+  color: #333;
+  margin: 42px 0 13px;
 }
 div.two .en {
-  font-size: 19px;
-  color: #666666;
+  width: 30%;
+  display: inline-block;
+  font-family: PingFang, "Microsoft YaHei";
+  letter-spacing: 2px;
+  font-size: 16px;
+  color: #888;
+  vertical-align: middle;
+}
+div.two .line {
+  width: 35%;
+  display: inline-block;
+  border-width: 1px 0 0;
+  border-style: solid;
+  border-color: #888;
+  vertical-align: middle;
 }
 div.three {
-  margin: 65px 140px 78px;
-}
-div.three > div {
-  margin-bottom: 35px;
+  margin: 45px auto 107px;
+  width: 75%;
 }
 div.three .year {
-  font-size: 16px;
-  color: #333333;
-  height: 32px;
-  border-bottom: 1px solid #dddddd;
+  font-size: 30px;
+  font-weight: 900;
+  color: #4ab1ff;
+  margin-left: 4%;
+  position: relative;
+  width: 12.5%;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 26px;
+}
+div.three ul:before {
+  content: "";
+  border-radius: 13px;
+  width: 16px;
+  height: 16px;
+  border: 5px solid #4ab1ff;
+  position: absolute;
+  left: -13px;
+  top: 0;
+  background-color: white;
 }
 div.three ul {
+  display: inline-block;
   padding-left: 50px;
-  padding-top: 24px;
-}
-div.three li {
-  height: 40px;
-  font-size: 15px;
-  color: #4a4a4a;
+  list-style-type: none;
+  border-left: 2px solid #b7e0ff;
+  width: 83.5%;
+  box-sizing: border-box;
   position: relative;
 }
-div.three li span.time {
-  display: inline-block;
-  color: #333333;
-  width: 80px;
+div.three li {
+  margin-bottom: 20px;
+  position: relative;
 }
-div.three li span {
+div.three li .time {
+  color: #1e2e5f;
+  font-weight: 900;
+  width: 7.5%;
+  font-size: 16px;
+  line-height: 26px;
+}
+div.three li .info {
+  font-size: 15px;
+  width: 92.5%;
+}
+div.three li div {
   display: inline-block;
   vertical-align: top;
 }
 div.three li a {
   color: #666666;
   text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  display: inline-block;
+  line-height: 26px;
 }
 div.three li a:hover {
   color: #5c95cd;
 }
-div.three li:first-child div.ruler div {
-  visibility: hidden;
+div.three li:last-child {
+  margin-bottom: 60px;
 }
-div.three li:first-child div.ruler div.l {
-  visibility: visible;
+div.three > div:last-child ul {
+  border: none;
 }
-div.three div.ruler {
-  height: 40px;
-  position: absolute;
-  left: -50px;
-  top: -25px;
-}
-div.three div.ruler div {
-  width: 4px;
-  height: 1px;
-  background-color: #cccccc;
-  margin-bottom: 3px;
-}
-div.three div.ruler div.l {
-  width: 15px;
-}
-div.three div.ruler div.m {
-  width: 8px;
+div.three > div:last-child li {
+  margin-bottom: 0;
 }
 @media only screen and (max-width: 768px) {
+  div.two {
+    width: 90%;
+  }
+  div.two .en {
+    width: 70%;
+  }
+  div.two .line {
+    width: 15%;
+  }
   div.three {
-    margin: 65px 5% 78px;
+    width: 90%;
+  }
+  div.three .year {
+    font-size: 20px;
+    width: 20%;
+    margin: 0;
   }
   div.three ul {
-    padding-left: 40px;
+    width: 80%;
+    margin: 0 auto;
+    padding-left: 20px;
   }
-  div.three li {
-    font-size: 12px;
-  }
-  div.three li span.time {
-    width: 70px;
-  }
-  div.three li span {
-    width: 220px;
-  }
-  div.three div.ruler {
-    left: -40px;
-    top: -28px;
+  div.three li .info {
+    width: 100%;
   }
 }

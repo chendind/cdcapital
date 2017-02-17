@@ -36,13 +36,6 @@ div.three {
   width: 75%;
   margin: 40px auto 100px;
 }
-div.three .text {
-  display: inline-block;
-  width: 100%;
-  box-sizing: border-box;
-  padding-left: 40px;
-  vertical-align: top;
-}
 @media only screen and (max-width: 768px) {
   div.two {
     width: 90%;
@@ -55,12 +48,5 @@ div.three .text {
   }
   div.three {
     width: 90%;
-  }
-  div.three .img,
-  div.three .text {
-    display: block;
-    width: 100%;
-    padding: 0;
-    margin-top: 20px;
   }
 }

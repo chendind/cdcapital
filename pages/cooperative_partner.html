@@ -32,7 +32,7 @@
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;公司目前已与包括颐高集团、天弘基金、兴业基金、大成律所等国内知名品牌企业合作，发行了包括创道文化旅游产业投资基金、颐高之信电商产业投资基金等在内的十余支优质基金，到期基金均已按时完成兑付。
 			</div>
 			<div class="list" v-for="item in items">
-				<a :href="(new RegExp('^http://').test(item.turn_url))?item.turn_url:('http://'+item.turn_url)" target="_blank">
+				<a :href="(new RegExp('^http').test(item.turn_url))?item.turn_url:('http://'+item.turn_url)" target="_blank">
 					<div class="img" :style="'background-image: url(' + baseUrl +item.img+')'"></div>
 				</a>
 			</div>

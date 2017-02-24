@@ -175,7 +175,7 @@
 						</span>
 						<ul>
 							<li v-for="searchResult in searchResults">
-								<a :href="searchResult.url?(new RegExp('^http://').test(searchResult.url)?searchResult.url:('http://'+searchResult.url)):'detail.html?'+encodeObj({'id':searchResult.id})" target="_blank">
+								<a :href="searchResult.url?(new RegExp('^http').test(searchResult.url)?searchResult.url:('http://'+searchResult.url)):'detail.html?'+encodeObj({'id':searchResult.id})" target="_blank">
 									{{searchResult.title}}
 								</a>
 							</li>
@@ -264,13 +264,13 @@
 			</div>
 			<div class="text3">
 				<p class="title" v-if="homearticle">
-					<a :href="(new RegExp('^http://').test(homearticle.url))?homearticle.url:('http://'+homearticle.url)" target="_blank">
+					<a :href="(new RegExp('^http').test(homearticle.url))?homearticle.url:('http://'+homearticle.url)" target="_blank">
 						{{homearticle.title}}
 					</a>
 					</p>
 				<p class="content1" v-if="homearticle">{{homearticle.summary}}</p>	
 				<div class="more" v-if="homearticle">
-					<a :href="(new RegExp('^http://').test(homearticle.url))?homearticle.url:('http://'+homearticle.url)" target="_blank">
+					<a :href="(new RegExp('^http').test(homearticle.url))?homearticle.url:('http://'+homearticle.url)" target="_blank">
 						<span>MORE</span>
 					</a>
 				</div>

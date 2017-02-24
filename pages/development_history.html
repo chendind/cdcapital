@@ -34,7 +34,7 @@
 					<li v-for="item in val.item">
 						<div class="time">{{getTimeCh(item.time)}}</div>
 						<div class="info">
-							<a :href="item.url?(new RegExp('^http://').test(item.url)?item.url:('http://'+item.url)):'detail.html?'+encodeObj({'id':item.id})" target="_blank">	
+							<a :href="item.url?(new RegExp('^http').test(item.url)?item.url:('http://'+item.url)):'detail.html?'+encodeObj({'id':item.id})" target="_blank">	
 								{{item.name}}
 							</a>
 							<div>

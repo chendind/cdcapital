@@ -187,7 +187,7 @@
 			<div class="touchslider">
 				<div class="touchslider-viewport">
 					<div>
-						<a v-for="carouselList in carouselLists" href="(carouselList.url)?((new RegExp('^http://').test(carouselList.url))?carouselList.url:('http://'+carouselList.url)):''">
+						<a v-for="carouselList in carouselLists" :href="(carouselList.url)?((new RegExp('^http://').test(carouselList.url))?carouselList.url:('http://'+carouselList.url)):''">
 							<div class="bg" :style="'background-image: url(' + baseUrl +carouselList.img + ')'">
 								<!-- <p class="text1">LOOK FAR AHEAD FROM A HIGH PLANE</p>
 								<p class="text2">高瞻远瞩 勇攀高峰</p> -->
